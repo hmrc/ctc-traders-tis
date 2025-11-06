@@ -1,0 +1,100 @@
+---
+title: Code lists | NCTS Phase 6 Technical Interface Specification
+weight: 13
+description: Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages.
+---
+# Code lists
+
+
+**Important Notes:**
+
+**Download TAXUD Code Lists:** Visit the European Commission’s [reference data page](https://ec.europa.eu/taxation_customs/dds2/rd/rd_download_home.jsp?Lang=en), select “NCTS-P5” in the Domain list, and download the required code lists (e.g., CL505 for country codes).
+
+**Automate Daily Updates:** Schedule daily updates to refresh code lists, ensuring alignment with the latest updates from TAXUD.
+
+**Synchronise Validation:** Ensure your software’s validation logic is consistently updated to match the latest downloaded code lists to prevent rejections.
+
+**CL505 Requirement:** For countries not listed in CL505, a postcode is mandatory in the declaration. Declarations without a postcode for these countries (i.e., those excluded from CL505) will be rejected.
+
+**Code List Mapping:** Use the mapping table to identify and download the appropriate code list for each data field.
+
+| Code list | Title                                        |
+|-----------|----------------------------------------------|
+| CL008     | CountryCodesFullList                         |
+| CL009     | CountryCodesCommonTransit                    |
+| CL010     | CountryCodesCommunity                        |
+| CL016     | CUSCode                                      |
+| CL017     | KindOfPackages                               |
+| CL019     | IncidentCode                                 |
+| CL027     | Flag                                         |
+| CL038     | QualifierOfIdentificationIncident            |
+| CL042     | DeclarationTypeAdditional                    |
+| CL048     | CurrencyCodes                                |
+| CL060     | MessageTypes                                 |
+| CL070     | CountryCodesCustomsOfficeLists               |
+| CL076     | GuaranteeTypeWithReference                   |
+| CL094     | RepresentativeStatusCode                     |
+| CL101     | UnDangerousGoodsCode                         |
+| CL112     | CountryCodesCTC                              |
+| CL116     | TransportChargesMethodOfPayment              |
+| CL141     | CustomsOffices                               |
+| CL147     | CountryCustomsSecurityAgreementArea          |
+| CL152     | HScode                                       |
+| CL160     | MessageWithCorrelationIdentifier             |
+| CL163     | ReleaseType                                  |
+| CL164     | ReleaseNotification                          |
+| CL165     | Nationality                                  |
+| CL171     | CustomsOfficeDeparture                       |
+| CL172     | CustomsOfficeDestination                     |
+| CL173     | CustomsOfficeTransit                         |
+| CL175     | CustomsOfficeTransitExit                     |
+| CL177     | CustomsOfficeRecovery                        |
+| CL178     | PreviousDocumentUnionGoods                   |
+| CL180     | FunctionalErrorCodesIeCA                     |
+| CL181     | KindOfPackagesBulk                           |
+| CL182     | KindOfPackagesUnpacked                       |
+| CL190     | CountryAddressPostcodeBased                  |
+| CL192     | LanguageByCustoms                            |
+| CL195     | ControlResultCodeDepartureSimplifiedExcluded |
+| CL196     | ControlResultCodeDeparture                   |
+| CL198     | CountryAddressPostcodeOnly                   |
+| CL211     | NoReleaseMotivation                          |
+| CL213     | SupportingDocumentType                       |
+| CL214     | PreviousDocumentType                         |
+| CL215     | RequestedDocumentType                        |
+| CL217     | DeclarationTypeSecurity                      |
+| CL218     | TransportModeCode                            |
+| CL219     | TypeOfIdentificationofMeansOfTransportActive |
+| CL226     | RejectionCodeDepartureExport                 |
+| CL227     | RejectionCodeDepartureExport                 |
+| CL228     | PreviousDocumentExportType                   |
+| CL229     | GuaranteeTypeCTC                             |
+| CL230     | GuaranteeTypeEUNonTIR                        |
+| CL231     | DeclarationType                              |
+| CL232     | DeclarationTypeItemLevel                     |
+| CL234     | DocumentTypeExcise                           |
+| CL235     | AuthorisationTypeDeparture                   |
+| CL236     | AuthorisationTypeDestination                 |
+| CL239     | AdditionalInformation                        |
+| CL244     | UnLocodeExtended                             |
+| CL248     | CountryCodesForAddress                       |
+| CL251     | GuaranteeType                                |
+| CL252     | InvalidGuaranteeReason                       |
+| CL286     | GuaranteeTypeWithGRN                         |
+| CL294     | CustomsOfficeExitDeclared                    |
+| CL296     | SpecificCircumstanceIndicatorCode            |
+| CL326     | QualifierOfTheIdentification                 |
+| CL347     | TypeOfLocation                               |
+| CL349     | Unit                                         |
+| CL380     | AdditionalReference                          |
+| CL384     | NotificationType                             |
+| CL385     | MessageTypeWithoutHeader                     |
+| CL505     | CountryWithoutZip                            |
+| CL553     | MSCountry                                    |
+| CL560     | BusinessRejectionTypeDepExp                  |
+| CL570     | BusinessRejectionTypeDesExt                  |
+| CL610     | MessageWithCorrelationIdentifier             |
+| CL704     | AdditionalSupplyChainActorRoleCode           |
+| CL716     | ControlType                                  |
+| CL750     | TypeOfIdentificationOfMeansOfTransport       |
+| CL754     | TransportDocumentType                        |
