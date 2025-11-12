@@ -1,22 +1,24 @@
 ---
-title: Code lists | NCTS Phase 6 Technical Interface Specification
+title: Phase 6 Code lists | NCTS Phase 6 Technical Interface Specification
 weight: 13
 description: Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages.
 ---
-# Code lists
+# Phase 6 code lists
 
+## Download TAXUD Code Lists
+Visit the European Commission’s [reference data page](https://ec.europa.eu/taxation_customs/dds2/rd/rd_download_home.jsp?Lang=en), select the correct NCTS phase in the domain list, and download the required code lists (e.g., CL505 for country codes).
 
-**Important Notes:**
+## Automate Daily Updates
+Schedule daily updates to refresh code lists, ensuring alignment with the latest updates from TAXUD.
 
-**Download TAXUD Code Lists:** Visit the European Commission’s [reference data page](https://ec.europa.eu/taxation_customs/dds2/rd/rd_download_home.jsp?Lang=en), select “NCTS-P5” in the Domain list, and download the required code lists (e.g., CL505 for country codes).
+## Synchronise Validation
+Ensure your software’s validation logic is consistently updated to match the latest downloaded code lists to prevent rejections.
 
-**Automate Daily Updates:** Schedule daily updates to refresh code lists, ensuring alignment with the latest updates from TAXUD.
+## CL505 Requirement
+For countries not listed in CL505, a postcode is mandatory in the declaration. Declarations without a postcode for these countries (i.e., those excluded from CL505) will be rejected.
 
-**Synchronise Validation:** Ensure your software’s validation logic is consistently updated to match the latest downloaded code lists to prevent rejections.
-
-**CL505 Requirement:** For countries not listed in CL505, a postcode is mandatory in the declaration. Declarations without a postcode for these countries (i.e., those excluded from CL505) will be rejected.
-
-**Code List Mapping:** Use the mapping table to identify and download the appropriate code list for each data field.
+## Code List Mapping
+Use the mapping table to identify and download the appropriate code list for each data field.
 
 | Code list | Title                                        |
 |-----------|----------------------------------------------|
