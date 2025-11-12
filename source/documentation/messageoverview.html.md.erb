@@ -1,0 +1,68 @@
+---
+title: Messages overview | NCTS Phase 6 Technical Interface Specification
+weight: 4
+description: Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages.
+---
+#Message overview
+
+<%= partial 'documentation/partials/messagetypeintro' %>
+
+## Message identification, sender and recipient guidelines
+
+There are guidelines for entering message sender and recipient details in arrivals and departures messages in the NCTS5 Trader Test environment that will also apply to the production version of the UK NCTS5 service.
+
+### Message identification
+
+When submitting a declaration (IE015) using the same LRN as a previously submitted declaration (IE015), please ensure a unique reference is provided in the Message Identification field (IE015). This is to ensure that NCTS5 can correctly distinguish between movements when sending response messages (and movements are not conflated in error).
+
+A unique reference is any string of alphanumeric characters within the 35 character limit which has not been supplied in this data field for another IE015.
+
+### Message sender
+
+When specifying the message sender of an arrival or departure message, you can enter alphanumeric format data up to 35 characters (‘an..35‘).
+
+We recommend that you should enter the EORI number of the organisation (‘the declarant‘) that is physically sending the message. Alternatively, if you do not know the EORI number of the declarant, you can use the EORI number of the transit movement or prompt for it.
+
+### Message recipient
+
+When specifying the message recipient of an arrival message for a GB to XI or XI to GB transit movement, you must enter ‘NTA‘ and the correct country code of the **actual** office of destination (either NTA.GB or NTA.XI, whichever is applicable), which could be different from the declared office of destination.
+
+When specifying the message recipient of a departure message for a GB to XI or XI to GB transit movement, you must enter ‘NTA‘ and the correct country code of the office of departure (either NTA.GB or NTA.XI, whichever is applicable).
+
+If any of your transit movements involve other CTC member countries, you must enter NTA and any other information advised by each member country in its NCTS5 documentation. Please note that the rules used by other CTC members for message recipient might be different from those used by the UK.
+
+For more information entering message recipient details in messages for GB to XI or XI to GB transit movements, see [CTC Traders API phase 6 testing guide](/guides/ctc-traders-phase6-testing-guide/documentation/test-scenarios-guidelines.html#message-sender-and-recipient-guidelines)
+
+## Message details
+
+Message type details are as follows:
+
+- characteristics of the data groups belonging to a message: sequence, number of repetitions, and a status value to indicate if a data group is one of the folllowing:
+  - mandatory ('R': Required)
+  - optional ('O': Optional)
+  - conditional ('D': Dependent)
+  - do not use ('N': Not Usable)
+- characteristics of the data items belonging to a data group: sequence, number of repetitions, type, length, and a value to indicate if a data item is one of the folllowing:
+  - mandatory ('R': Required)
+  - optional ('O': Optional)
+  - conditional ('D': Dependent)
+- data group nesting is shown with dashes, which means that a data group may contain not only data items but also other groups of data.
+- links to applicable NCTS code lists:
+  - each link downloads a zip file from a European Commission [website](https://ec.europa.eu/taxation_customs/dds2/rd/rd_download_home.jsp?Lang=en)
+  - the code lists are updated regularly
+  - consider setting up an automated way to download the files regularly and integrate them with your software
+- links to applicable rules and conditions
+- header elements (XML fields that can contain other XML fields) are highlighted in **bold**
+
+**Note:** If you use a data group with priority 'N' in a message, NCTS will reject the message.
+
+## Accessing the XML schemas
+
+The XML schemas are available on [GitHub](https://github.com/hmrc/transit-movements-validator/tree/main/conf/v2_1/xsd).
+
+You can view the XML schema for a particular message type as follows:
+
+1. Navigate to the required message type listed in this section.
+2. Under the **XML Root** heading in the table, click the link.
+
+   The selected XML schema is displayed in GitHub.

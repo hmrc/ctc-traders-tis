@@ -1,0 +1,4 @@
+->      /                                                  health.Routes
+GET     /guides/ctc-traders-tis           controllers.Default.redirect(to = "/guides/ctc-traders-tis/")
+GET     /guides/ctc-traders-tis/          controllers.Assets.at(path="/public", file="index.html")
+GET     /guides/ctc-traders-tis/*file     controllers.Assets.at(path="/public", file)
