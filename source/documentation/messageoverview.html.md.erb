@@ -1,5 +1,5 @@
 ---
-title: Messages overview | NCTS Phase 6 Technical Interface Specification
+title: Messages overview | NCTS Technical Interface Specification
 weight: 4
 description: Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages.
 ---
@@ -9,11 +9,11 @@ description: Software developers, designers, product owners or business analysts
 
 ## Message identification, sender and recipient guidelines
 
-There are guidelines for entering message sender and recipient details in arrivals and departures messages in the NCTS5 Trader Test environment that will also apply to the production version of the UK NCTS5 service.
+There are guidelines for entering message sender and recipient details in arrivals and departures messages in the NCTS Trader Test environment that will also apply to the production version of the UK NCTS service.
 
 ### Message identification
 
-When submitting a declaration (IE015) using the same LRN as a previously submitted declaration (IE015), please ensure a unique reference is provided in the Message Identification field (IE015). This is to ensure that NCTS5 can correctly distinguish between movements when sending response messages (and movements are not conflated in error).
+When submitting a declaration (IE015) using the same LRN as a previously submitted declaration (IE015), please ensure a unique reference is provided in the Message Identification field (IE015). This is to ensure that NCTS can correctly distinguish between movements when sending response messages (and movements are not conflated in error).
 
 A unique reference is any string of alphanumeric characters within the 35 character limit which has not been supplied in this data field for another IE015.
 
@@ -29,9 +29,9 @@ When specifying the message recipient of an arrival message for a GB to XI or XI
 
 When specifying the message recipient of a departure message for a GB to XI or XI to GB transit movement, you must enter ‘NTA‘ and the correct country code of the office of departure (either NTA.GB or NTA.XI, whichever is applicable).
 
-If any of your transit movements involve other CTC member countries, you must enter NTA and any other information advised by each member country in its NCTS5 documentation. Please note that the rules used by other CTC members for message recipient might be different from those used by the UK.
+If any of your transit movements involve other CTC member countries, you must enter NTA and any other information advised by each member country in its NCTS documentation. Please note that the rules used by other CTC members for message recipient might be different from those used by the UK.
 
-For more information entering message recipient details in messages for GB to XI or XI to GB transit movements, see [CTC Traders API phase 6 testing guide](/guides/ctc-traders-phase6-testing-guide/documentation/test-scenarios-guidelines.html#message-sender-and-recipient-guidelines)
+For more information entering message recipient details in messages for GB to XI or XI to GB transit movements, see [CTC Traders API testing guide](/guides/ctc-traders-phase5-testing-guide/documentation/test-scenarios-guidelines.html#message-sender-and-recipient-guidelines)
 
 ## Message details
 
