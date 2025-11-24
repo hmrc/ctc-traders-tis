@@ -7,7 +7,7 @@ description: Software developers, designers, product owners or business analysts
 # NCTS Technical Interface Specification
 
 
-Last updated: 27 June 2025 update to todays date
+Version 1.0 issued: 24 November 2025
 
 
 | NCTS Phase | DDNTA Version                            | 
