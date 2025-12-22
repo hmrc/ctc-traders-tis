@@ -2,6 +2,7 @@ logs
 project/project
 project/target
 target
+Gemfile.lock
 lib_managed
 tmp
 .history
