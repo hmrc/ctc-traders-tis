@@ -18,7 +18,7 @@ from typing import Optional
 
 # Codelist to URLs
 code_lists: Optional[dict[str, str]] = None
-
+code_list_links: Optional[str] = None
 
 class CodeList:
     def __init__(self, dictionary: dict):
@@ -40,6 +40,29 @@ def load_code_list() -> dict[str, CodeList]:
 
     return code_lists
 
+def generate_table_with_code_list_links() -> str:
+    global code_list_links
+    if code_list_links is None:
+        phase6 = "NCTS-P6"
+        base   = "https://ec.europa.eu/taxation_customs/dds2/rd/compressed_file/data_download"
+
+        markdown = "| Code list | Title | Link |\n"
+        markdown += "|-----------|-------|------|\n"
+
+        with open("code_lists.csv", 'r') as code_list_file:
+            reader = csv.DictReader(code_list_file)
+            rows = list(reader)
+            rows = sorted(rows, key=lambda r: r["Code List"])
+
+            for row in rows:
+               code  = row["Code List"].strip()
+               title = row["Title"].strip()
+               url   = f"{base}/RD_{phase6}_{title}.zip"
+               markdown += f"| {code} | {title} | <a href=\"{url}\">Download</a> |\n"
+
+        code_list_links = markdown
+
+    return code_list_links
 
 def replace_code_list(cl: str) -> str:
     """
