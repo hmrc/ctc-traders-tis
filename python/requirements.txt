@@ -1,3 +1,3 @@
-PyPDF==3.9.0
+PyPDF2==3.0.1
 typing_extensions==4.8.0
-deepdiff~=8.6.1
+deepdiff~=6.7.1
