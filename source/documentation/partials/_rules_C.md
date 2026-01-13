@@ -985,17 +985,17 @@ ELSE /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfD
 
 
 ## C0349
-  
+
   **Functional Description**
-  
+
   IF &lt;CONSIGNMENT-CONSIGNOR&gt; is PRESENT<br />
 THEN<br />
    &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt; = "N"<br />
 ELSE<br />
   &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt; = "O"
-  
+
   **Technical Description**
-  
+
   IF /<span>&#42;</span>/Consignment/Consignor is PRESENT<br />
  THEN<br />
    /<span>&#42;</span>/Consignment/HouseConsignment/Consignor = "N"<br />
@@ -2288,15 +2288,15 @@ ELSE /<span>&#42;</span>/Invalidation/decisionDateAndTime = "R"
 
 
 ## C0872
-  
+
   **Functional Description**
-  
+
   IF &lt;CONSIGNMENT.Container indicator&gt; is EQUAL to '1'<br />
 THEN &lt;CONSIGNMENT-TRANSPORT EQUIPMENT&gt; = "R"<br />
  ELSE &lt;CONSIGNMENT-TRANSPORT EQUIPMENT&gt; = "O"
-  
+
   **Technical Description**
-  
+
   IF /<span>&#42;</span>/Consignment/containerIndicator is EQUAL to '1'<br />
 THEN /<span>&#42;</span>/Consignment/TransportEquipment = "R"<br />
  ELSE /<span>&#42;</span>/Consignment/TransportEquipment = "O"
