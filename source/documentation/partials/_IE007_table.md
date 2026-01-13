@@ -16,286 +16,332 @@
    Rules
   </th>
 </tr>
-<tr>
-    <td><strong>MESSAGE</strong></td>
+<tr class="parent-row" data-level="IE007_0"  onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong>MESSAGE</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp; Message sender</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message sender</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp; Message recipient</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message recipient</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp; Preparation date and time</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preparation date and time</td>
     <td>R</td>
     <td>an19</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr>
-    <td>-&nbsp; Message identification</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message identification</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp; Message type</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message type</td>
     <td>R</td>
     <td>an6</td>
     <td>CL060</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp; Correlation identifier</td>
+</tr><tr data-parent="IE007_0">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Correlation identifier</td>
     <td>D</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0511">C0511</a><br /><a href="phase-6-rules.html#r0008">R0008</a></td>
-</tr><tr>
-    <td><strong>-&nbsp; TRANSIT OPERATION</strong></td>
+</tr><tr class="parent-row" data-level="IE007_1" data-parent="IE007_0" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSIT OPERATION</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; MRN</td>
+</tr><tr data-parent="IE007_1">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRN</td>
     <td>R</td>
     <td>an18</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#r0028">R0028</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Arrival notification date and time</td>
+</tr><tr data-parent="IE007_1">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arrival notification date and time</td>
     <td>R</td>
     <td>an19</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Simplified procedure</td>
+</tr><tr data-parent="IE007_1">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Simplified procedure</td>
     <td>R</td>
     <td>n1</td>
     <td>CL027</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp; AUTHORISATION</strong></td>
+</tr><tr class="parent-row" data-level="IE007_2" data-parent="IE007_0" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> AUTHORISATION</strong></td>
     <td>D</td>
     <td>9x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0102">C0102</a><br /><a href="phase-6-rules.html#g0102">G0102</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Sequence number</td>
+</tr><tr data-parent="IE007_2">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sequence number</td>
     <td>R</td>
     <td>n..5</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0987">R0987</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Type</td>
+</tr><tr data-parent="IE007_2">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type</td>
     <td>R</td>
     <td>an..4</td>
     <td>CL236</td>
     <td><a href="phase-6-rules.html#g0117">G0117</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Reference number</td>
+</tr><tr data-parent="IE007_2">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reference number</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0033">G0033</a></td>
-</tr><tr>
-    <td><strong>-&nbsp; CUSTOMS OFFICE OF DESTINATION (ACTUAL)</strong></td>
+</tr><tr class="parent-row" data-level="IE007_3" data-parent="IE007_0" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF DESTINATION (ACTUAL)</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Reference number</td>
+</tr><tr data-parent="IE007_3">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reference number</td>
     <td>R</td>
     <td>an8</td>
     <td>CL172</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp; TRADER AT DESTINATION</strong></td>
+</tr><tr class="parent-row" data-level="IE007_4" data-parent="IE007_0" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRADER AT DESTINATION</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Identification number</td>
+</tr><tr data-parent="IE007_4">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification number</td>
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0850">R0850</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp; Communication language at destination</td>
+</tr><tr data-parent="IE007_4">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Communication language at destination</td>
     <td>O</td>
     <td>a2</td>
     <td>CL192</td>
     <td><a href="phase-6-rules.html#g0100">G0100</a></td>
-</tr><tr>
-    <td><strong>-&nbsp; CONSIGNMENT</strong></td>
+</tr><tr class="parent-row" data-level="IE007_5" data-parent="IE007_0" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNMENT</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp; LOCATION OF GOODS</strong></td>
+</tr><tr class="parent-row" data-level="IE007_6" data-parent="IE007_5" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> LOCATION OF GOODS</strong></td>
     <td>R</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp; Type of location</td>
+</tr><tr data-parent="IE007_6">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type of location</td>
     <td>R</td>
     <td>a1</td>
     <td>CL347</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp; Qualifier of identification</td>
+</tr><tr data-parent="IE007_6">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualifier of identification</td>
     <td>R</td>
     <td>a1</td>
     <td>CL326</td>
     <td><a href="phase-6-rules.html#g0500">G0500</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp; Authorisation number</td>
+</tr><tr data-parent="IE007_6">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authorisation number</td>
     <td>D</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp; Additional identifier</td>
+</tr><tr data-parent="IE007_6">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Additional identifier</td>
     <td>D</td>
     <td>an..4</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0671">C0671</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp; UN LOCODE</td>
+</tr><tr data-parent="IE007_6">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UN LOCODE</td>
     <td>D</td>
     <td>an..17</td>
     <td>CL244</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; CUSTOMS OFFICE</strong></td>
+</tr><tr class="parent-row" data-level="IE007_7" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Reference number</td>
+</tr><tr data-parent="IE007_7">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reference number</td>
     <td>R</td>
     <td>an8</td>
     <td>CL172</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; GNSS</strong></td>
+</tr><tr class="parent-row" data-level="IE007_8" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GNSS</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Latitude</td>
+</tr><tr data-parent="IE007_8">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Latitude</td>
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0014">G0014</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Longitude</td>
+</tr><tr data-parent="IE007_8">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Longitude</td>
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0014">G0014</a></td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; ECONOMIC OPERATOR</strong></td>
+</tr><tr class="parent-row" data-level="IE007_9" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ECONOMIC OPERATOR</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Identification number</td>
+</tr><tr data-parent="IE007_9">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Identification number</td>
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0850">R0850</a></td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; ADDRESS</strong></td>
+</tr><tr class="parent-row" data-level="IE007_10" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Street and number</td>
+</tr><tr data-parent="IE007_10">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street and number</td>
     <td>R</td>
     <td>an..70</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Postcode</td>
+</tr><tr data-parent="IE007_10">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Postcode</td>
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0505">C0505</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; City</td>
+</tr><tr data-parent="IE007_10">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Country</td>
+</tr><tr data-parent="IE007_10">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country</td>
     <td>R</td>
     <td>a2</td>
     <td>CL009</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; POSTCODE ADDRESS</strong></td>
+</tr><tr class="parent-row" data-level="IE007_11" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> POSTCODE ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; House number</td>
+</tr><tr data-parent="IE007_11">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;House number</td>
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0382">C0382</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Postcode</td>
+</tr><tr data-parent="IE007_11">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Postcode</td>
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Country</td>
+</tr><tr data-parent="IE007_11">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country</td>
     <td>R</td>
     <td>a2</td>
     <td>CL190</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td><strong>-&nbsp;-&nbsp;-&nbsp; CONTACT PERSON</strong></td>
+</tr><tr class="parent-row" data-level="IE007_12" data-parent="IE007_6" onclick="toggleChildren(this)">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a><br /><a href="phase-6-rules.html#g0105">G0105</a></td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Name</td>
+</tr><tr data-parent="IE007_12">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
     <td>R</td>
     <td>an..70</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; Phone number</td>
+</tr><tr data-parent="IE007_12">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr>
-    <td>-&nbsp;-&nbsp;-&nbsp;-&nbsp; E-mail address</td>
+</tr><tr data-parent="IE007_12">
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail address</td>
     <td>O</td>
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
 </tr></table>
+
+<script>
+function expandAllDescendants(parentLevel) {
+    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
+    children.forEach(function(row) {
+        row.style.display = '';
+        if (row.classList.contains('parent-row')) {
+            const childIcon = row.querySelector('.toggle-icon');
+            if (childIcon) {
+                childIcon.textContent = '▾';
+            }
+            const childLevel = row.getAttribute('data-level');
+            expandAllDescendants(childLevel);
+        }
+    });
+}
+
+function collapseAllDescendants(parentLevel) {
+    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
+    children.forEach(function(row) {
+        row.style.display = 'none';
+        if (row.classList.contains('parent-row')) {
+            const childIcon = row.querySelector('.toggle-icon');
+            if (childIcon) {
+                childIcon.textContent = '▸';
+            }
+            const childLevel = row.getAttribute('data-level');
+            collapseAllDescendants(childLevel);
+        }
+    });
+}
+
+function toggleChildren(parentRow) {
+    const level = parentRow.getAttribute('data-level');
+    const icon = parentRow.querySelector('.toggle-icon');
+    const isCollapsed = icon.textContent === '▸';
+
+    icon.textContent = isCollapsed ? '▾' : '▸';
+
+    if (isCollapsed) {
+        expandAllDescendants(level);
+    } else {
+        collapseAllDescendants(level);
+    }
+}
+</script>

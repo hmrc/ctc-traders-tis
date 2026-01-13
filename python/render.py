@@ -50,7 +50,53 @@ header_row = """
 </tr>
 """
 
-tail = "</table>"
+tail = """</table>
+
+<script>
+function expandAllDescendants(parentLevel) {
+    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
+    children.forEach(function(row) {
+        row.style.display = '';
+        if (row.classList.contains('parent-row')) {
+            const childIcon = row.querySelector('.toggle-icon');
+            if (childIcon) {
+                childIcon.textContent = '▾';
+            }
+            const childLevel = row.getAttribute('data-level');
+            expandAllDescendants(childLevel);
+        }
+    });
+}
+
+function collapseAllDescendants(parentLevel) {
+    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
+    children.forEach(function(row) {
+        row.style.display = 'none';
+        if (row.classList.contains('parent-row')) {
+            const childIcon = row.querySelector('.toggle-icon');
+            if (childIcon) {
+                childIcon.textContent = '▸';
+            }
+            const childLevel = row.getAttribute('data-level');
+            collapseAllDescendants(childLevel);
+        }
+    });
+}
+
+function toggleChildren(parentRow) {
+    const level = parentRow.getAttribute('data-level');
+    const icon = parentRow.querySelector('.toggle-icon');
+    const isCollapsed = icon.textContent === '▸';
+
+    icon.textContent = isCollapsed ? '▾' : '▸';
+
+    if (isCollapsed) {
+        expandAllDescendants(level);
+    } else {
+        collapseAllDescendants(level);
+    }
+}
+</script>"""
 
 
 def linkify_rule(rule: str) -> str:
@@ -76,6 +122,25 @@ def render_optional_code_list(value: Optional[str]) -> str:
     else:
         return replace_code_list(value)
 
+level_counter = 0
+
+parent_stack = []
+
+message_type_prefix = ""
+
+def get_next_level():
+    global level_counter
+    level_counter += 1
+    return f"{message_type_prefix}_{level_counter - 1}"
+
+def reset_level_counter(message_type: str = ""):
+    global level_counter
+    global parent_stack
+    global message_type_prefix
+    level_counter = 0
+    parent_stack = []
+    message_type_prefix = message_type
+
 # ---- Rendering for Message Types
 
 def render_category_row(category: MessageCategory) -> str:
@@ -85,39 +150,58 @@ def render_category_row(category: MessageCategory) -> str:
     :param category: The category
     :return: The HTML
     """
-    # We convert --- from the DDNTA to -.
-    cat = category.category.replace("---", "-&nbsp;")
-    # Fields will gain hyphens for easier visualisation of hierarchy
-    hyphens = cat.count("-")
+    global parent_stack
+
+    current_level = get_next_level()
+
+    cat = category.category.replace("---", "")
+    hyphens = category.category.count("---")
+    indent = "&nbsp;" * (4 * (hyphens + 1))
+
+    while len(parent_stack) > hyphens:
+        parent_stack.pop()
+
+    parent_level = parent_stack[-1] if parent_stack else None
+
+    parent_stack.append(current_level)
+
+    if parent_level is not None:
+        parent_attr = f'data-parent="{parent_level}"'
+    else:
+        parent_attr = ''
+
     c = cleandoc(f"""
-    <tr>
-        <td><strong>{cat}</strong></td>
+    <tr class="parent-row" data-level="{current_level}" {parent_attr} onclick="toggleChildren(this)">
+        <td>{indent}<span class="toggle-icon">▾</span> <strong>{cat}</strong></td>
         <td>{category.required}</td>
         <td>{category.multiplicity}</td>
         <td>&nbsp;</td>
         <td>{create_rules(category.rules)}</td>
     </tr>""")
+
     # Render the fields and return the category and fields together
-    return c + render_children_fields(category.children, hyphens + 1)
+    return c + render_children_fields(category.children, hyphens + 2, current_level)
 
 
-def render_children_fields(fields: list[MessageField], hyphens: int) -> str:
+def render_children_fields(fields: list[MessageField], hyphens: int, parent_level: str) -> str:
     """
     Renders fields
 
     :param fields: The fields to render
-    :param hyphens: The number of hyphens to prefix field names with
+    :param hyphens: The number of indentation levels
+    :param parent_level: The parent level ID for these fields
     :return: The HTML
     """
     r = []
-    h = "-&nbsp;" * hyphens
+    indent = "&nbsp;" * (4 * hyphens)
+
     for f in fields:
         # The code list and rules will have hyperlinks added to them
         # The format field might have a special format -- this is the case for the message sender and message recipient
         # fields
         r.append(cleandoc(f"""
-        <tr>
-            <td>{h} {f.field}</td>
+        <tr data-parent="{parent_level}">
+            <td>{indent}{f.field}</td>
             <td>{f.required}</td>
             <td>{special_formats.get(f.field, f.format)}</td>
             <td>{render_optional_code_list(f.code_list)}</td>
@@ -127,13 +211,15 @@ def render_children_fields(fields: list[MessageField], hyphens: int) -> str:
     return "".join(r)
 
 
-def render_type(categories: list[MessageCategory]) -> str:
+def render_type(categories: list[MessageCategory], message_type: str = "") -> str:
     """
     Renders a message type in its entirety
 
     :param categories: The categories for the message type
+    :param message_type: The message type identifier (e.g., "IE004") for scoping
     :return: The HTML
     """
+    reset_level_counter(message_type)
     rows = "".join(map(lambda x: render_category_row(x), categories))
     return head_tag + header_row + rows + tail
 
@@ -150,12 +236,12 @@ def write_message_type_file(message_type: str, categories: list[MessageCategory]
         os.makedirs(save_location)
     print(f"Writing file {file_name}")
     with open(file=path.join(save_location, file_name), mode="w") as md_file:
-        md_file.write(render_type(categories))
+        md_file.write(render_type(categories, message_type))
 
 
 # ---- Rendering for Rules
 
-_replace_line_break_regex = re.compile(r"([A-Za-z0-9]{2}[:.])\n")
+replace_line_break_regex = re.compile(r"([A-Za-z0-9]{2}[:.])\n")
 
 
 def process_rule_string(string: str, preserve_all_line_breaks = True) -> str:
@@ -164,7 +250,7 @@ def process_rule_string(string: str, preserve_all_line_breaks = True) -> str:
         string = string.replace("\n", "<br />\n")
     else:
         # only preserve those preceded by a full stop -- in which case we emulate paragraphs with spacing a bit better
-        string = re.sub(_replace_line_break_regex, r"\1<br /><br />\n", string)
+        string = re.sub(replace_line_break_regex, r"\1<br /><br />\n", string)
 
     return replace_code_list_full_string(string.replace("*", "<span>&#42;</span>"))
 
@@ -189,13 +275,13 @@ def render_rule(rule: Rule) -> str:
     tech = process_rule_string(rule.technical_description)
     return cleandoc(
         f"""## {rule.rule_code}
-    
+
     **Functional Description**
-    
+
     {func}
-    
+
     **Technical Description**
-    
+
     {tech}
     """).replace("    ", "")  # cleandoc/dedent doesn't want to work, so just do it manually
 

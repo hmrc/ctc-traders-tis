@@ -335,15 +335,15 @@ THEN at least one iteration of /<span>&#42;</span>/Consignment/PreviousDocument/
 
 
 ## R0102
-   
+
    **Functional Description**
-   
+
    Data item &lt;INVALIDATION.Decision&gt; can contain 2 valid values:<br /><br />
 - '0' = 'No': Invalidation refused by Customs: Decision
 - '1' = 'Yes': Invalidation accepted by Customs: Decision
-   
+
    **Technical Description**
-   
+
    Data item /<span>&#42;</span>/Invalidation/decision can contain 2 valid values:<br />
 - '0' = 'No': Invalidation refused by Customs: Decision<br />
 - '1' = 'Yes': Invalidation accepted by Customs: Decision
