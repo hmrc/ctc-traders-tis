@@ -29,7 +29,14 @@ special_formats = {
     "Message recipient": """an..35"""
 }
 
-head_tag = """<table cellspacing="0">"""
+head_tag = """<table cellspacing="0" style="table-layout: fixed; width: 100%;">
+<colgroup>
+    <col style="width: 40%;">
+    <col style="width: 10%;">
+    <col style="width: 20%;">
+    <col style="width: 15%;">
+    <col style="width: 15%;">
+</colgroup>"""
 header_row = """
 <tr>
 <th>
