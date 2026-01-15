@@ -2,6 +2,7 @@ logs
 project/project
 project/target
 target
+Gemfile.lock
 lib_managed
 tmp
 .history
@@ -22,4 +23,4 @@ yarn-debug.log
 yarn-error.log
 /.bsp
 /.batect
-Gemfile.lock
+__pycache__/
