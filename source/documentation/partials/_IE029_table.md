@@ -1,3 +1,4 @@
+<script src="../../javascripts/table-toggle.js"></script>
 <table cellspacing="0" style="table-layout: fixed; width: 100%;">
 <colgroup>
     <col style="width: 40%;">
@@ -23,7 +24,7 @@
    Rules
   </th>
 </tr>
-<tr class="parent-row" data-level="IE029_0"  onclick="toggleChildren(this)">
+<tr class="parent-row" data-level="IE029_0" >
     <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong>MESSAGE</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -65,7 +66,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0511">C0511</a><br /><a href="phase-6-rules.html#r0008">R0008</a></td>
-</tr><tr class="parent-row" data-level="IE029_1" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_1" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSIT OPERATION</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -143,7 +144,7 @@
     <td>n1</td>
     <td>CL027</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_2" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_2" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> AUTHORISATION</strong></td>
     <td>D</td>
     <td>9x</td>
@@ -167,7 +168,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0033">G0033</a><br /><a href="phase-6-rules.html#r0352">R0352</a></td>
-</tr><tr class="parent-row" data-level="IE029_3" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_3" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF DEPARTURE</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -179,7 +180,7 @@
     <td>an8</td>
     <td>CL171</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_4" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_4" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF DESTINATION (DECLARED)</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -191,7 +192,7 @@
     <td>an8</td>
     <td>CL172</td>
     <td><a href="phase-6-rules.html#r0871">R0871</a></td>
-</tr><tr class="parent-row" data-level="IE029_5" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_5" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF TRANSIT (DECLARED)</strong></td>
     <td>D</td>
     <td>9x</td>
@@ -215,7 +216,7 @@
     <td>an19</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0598">C0598</a><br /><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#r0004">R0004</a></td>
-</tr><tr class="parent-row" data-level="IE029_6" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_6" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED)</strong></td>
     <td>D</td>
     <td>9x</td>
@@ -233,7 +234,7 @@
     <td>an8</td>
     <td>CL175</td>
     <td><a href="phase-6-rules.html#r0103">R0103</a><br /><a href="phase-6-rules.html#r0871">R0871</a></td>
-</tr><tr class="parent-row" data-level="IE029_7" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_7" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> HOLDER OF THE TRANSIT PROCEDURE</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -257,7 +258,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0250">C0250</a></td>
-</tr><tr class="parent-row" data-level="IE029_8" data-parent="IE029_7" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_8" data-parent="IE029_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -287,7 +288,7 @@
     <td>a2</td>
     <td>CL248</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_9" data-parent="IE029_7" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_9" data-parent="IE029_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -311,7 +312,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_10" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_10" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> REPRESENTATIVE</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -329,7 +330,7 @@
     <td>n1</td>
     <td>CL094</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_11" data-parent="IE029_10" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_11" data-parent="IE029_10">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -353,7 +354,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_12" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_12" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTROL RESULT</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -383,7 +384,7 @@
     <td>an..512</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_13" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_13" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GUARANTEE</strong></td>
     <td>R</td>
     <td>9x</td>
@@ -407,7 +408,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0130">C0130</a></td>
-</tr><tr class="parent-row" data-level="IE029_14" data-parent="IE029_13" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_14" data-parent="IE029_13">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GUARANTEE REFERENCE</strong></td>
     <td>D</td>
     <td>99x</td>
@@ -443,7 +444,7 @@
     <td>a3</td>
     <td>CL048</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_15" data-parent="IE029_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_15" data-parent="IE029_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNMENT</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -491,7 +492,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0502">C0502</a><br /><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_16" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_16" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CARRIER</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -503,7 +504,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0201">G0201</a><br /><a href="phase-6-rules.html#r0840">R0840</a></td>
-</tr><tr class="parent-row" data-level="IE029_17" data-parent="IE029_16" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_17" data-parent="IE029_16">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -527,7 +528,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_18" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_18" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNOR</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -545,7 +546,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0250">C0250</a></td>
-</tr><tr class="parent-row" data-level="IE029_19" data-parent="IE029_18" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_19" data-parent="IE029_18">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -575,7 +576,7 @@
     <td>a2</td>
     <td>CL248</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_20" data-parent="IE029_18" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_20" data-parent="IE029_18">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -599,7 +600,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_21" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_21" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNEE</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -617,7 +618,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0250">C0250</a></td>
-</tr><tr class="parent-row" data-level="IE029_22" data-parent="IE029_21" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_22" data-parent="IE029_21">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -647,7 +648,7 @@
     <td>a2</td>
     <td>CL248</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_23" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_23" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL SUPPLY CHAIN ACTOR</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -671,7 +672,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0201">G0201</a><br /><a href="phase-6-rules.html#r0840">R0840</a></td>
-</tr><tr class="parent-row" data-level="IE029_24" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_24" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSPORT EQUIPMENT</strong></td>
     <td>D</td>
     <td>9999x</td>
@@ -695,7 +696,7 @@
     <td>n..4</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0021">G0021</a><br /><a href="phase-6-rules.html#r0106">R0106</a><br /><a href="phase-6-rules.html#r0165">R0165</a><br /><a href="phase-6-rules.html#r0448">R0448</a></td>
-</tr><tr class="parent-row" data-level="IE029_25" data-parent="IE029_24" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_25" data-parent="IE029_24">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> SEAL</strong></td>
     <td>D</td>
     <td>99x</td>
@@ -713,7 +714,7 @@
     <td>an..20</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0107">R0107</a></td>
-</tr><tr class="parent-row" data-level="IE029_26" data-parent="IE029_24" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_26" data-parent="IE029_24">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GOODS REFERENCE</strong></td>
     <td>D</td>
     <td>9999x</td>
@@ -731,7 +732,7 @@
     <td>n..5</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0005">G0005</a><br /><a href="phase-6-rules.html#g0006">G0006</a></td>
-</tr><tr class="parent-row" data-level="IE029_27" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_27" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> LOCATION OF GOODS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -767,7 +768,7 @@
     <td>an..17</td>
     <td>CL244</td>
     <td><a href="phase-6-rules.html#c0394">C0394</a></td>
-</tr><tr class="parent-row" data-level="IE029_28" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_28" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -779,7 +780,7 @@
     <td>an8</td>
     <td>CL171</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_29" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_29" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GNSS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -797,7 +798,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0014">G0014</a></td>
-</tr><tr class="parent-row" data-level="IE029_30" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_30" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ECONOMIC OPERATOR</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -809,7 +810,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0850">R0850</a></td>
-</tr><tr class="parent-row" data-level="IE029_31" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_31" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -839,7 +840,7 @@
     <td>a2</td>
     <td>CL009</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_32" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_32" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> POSTCODE ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -863,7 +864,7 @@
     <td>a2</td>
     <td>CL190</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_33" data-parent="IE029_27" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_33" data-parent="IE029_27">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -887,7 +888,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_34" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_34" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> DEPARTURE TRANSPORT MEANS</strong></td>
     <td>D</td>
     <td>999x</td>
@@ -917,7 +918,7 @@
     <td>a2</td>
     <td>CL165</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_35" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_35" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> COUNTRY OF ROUTING OF CONSIGNMENT</strong></td>
     <td>D</td>
     <td>99x</td>
@@ -935,7 +936,7 @@
     <td>a2</td>
     <td>CL008</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_36" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_36" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ACTIVE BORDER TRANSPORT MEANS</strong></td>
     <td>D</td>
     <td>9x</td>
@@ -977,7 +978,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0531">C0531</a><br /><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#r0315">R0315</a></td>
-</tr><tr class="parent-row" data-level="IE029_37" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_37" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PLACE OF LOADING</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -1001,7 +1002,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0387">C0387</a></td>
-</tr><tr class="parent-row" data-level="IE029_38" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_38" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PLACE OF UNLOADING</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1025,7 +1026,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0387">C0387</a></td>
-</tr><tr class="parent-row" data-level="IE029_39" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_39" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PREVIOUS DOCUMENT</strong></td>
     <td>O</td>
     <td>9999x</td>
@@ -1055,7 +1056,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_40" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_40" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> SUPPORTING DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1091,7 +1092,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_41" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_41" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSPORT DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1115,7 +1116,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0321">G0321</a></td>
-</tr><tr class="parent-row" data-level="IE029_42" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_42" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL REFERENCE</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1139,7 +1140,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0321">G0321</a></td>
-</tr><tr class="parent-row" data-level="IE029_43" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_43" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL INFORMATION</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1163,7 +1164,7 @@
     <td>an..512</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_44" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_44" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSPORT CHARGES</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1175,7 +1176,7 @@
     <td>a1</td>
     <td>CL116</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_45" data-parent="IE029_15" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_45" data-parent="IE029_15">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> HOUSE CONSIGNMENT</strong></td>
     <td>R</td>
     <td>1999x</td>
@@ -1217,7 +1218,7 @@
     <td>n1</td>
     <td>CL217</td>
     <td><a href="phase-6-rules.html#g0025">G0025</a><br /><a href="phase-6-rules.html#g0026">G0026</a></td>
-</tr><tr class="parent-row" data-level="IE029_46" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_46" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNOR</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1235,7 +1236,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0250">C0250</a></td>
-</tr><tr class="parent-row" data-level="IE029_47" data-parent="IE029_46" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_47" data-parent="IE029_46">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1265,7 +1266,7 @@
     <td>a2</td>
     <td>CL248</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_48" data-parent="IE029_46" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_48" data-parent="IE029_46">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONTACT PERSON</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -1289,7 +1290,7 @@
     <td>an..256</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_49" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_49" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNEE</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1307,7 +1308,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0250">C0250</a></td>
-</tr><tr class="parent-row" data-level="IE029_50" data-parent="IE029_49" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_50" data-parent="IE029_49">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1337,7 +1338,7 @@
     <td>a2</td>
     <td>CL248</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_51" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_51" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL SUPPLY CHAIN ACTOR</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1361,7 +1362,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0201">G0201</a><br /><a href="phase-6-rules.html#r0840">R0840</a></td>
-</tr><tr class="parent-row" data-level="IE029_52" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_52" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> DEPARTURE TRANSPORT MEANS</strong></td>
     <td>D</td>
     <td>999x</td>
@@ -1391,7 +1392,7 @@
     <td>a2</td>
     <td>CL165</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_53" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_53" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PREVIOUS DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1421,7 +1422,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_54" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_54" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> SUPPORTING DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1457,7 +1458,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_55" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_55" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSPORT DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1481,7 +1482,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0321">G0321</a></td>
-</tr><tr class="parent-row" data-level="IE029_56" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_56" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL REFERENCE</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1505,7 +1506,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0321">G0321</a></td>
-</tr><tr class="parent-row" data-level="IE029_57" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_57" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL INFORMATION</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1529,7 +1530,7 @@
     <td>an..512</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_58" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_58" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSPORT CHARGES</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1541,7 +1542,7 @@
     <td>a1</td>
     <td>CL116</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_59" data-parent="IE029_45" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_59" data-parent="IE029_45">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNMENT ITEM</strong></td>
     <td>R</td>
     <td>999x</td>
@@ -1583,7 +1584,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0502">C0502</a><br /><a href="phase-6-rules.html#g0002">G0002</a></td>
-</tr><tr class="parent-row" data-level="IE029_60" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_60" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL SUPPLY CHAIN ACTOR</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1607,7 +1608,7 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#g0201">G0201</a><br /><a href="phase-6-rules.html#r0840">R0840</a></td>
-</tr><tr class="parent-row" data-level="IE029_61" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_61" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> COMMODITY</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -1625,7 +1626,7 @@
     <td>an9</td>
     <td>CL016</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_62" data-parent="IE029_61" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_62" data-parent="IE029_61">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> COMMODITY CODE</strong></td>
     <td>D</td>
     <td>1x</td>
@@ -1643,7 +1644,7 @@
     <td>an2</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0060">R0060</a></td>
-</tr><tr class="parent-row" data-level="IE029_63" data-parent="IE029_61" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_63" data-parent="IE029_61">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> DANGEROUS GOODS</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1661,7 +1662,7 @@
     <td>an4</td>
     <td>CL101</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_64" data-parent="IE029_61" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_64" data-parent="IE029_61">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GOODS MEASURE</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -1679,7 +1680,7 @@
     <td>n..16,6</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0837">C0837</a><br /><a href="phase-6-rules.html#r0223">R0223</a></td>
-</tr><tr class="parent-row" data-level="IE029_65" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_65" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PACKAGING</strong></td>
     <td>R</td>
     <td>99x</td>
@@ -1709,7 +1710,7 @@
     <td>an..512</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0060">C0060</a><br /><a href="phase-6-rules.html#g0024">G0024</a></td>
-</tr><tr class="parent-row" data-level="IE029_66" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_66" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PREVIOUS DOCUMENT</strong></td>
     <td>D</td>
     <td>99x</td>
@@ -1769,7 +1770,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_67" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_67" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> SUPPORTING DOCUMENT</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1805,7 +1806,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE029_68" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_68" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL REFERENCE</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1829,7 +1830,7 @@
     <td>an..70</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0015">C0015</a><br /><a href="phase-6-rules.html#g0050">G0050</a><br /><a href="phase-6-rules.html#g0321">G0321</a><br /><a href="phase-6-rules.html#r0023">R0023</a></td>
-</tr><tr class="parent-row" data-level="IE029_69" data-parent="IE029_59" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE029_69" data-parent="IE029_59">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDITIONAL INFORMATION</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -1854,49 +1855,3 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr></table>
-
-<script>
-function expandAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = '';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▾';
-            }
-            const childLevel = row.getAttribute('data-level');
-            expandAllDescendants(childLevel);
-        }
-    });
-}
-
-function collapseAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = 'none';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▸';
-            }
-            const childLevel = row.getAttribute('data-level');
-            collapseAllDescendants(childLevel);
-        }
-    });
-}
-
-function toggleChildren(parentRow) {
-    const level = parentRow.getAttribute('data-level');
-    const icon = parentRow.querySelector('.toggle-icon');
-    const isCollapsed = icon.textContent === '▸';
-
-    icon.textContent = isCollapsed ? '▾' : '▸';
-
-    if (isCollapsed) {
-        expandAllDescendants(level);
-    } else {
-        collapseAllDescendants(level);
-    }
-}
-</script>

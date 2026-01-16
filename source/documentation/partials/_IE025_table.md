@@ -1,3 +1,4 @@
+<script src="../../javascripts/table-toggle.js"></script>
 <table cellspacing="0" style="table-layout: fixed; width: 100%;">
 <colgroup>
     <col style="width: 40%;">
@@ -23,7 +24,7 @@
    Rules
   </th>
 </tr>
-<tr class="parent-row" data-level="IE025_0"  onclick="toggleChildren(this)">
+<tr class="parent-row" data-level="IE025_0" >
     <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong>MESSAGE</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -65,7 +66,7 @@
     <td>an..35</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0511">C0511</a><br /><a href="phase-6-rules.html#r0008">R0008</a></td>
-</tr><tr class="parent-row" data-level="IE025_1" data-parent="IE025_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_1" data-parent="IE025_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRANSIT OPERATION</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -89,7 +90,7 @@
     <td>n1</td>
     <td>CL164</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_2" data-parent="IE025_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_2" data-parent="IE025_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CUSTOMS OFFICE OF DESTINATION (ACTUAL)</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -101,7 +102,7 @@
     <td>an8</td>
     <td>CL172</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_3" data-parent="IE025_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_3" data-parent="IE025_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> TRADER AT DESTINATION</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -113,13 +114,13 @@
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0850">R0850</a></td>
-</tr><tr class="parent-row" data-level="IE025_4" data-parent="IE025_0" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_4" data-parent="IE025_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNMENT</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0352">C0352</a></td>
-</tr><tr class="parent-row" data-level="IE025_5" data-parent="IE025_4" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_5" data-parent="IE025_4">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> HOUSE CONSIGNMENT</strong></td>
     <td>R</td>
     <td>1999x</td>
@@ -137,7 +138,7 @@
     <td>n1</td>
     <td>CL163</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_6" data-parent="IE025_5" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_6" data-parent="IE025_5">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> CONSIGNMENT ITEM</strong></td>
     <td>D</td>
     <td>999x</td>
@@ -161,7 +162,7 @@
     <td>n1</td>
     <td>CL163</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_7" data-parent="IE025_6" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_7" data-parent="IE025_6">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> COMMODITY</strong></td>
     <td>R</td>
     <td>1x</td>
@@ -179,7 +180,7 @@
     <td>an9</td>
     <td>CL016</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_8" data-parent="IE025_7" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_8" data-parent="IE025_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> COMMODITY CODE</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -197,7 +198,7 @@
     <td>an2</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#r0060">R0060</a></td>
-</tr><tr class="parent-row" data-level="IE025_9" data-parent="IE025_7" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_9" data-parent="IE025_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> DANGEROUS GOODS</strong></td>
     <td>O</td>
     <td>99x</td>
@@ -215,7 +216,7 @@
     <td>an4</td>
     <td>CL101</td>
     <td>&nbsp;</td>
-</tr><tr class="parent-row" data-level="IE025_10" data-parent="IE025_7" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_10" data-parent="IE025_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> GOODS MEASURE</strong></td>
     <td>O</td>
     <td>1x</td>
@@ -233,7 +234,7 @@
     <td>n..16,6</td>
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0844">C0844</a><br /><a href="phase-6-rules.html#r0223">R0223</a></td>
-</tr><tr class="parent-row" data-level="IE025_11" data-parent="IE025_6" onclick="toggleChildren(this)">
+</tr><tr class="parent-row" data-level="IE025_11" data-parent="IE025_6">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> PACKAGING</strong></td>
     <td>R</td>
     <td>99x</td>
@@ -264,49 +265,3 @@
     <td>&nbsp;</td>
     <td><a href="phase-6-rules.html#c0060">C0060</a><br /><a href="phase-6-rules.html#g0024">G0024</a></td>
 </tr></table>
-
-<script>
-function expandAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = '';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▾';
-            }
-            const childLevel = row.getAttribute('data-level');
-            expandAllDescendants(childLevel);
-        }
-    });
-}
-
-function collapseAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = 'none';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▸';
-            }
-            const childLevel = row.getAttribute('data-level');
-            collapseAllDescendants(childLevel);
-        }
-    });
-}
-
-function toggleChildren(parentRow) {
-    const level = parentRow.getAttribute('data-level');
-    const icon = parentRow.querySelector('.toggle-icon');
-    const isCollapsed = icon.textContent === '▸';
-
-    icon.textContent = isCollapsed ? '▾' : '▸';
-
-    if (isCollapsed) {
-        expandAllDescendants(level);
-    } else {
-        collapseAllDescendants(level);
-    }
-}
-</script>
