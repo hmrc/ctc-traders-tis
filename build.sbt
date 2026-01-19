@@ -1,6 +1,6 @@
 val appName = "ctc-traders-tis"
 
-scalaVersion := "2.13.16"
+scalaVersion := "3.5.0"
 
 ThisBuild / libraryDependencySchemes += "org.scala-lang.modules" %% "scala-xml" % VersionScheme.Always
 ThisBuild / semanticdbEnabled := true
