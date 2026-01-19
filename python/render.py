@@ -29,7 +29,8 @@ special_formats = {
     "Message recipient": """an..35"""
 }
 
-head_tag = """<table cellspacing="0" style="table-layout: fixed; width: 100%;">
+head_tag = """<script src="../../javascripts/table-toggle.js"></script>
+<table cellspacing="0" style="table-layout: fixed; width: 100%;">
 <colgroup>
     <col style="width: 40%;">
     <col style="width: 10%;">
@@ -57,53 +58,7 @@ header_row = """
 </tr>
 """
 
-tail = """</table>
-
-<script>
-function expandAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = '';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▾';
-            }
-            const childLevel = row.getAttribute('data-level');
-            expandAllDescendants(childLevel);
-        }
-    });
-}
-
-function collapseAllDescendants(parentLevel) {
-    const children = document.querySelectorAll('tr[data-parent="' + parentLevel + '"]');
-    children.forEach(function(row) {
-        row.style.display = 'none';
-        if (row.classList.contains('parent-row')) {
-            const childIcon = row.querySelector('.toggle-icon');
-            if (childIcon) {
-                childIcon.textContent = '▸';
-            }
-            const childLevel = row.getAttribute('data-level');
-            collapseAllDescendants(childLevel);
-        }
-    });
-}
-
-function toggleChildren(parentRow) {
-    const level = parentRow.getAttribute('data-level');
-    const icon = parentRow.querySelector('.toggle-icon');
-    const isCollapsed = icon.textContent === '▸';
-
-    icon.textContent = isCollapsed ? '▾' : '▸';
-
-    if (isCollapsed) {
-        expandAllDescendants(level);
-    } else {
-        collapseAllDescendants(level);
-    }
-}
-</script>"""
+tail = """</table>"""
 
 
 def linkify_rule(rule: str) -> str:
@@ -178,7 +133,7 @@ def render_category_row(category: MessageCategory) -> str:
         parent_attr = ''
 
     c = cleandoc(f"""
-    <tr class="parent-row" data-level="{current_level}" {parent_attr} onclick="toggleChildren(this)">
+    <tr class="parent-row" data-level="{current_level}" {parent_attr}>
         <td>{indent}<span class="toggle-icon">▾</span> <strong>{cat}</strong></td>
         <td>{category.required}</td>
         <td>{category.multiplicity}</td>
