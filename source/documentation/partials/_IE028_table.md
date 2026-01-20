@@ -1,4 +1,3 @@
-<script src="../../javascripts/table-toggle.js"></script>
 <table cellspacing="0" style="table-layout: fixed; width: 100%;">
 <colgroup>
     <col style="width: 40%;">
