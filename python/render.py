@@ -104,11 +104,12 @@ def reset_level_counter(message_type: str = ""):
 
 # ---- Rendering for Message Types
 
-def render_category_row(category: MessageCategory) -> str:
+def render_category_row(category: MessageCategory, indent_offset: int = 0) -> str:
     """
     Creates a table row for a category and associated rows for the fields
 
     :param category: The category
+    :param indent_offset: Number of indentation levels to subtract (for flattening)
     :return: The HTML
     """
     global parent_stack
@@ -117,9 +118,14 @@ def render_category_row(category: MessageCategory) -> str:
 
     cat = category.category.replace("---", "")
     hyphens = category.category.count("---")
-    indent = "&nbsp;" * (4 * (hyphens + 1))
 
-    while len(parent_stack) > hyphens:
+    # Apply indent offset to reduce indentation
+    adjusted_hyphens = max(0, hyphens - indent_offset)
+    indent = "&nbsp;" * (4 * adjusted_hyphens) if adjusted_hyphens > 0 else ""
+
+    # Adjust parent stack tracking for the offset
+    effective_hyphens = hyphens - indent_offset
+    while len(parent_stack) > effective_hyphens:
         parent_stack.pop()
 
     parent_level = parent_stack[-1] if parent_stack else None
@@ -141,7 +147,7 @@ def render_category_row(category: MessageCategory) -> str:
     </tr>""")
 
     # Render the fields and return the category and fields together
-    return c + render_children_fields(category.children, hyphens + 2, current_level)
+    return c + render_children_fields(category.children, adjusted_hyphens + 1, current_level)
 
 
 def render_children_fields(fields: list[MessageField], hyphens: int, parent_level: str) -> str:
@@ -154,7 +160,7 @@ def render_children_fields(fields: list[MessageField], hyphens: int, parent_leve
     :return: The HTML
     """
     r = []
-    indent = "&nbsp;" * (4 * hyphens)
+    indent = "&nbsp;" * (4 * hyphens) if hyphens > 0 else ""
 
     for f in fields:
         # The code list and rules will have hyperlinks added to them
@@ -172,16 +178,59 @@ def render_children_fields(fields: list[MessageField], hyphens: int, parent_leve
     return "".join(r)
 
 
+def render_root_fields(fields: list[MessageField]) -> str:
+    """
+    Renders fields at the root level (no parent)
+
+    :param fields: The fields to render
+    :return: The HTML
+    """
+    r = []
+
+    for f in fields:
+        r.append(cleandoc(f"""
+        <tr>
+            <td>{f.field}</td>
+            <td>{f.required}</td>
+            <td>{special_formats.get(f.field, f.format)}</td>
+            <td>{render_optional_code_list(f.code_list)}</td>
+            <td>{create_rules(f.rules)}</td>
+        </tr>"""))
+
+    return "".join(r)
+
+
 def render_type(categories: list[MessageCategory], message_type: str = "") -> str:
     """
-    Renders a message type in its entirety
+    Renders a message type in its entirety.
+
+    If the first category is "MESSAGE", its fields are rendered at root level
+    and subsequent categories are rendered with reduced indentation.
 
     :param categories: The categories for the message type
     :param message_type: The message type identifier (e.g., "IE004") for scoping
     :return: The HTML
     """
     reset_level_counter(message_type)
-    rows = "".join(map(lambda x: render_category_row(x), categories))
+
+    if not categories:
+        return head_tag + header_row + tail
+
+    rows = ""
+    first_category = categories[0]
+
+    # Check if the first category is MESSAGE (no hyphens = root level MESSAGE)
+    if first_category.category.replace("---", "").strip().upper() == "MESSAGE" and "---" not in first_category.category:
+        # Render MESSAGE's fields at root level (no parent row for MESSAGE itself)
+        rows += render_root_fields(first_category.children)
+
+        # Render remaining categories with indent offset of 1 to shift them left
+        for category in categories[1:]:
+            rows += render_category_row(category, indent_offset=1)
+    else:
+        # No MESSAGE wrapper, render normally
+        rows = "".join(map(lambda x: render_category_row(x), categories))
+
     return head_tag + header_row + rows + tail
 
 
