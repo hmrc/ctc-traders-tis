@@ -81,7 +81,7 @@
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Business rejection type</td>
     <td>R</td>
     <td>an3</td>
-    <td>CL570</td>
+    <td>CL560</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE057_1">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rejection date and time</td>

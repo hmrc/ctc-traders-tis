@@ -44,7 +44,7 @@ pdf_reader = PdfReader(pdf_file_name)
 expected_message_types = expected_message_types()
 
 # There are also T rules, but we don't publish them
-expected_rules = ["B", "C", "E", "G", "R", "S"]
+expected_rules = ["C", "E", "G", "R", "S"]
 
 # get pages
 entries, rules_start_page = find_pages(pdf_reader, expected_message_types)

@@ -27,6 +27,16 @@ XSD contains a non-standard regular expression for this data item.
 
 N/A
 
+## G0002
+
+**Functional Description**
+
+XSD contains a non-standard regular expression for this data item.
+
+**Technical Description**
+
+N/A
+
 ## G0005
 
 **Functional Description**
@@ -813,12 +823,13 @@ N/A
 **Functional Description**
 
 &lt;UNLOADING REMARK.Unloading completion&gt; is used as a flag and it can contain 2 possible values:<br /><br />
- '0' = 'NO' This means that the unloading of the goods is not yet completed;
- '1' = 'YES' This means that the goods are completely unloaded.
+     '0' = 'NO' This means that the unloading of the goods is not yet completed;
+     '1' = 'YES' This means that the goods are completely unloaded.
 
 **Technical Description**
 
 N/A
+
 
 ## G0196
 
