@@ -40,7 +40,7 @@
     <td>R</td>
     <td>an19</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0002">G0002</a></td>
+    <td><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr>
     <td>Message identification</td>
     <td>R</td>
@@ -58,7 +58,7 @@
     <td>D</td>
     <td>an..35</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0511">C0511</a><br /><a href="phase-6-rules.html#r0008">R0008</a></td>
+    <td><a href="../phase-6-rules.html#c0511">C0511</a><br /><a href="../phase-6-rules.html#r0008">R0008</a></td>
 </tr><tr class="parent-row" data-level="IE035_0" >
     <td><span class="toggle-icon">▾</span> <strong> TRANSIT OPERATION</strong></td>
     <td>R</td>
@@ -70,13 +70,13 @@
     <td>R</td>
     <td>an18</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0002">G0002</a></td>
+    <td><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE035_0">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;Declaration acceptance date</td>
     <td>R</td>
     <td>an10</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0002">G0002</a></td>
+    <td><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr class="parent-row" data-level="IE035_1" >
     <td><span class="toggle-icon">▾</span> <strong> RECOVERY NOTIFICATION</strong></td>
     <td>R</td>
@@ -88,7 +88,7 @@
     <td>O</td>
     <td>an10</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0002">G0002</a></td>
+    <td><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE035_1">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;Recovery notification text</td>
     <td>O</td>
@@ -100,7 +100,7 @@
     <td>R</td>
     <td>n..16,2</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0021">G0021</a></td>
+    <td><a href="../phase-6-rules.html#g0021">G0021</a></td>
 </tr><tr data-parent="IE035_1">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;Currency</td>
     <td>R</td>
@@ -142,25 +142,25 @@
     <td>O</td>
     <td>an..17</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0120">G0120</a><br /><a href="phase-6-rules.html#r0850">R0850</a></td>
+    <td><a href="../phase-6-rules.html#g0120">G0120</a><br /><a href="../phase-6-rules.html#r0850">R0850</a></td>
 </tr><tr data-parent="IE035_4">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;TIR holder identification number</td>
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0904">C0904</a><br /><a href="phase-6-rules.html#g0002">G0002</a></td>
+    <td><a href="../phase-6-rules.html#c0904">C0904</a><br /><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE035_4">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
     <td>D</td>
     <td>an..70</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0250">C0250</a></td>
+    <td><a href="../phase-6-rules.html#c0250">C0250</a></td>
 </tr><tr class="parent-row" data-level="IE035_5" data-parent="IE035_4">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0250">C0250</a></td>
+    <td><a href="../phase-6-rules.html#c0250">C0250</a></td>
 </tr><tr data-parent="IE035_5">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street and number</td>
     <td>R</td>
@@ -172,7 +172,7 @@
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0505">C0505</a></td>
+    <td><a href="../phase-6-rules.html#c0505">C0505</a></td>
 </tr><tr data-parent="IE035_5">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City</td>
     <td>R</td>
@@ -196,19 +196,19 @@
     <td>R</td>
     <td>an..17</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#g0002">G0002</a><br /><a href="phase-6-rules.html#r0860">R0860</a></td>
+    <td><a href="../phase-6-rules.html#g0002">G0002</a><br /><a href="../phase-6-rules.html#r0860">R0860</a></td>
 </tr><tr data-parent="IE035_6">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
     <td>D</td>
     <td>an..70</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0250">C0250</a></td>
+    <td><a href="../phase-6-rules.html#c0250">C0250</a></td>
 </tr><tr class="parent-row" data-level="IE035_7" data-parent="IE035_6">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;<span class="toggle-icon">▾</span> <strong> ADDRESS</strong></td>
     <td>D</td>
     <td>1x</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0250">C0250</a></td>
+    <td><a href="../phase-6-rules.html#c0250">C0250</a></td>
 </tr><tr data-parent="IE035_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street and number</td>
     <td>R</td>
@@ -220,7 +220,7 @@
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
-    <td><a href="phase-6-rules.html#c0505">C0505</a></td>
+    <td><a href="../phase-6-rules.html#c0505">C0505</a></td>
 </tr><tr data-parent="IE035_7">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City</td>
     <td>R</td>
