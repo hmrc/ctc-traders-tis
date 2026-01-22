@@ -80,3 +80,15 @@ set :markdown,
     fenced_code_blocks: true,
     tables: true,
     no_intra_emphasis: true
+
+after_configuration do
+  sitemap.resources.each do |r|
+    # If a resource has children and its path ends with 'index.html', force its URL to include index.html
+    if r.path.end_with?('index.html')
+      r.define_singleton_method(:url) do
+        # Use front-matter URL if specified
+        r.data.url || super()
+      end
+    end
+  end
+end
