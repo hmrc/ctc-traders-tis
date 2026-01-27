@@ -83,12 +83,14 @@ set :markdown,
 
 after_configuration do
   sitemap.resources.each do |r|
-    # If a resource has children and its path ends with 'index.html', force its URL to include index.html
-    if r.path.end_with?('index.html')
-      r.define_singleton_method(:url) do
-        # Use front-matter URL if specified
-        r.data.url || super()
-      end
+    next unless r.path.start_with?('documentation/')
+    next unless r.path.end_with?('index.html')
+
+    original_url = r.url
+
+    r.define_singleton_method(:url) do
+      original_url.end_with?('/') ? "#{original_url}index.html" : original_url
     end
   end
 end
+
