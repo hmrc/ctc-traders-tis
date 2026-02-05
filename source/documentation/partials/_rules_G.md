@@ -27,16 +27,6 @@ XSD contains a non-standard regular expression for this data item.
 
 N/A
 
-## G0002
-
-**Functional Description**
-
-XSD contains a non-standard regular expression for this data item.
-
-**Technical Description**
-
-N/A
-
 ## G0005
 
 **Functional Description**
@@ -823,13 +813,12 @@ N/A
 **Functional Description**
 
 &lt;UNLOADING REMARK.Unloading completion&gt; is used as a flag and it can contain 2 possible values:<br /><br />
-     '0' = 'NO' This means that the unloading of the goods is not yet completed;
-     '1' = 'YES' This means that the goods are completely unloaded.
+ '0' = 'NO' This means that the unloading of the goods is not yet completed;
+ '1' = 'YES' This means that the goods are completely unloaded.
 
 **Technical Description**
 
 N/A
-
 
 ## G0196
 
@@ -931,21 +920,6 @@ N/A
 IF &lt;Container indicator&gt; is NOT PRESENT then data group &lt;TRANSPORT EQUIPMENT&gt; shall NOT
 be PRESENT, too. &lt;Container indicator&gt; functions as the governing data item for data group
 &lt;TRANSPORT EQUIPMENT&gt;.
-
-**Technical Description**
-
-N/A
-
-
-## G0360
-
-**Functional Description**
-
-IF discrepancies have been found in one or more Data Groups or Data Items
-OR
-a new data element has been found during the control
-THEN the D.G. / D.I.= "R" and is used to report these discrepancies
-ELSE the D.G. / D.I. = "N".
 
 **Technical Description**
 
