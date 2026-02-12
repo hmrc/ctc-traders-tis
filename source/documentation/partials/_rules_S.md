@@ -6,7 +6,7 @@ N/A
 
 **Technical Description**
 
-The validation of particular Data Group/Item shall be performed in the following sequence: C0215 &gt;<br />
+The validation of particular Data Group/Item shall be performed in the following sequence: C0215 &gt;<br>
 C0315
 
 
@@ -18,5 +18,5 @@ N/A
 
 **Technical Description**
 
-The validation of particular Data Group/Item shall be performed in the following sequence: C0240 &gt;<br />
+The validation of particular Data Group/Item shall be performed in the following sequence: C0240 &gt;<br>
 C0040

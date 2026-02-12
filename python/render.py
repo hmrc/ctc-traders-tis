@@ -83,16 +83,19 @@ def render_optional_code_list(value: Optional[str]) -> str:
     else:
         return replace_code_list(value)
 
+
 level_counter = 0
 
 parent_stack = []
 
 message_type_prefix = ""
 
+
 def get_next_level():
     global level_counter
     level_counter += 1
     return f"{message_type_prefix}_{level_counter - 1}"
+
 
 def reset_level_counter(message_type: str = ""):
     global level_counter
@@ -101,6 +104,7 @@ def reset_level_counter(message_type: str = ""):
     level_counter = 0
     parent_stack = []
     message_type_prefix = message_type
+
 
 # ---- Rendering for Message Types
 
@@ -249,23 +253,85 @@ def write_message_type_file(message_type: str, categories: list[MessageCategory]
         md_file.write(render_type(categories, message_type))
 
 
-# ---- Rendering for Rules
-
-replace_line_break_regex = re.compile(r"([A-Za-z0-9]{2}[:.])\n")
-
-
-def process_rule_string(string: str, preserve_all_line_breaks = True) -> str:
-    string = string.replace("<", "&lt;").replace(">", "&gt;")
-    if preserve_all_line_breaks:
-        string = string.replace("\n", "<br />\n")
-    else:
-        # only preserve those preceded by a full stop -- in which case we emulate paragraphs with spacing a bit better
-        string = re.sub(replace_line_break_regex, r"\1<br /><br />\n", string)
-
-    return replace_code_list_full_string(string.replace("*", "<span>&#42;</span>"))
+def process_rule_string(string: str, rule_code: str) -> str:
+    formatted = indent_rule(string, rule_code)
+    formatted = replace_code_list_full_string(formatted)
+    formatted = formatted.replace("*", "<span>&#42;</span>")
+    return formatted
 
 
 specific_line_break_rules: list[str] = []
+
+
+def indent_rule(rule_text: str, rule_code: str = '', allow_else_nesting: bool = False) -> str:
+    """
+    Indents a rule text.
+
+    :param rule_text: The rule description
+    :param rule_code: The rule code to identify it in case of errors
+    :param allow_else_nesting: Whether to allow else blocks to contain nested conditionals
+    :return: The indented rule description with escaped HTML entities
+    """
+    rule_text = rule_text.replace('\xa0', ' ')
+    rule_text = rule_text.replace('\r\n', '\n')
+    rule_text = rule_text.replace('\r', '\n')
+    rule_text = rule_text.replace('<', '&lt;').replace('>', '&gt;')
+    rule_text = re.sub(r' = "([^"]*)"', r'&nbsp;=&nbsp;"\1"', rule_text)
+
+    rule_lines: list[str] = list(map(lambda rl: rl.strip(), rule_text.split('\n')))
+
+    indented_rule_lines = []
+
+    ifs = []
+
+    base_indent = 4
+
+    for line_number, rule_line in enumerate(rule_lines):
+        # some rules have empty lines
+        if not rule_line:
+            indented_rule_lines.append('<br>')
+        # some rule lines start with an 'IF
+        # ex: C0467 line 1
+        elif rule_line.startswith('IF') or rule_line.startswith('\'IF') or rule_line.startswith('THEN IF'):
+            if not allow_else_nesting:
+                while ifs and ifs[-1]:
+                    ifs.pop()
+
+            depth = len(ifs)
+
+            indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{rule_line}")
+
+            ifs.append(False)
+        elif rule_line.startswith('ELSE'):
+            while ifs and ifs[-1]:
+                ifs.pop()
+
+            if not ifs:
+                error_message_iter = map(lambda rl: f"{rl[0] + 1}. {rl[1]}", enumerate(rule_lines))
+                raise RuntimeError(
+                    f"Malformed rule: found unmatchable ELSE on line: {line_number + 1} in rule {rule_code}\n" +
+                    "\n".join(error_message_iter)
+                )
+
+            depth = len(ifs)
+
+            # some rule lines start with ELSE IF where there are more than 1 spaces between ELSE and IF
+            # ex: C0003 line 5
+            if not re.match(r"^ELSE\s*IF", rule_line):
+                else_suite = rule_line[5:]
+                indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}ELSE")
+
+                if else_suite:
+                    indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{else_suite}")
+                ifs[-1] = True
+            else:
+                indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}{rule_line}")
+        else:
+            depth = len(ifs)
+
+            indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{rule_line}")
+
+    return '<br>\n'.join(indented_rule_lines)
 
 
 def should_replace_line_breaks(rule_code: str) -> bool:
@@ -281,8 +347,8 @@ def render_rule(rule: Rule) -> str:
     :param rule: The rule to render
     :return: The markdown
     """
-    func = process_rule_string(rule.functional_description, should_replace_line_breaks(rule.rule_code))
-    tech = process_rule_string(rule.technical_description)
+    func = process_rule_string(rule.functional_description, rule.rule_code)
+    tech = process_rule_string(rule.technical_description, rule.rule_code)
     return cleandoc(
         f"""## {rule.rule_code}
 
