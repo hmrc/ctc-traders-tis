@@ -7,7 +7,7 @@ description: Software developers, designers, product owners or business analysts
 # NCTS Technical Interface Specification
 
 
-Version 1.0 issued: 24 November 2025
+For version updates refer to: [ctc-traders-tis](https://github.com/hmrc/ctc-traders-tis/wiki/NCTS%E2%80%90Technical%E2%80%90Interface%E2%80%90Specification%E2%80%90(TIS)%E2%80%90changelog) GitHub wiki.
 
 
 | NCTS Phase | DDNTA Version                            | 
