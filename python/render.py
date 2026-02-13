@@ -263,13 +263,22 @@ def process_rule_string(string: str, rule_code: str) -> str:
 specific_line_break_rules: list[str] = []
 
 
-def indent_rule(rule_text: str, rule_code: str = '', allow_else_nesting: bool = False) -> str:
+def indent_rule(rule_text: str, rule_code: str = '', allow_if_in_else: bool = False) -> str:
     """
     Indents a rule text.
+    There are no scope terminators/delimiters, so dangling else problems are solved by pairing the ELSE with
+    the nearest unmatched IF. This means that indentation is biased and might not reflect the intended logic.
+    Also, an IF clause immediately after another IF clause will be indented within the previous IF clause. In case
+    of, for example, C0001, this is correct indentation, but in case of R0506, the IF clauses should be at the same
+    level. It's not possible to remedy this unless explicit scope delimiters are introduced. For R0506, the original PDF
+    document uses newlines between IF clauses as delimiters, but they're being discarded as part of the parsing of the
+    document into rules. This is not consistent throughout the document, as for R0507 the IF clauses are not
+    delimited by newlines, despite the fact that the intention is for those clauses to be separate and not nested, like
+    R0506.
 
     :param rule_text: The rule description
-    :param rule_code: The rule code to identify it in case of errors
-    :param allow_else_nesting: Whether to allow else blocks to contain nested conditionals
+    :param rule_code: The rule code
+    :param allow_if_in_else: Whether to allow else blocks to contain nested conditionals
     :return: The indented rule description with escaped HTML entities
     """
     rule_text = rule_text.replace('\xa0', ' ')
@@ -286,16 +295,16 @@ def indent_rule(rule_text: str, rule_code: str = '', allow_else_nesting: bool = 
 
     base_indent = 4
 
+    # some rule lines start with an 'IF
+    # ex: C0467 line 1
+    rule_if_pattern = re.compile(r"^'?(?:THEN\s)?IF")
+
+    print(f"Indenting rule {rule_code}...")
     for line_number, rule_line in enumerate(rule_lines):
-        # some rules have empty lines
-        if not rule_line:
-            indented_rule_lines.append('<br>')
-        # some rule lines start with an 'IF
-        # ex: C0467 line 1
-        elif rule_line.startswith('IF') or rule_line.startswith('\'IF') or rule_line.startswith('THEN IF'):
-            if not allow_else_nesting:
-                while ifs and ifs[-1]:
-                    ifs.pop()
+        if re.match(rule_if_pattern, rule_line):
+            # when else conditional nesting is not allowed, step out of the else
+            if not allow_if_in_else and ifs and ifs[-1]:
+                ifs.pop()
 
             depth = len(ifs)
 
@@ -303,6 +312,7 @@ def indent_rule(rule_text: str, rule_code: str = '', allow_else_nesting: bool = 
 
             ifs.append(False)
         elif rule_line.startswith('ELSE'):
+            # find nearest unmatched if
             while ifs and ifs[-1]:
                 ifs.pop()
 
@@ -317,12 +327,14 @@ def indent_rule(rule_text: str, rule_code: str = '', allow_else_nesting: bool = 
 
             # some rule lines start with ELSE IF where there are more than 1 spaces between ELSE and IF
             # ex: C0003 line 5
-            if not re.match(r"^ELSE\s*IF", rule_line):
-                else_suite = rule_line[5:]
+            if not re.match(r"^ELSE\s+IF", rule_line):
                 indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}ELSE")
+
+                else_suite = rule_line[5:]
 
                 if else_suite:
                     indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{else_suite}")
+
                 ifs[-1] = True
             else:
                 indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}{rule_line}")
