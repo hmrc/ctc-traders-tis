@@ -695,10 +695,10 @@ PROCEDURE’.<br>
 IF the unique ‘CONSIGNOR’ of the consignment is different from the ‘HOLDER OF THE TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PROCEDURE’<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the Data Group &lt;CONSIGNMENT -CONSIGNOR&gt; must include this ‘CONSIGNOR’;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the ‘CONSIGNOR’ of one or more house consignment(s) is different from the ‘HOLDER OF THE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRANSIT PROCEDURE’<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the Data Group &lt;CONSIGNMENT -HOUSE CONSIGNMENT -CONSIGNOR&gt; must include this<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;‘CONSIGNOR’.
+IF the ‘CONSIGNOR’ of one or more house consignment(s) is different from the ‘HOLDER OF THE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TRANSIT PROCEDURE’<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN the Data Group &lt;CONSIGNMENT -HOUSE CONSIGNMENT -CONSIGNOR&gt; must include this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;‘CONSIGNOR’.
 
 **Technical Description**
 

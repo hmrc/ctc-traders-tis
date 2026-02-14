@@ -35,8 +35,7 @@ ELSE IF at least one instance of &lt;CONSIGNMENT-HOUSE CONSIGNMENT- ADDITIONAL<b
 &nbsp;&nbsp;&nbsp;&nbsp;INFORMATION.Code&gt; is EQUAL to '30600'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN  &lt;CONSIGNMENT-CONSIGNEE&gt;&nbsp;=&nbsp;"N" AND &lt;CONSIGNMENT-HOUSE CONSIGNMENT-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CONSIGNEE&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CONSIGNMENT-CONSIGNEE&gt; is PRESENT<br>
+ELSE IF &lt;CONSIGNMENT-CONSIGNEE&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt;&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt;= "O"
@@ -72,8 +71,7 @@ ELSE IF at least one instance of /<span>&#42;</span>/Consignment/HouseConsignmen
 &nbsp;&nbsp;&nbsp;&nbsp;EQUAL to '30600'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/Consignee&nbsp;=&nbsp;"N" AND THIS /<span>&#42;</span>/Consignment/HouseConsignment/Consignee =<br>
 &nbsp;&nbsp;&nbsp;&nbsp;"N"<br>
-ELSE<br>
-IF /<span>&#42;</span>/Consignment/Consignee is PRESENT<br>
+ELSE IF /<span>&#42;</span>/Consignment/Consignee is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/Consignee&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/Consignee&nbsp;=&nbsp;"O"
@@ -135,7 +133,7 @@ IF /<span>&#42;</span>/TransitOperation/security is in SET {1, 3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/Consignee&nbsp;=&nbsp;"N" AND /<span>&#42;</span>/Consignment/HouseConsignment/Consignee&nbsp;=&nbsp;"R"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/Consignee&nbsp;=&nbsp;"R" AND /<span>&#42;</span>/Consignment/HouseConsignment/Consignee&nbsp;=&nbsp;"N"<br>
-ELSE  IF /<span>&#42;</span>/Consignment/countryOfDestination is in SET CL009<br>
+ELSE IF /<span>&#42;</span>/Consignment/countryOfDestination is in SET CL009<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/Consignee is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/Consignee&nbsp;=&nbsp;"N"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
@@ -249,40 +247,33 @@ ELSE<br>
 
 IF &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {TIR, T2SM}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
+ELSE IF (the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;is in SET CL112 (CountryCodesCTC)) AND (the first two characters of &lt;CUSTOMS OFFICE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OF DESTINATION (DECLARED). Reference number&gt; is in SET CL112<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(CountryCodesCTC)) AND (the first two characters of &lt;CUSTOMS OFFICE OF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is EQUAL to the first two characters of CUSTOMS<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OFFICE OF DESTINATION (DECLARED). Reference number&gt;)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'T2'<br>
+ELSE IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'T2'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL 'T' AND at least one instance of<br>
+ELSE IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL 'T' AND at least one instance of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'T2'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
+ELSE IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;is in SET CL112 (CountryCodesCTC) OR the first two characters of &lt;CUSTOMS OFFICE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OF DESTINATION (DECLARED). Reference number&gt; is in SET CL112<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(CountryCodesCTC)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF at least one instance of &lt;CONSIGNMENT-COUNTRY OF ROUTING OF<br>
+ELSE IF at least one instance of &lt;CONSIGNMENT-COUNTRY OF ROUTING OF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CONSIGNMENT.Country&gt; is in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SET CL112 (CountryCodesCTC)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
+ELSE IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;is EQUAL to 'AD' OR IF the first two characters of &lt;CUSTOMS OFFICE OF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DESTINATION (DECLARED). Reference number&gt; is EQUAL to 'AD'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF &lt;CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED)&gt; is PRESENT<br>
+ELSE IF &lt;CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED)&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"R"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CUSTOMS OFFICE OF TRANSIT (DECLARED)&gt;&nbsp;=&nbsp;"O"
@@ -291,36 +282,29 @@ ELSE<br>
 
 IF /<span>&#42;</span>/TransitOperation/declarationType is in SET {TIR, T2SM}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
+ELSE IF (the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL112) AND (the first two characters of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is in SET CL112) AND (the first<br>
 &nbsp;&nbsp;&nbsp;&nbsp;two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to the first two<br>
 &nbsp;&nbsp;&nbsp;&nbsp;characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'T2'<br>
+ELSE IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'T2'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL 'T' AND at least one instance of<br>
+ELSE IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL 'T' AND at least one instance of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to 'T2'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
+ELSE IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL112 OR the first two characters of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is in SET CL112<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF at least one instance of /<span>&#42;</span>/Consignment/CountryOfRoutingOfConsignment/country is in SET<br>
+ELSE IF at least one instance of /<span>&#42;</span>/Consignment/CountryOfRoutingOfConsignment/country is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL112<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to<br>
+ELSE IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'AD' OR IF the first two characters of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to 'AD'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF /<span>&#42;</span>/CustomsOfficeOfExitForTransitDeclared is PRESENT<br>
+ELSE IF /<span>&#42;</span>/CustomsOfficeOfExitForTransitDeclared is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"R"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/CustomsOfficeOfTransitDeclared&nbsp;=&nbsp;"O"
@@ -726,8 +710,7 @@ ELSE<br>
 IF &lt;TRANSIT OPERATION.Security&gt; is in SET {1, 3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-PLACE OF UNLOADING&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF &lt;TRANSIT OPERATION.Security&gt; is EQUAL to '0'<br>
+ELSE IF &lt;TRANSIT OPERATION.Security&gt; is EQUAL to '0'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-PLACE OF UNLOADING&gt;&nbsp;=&nbsp;"N"<br>
 ELSE<br>
@@ -738,8 +721,7 @@ ELSE<br>
 IF /<span>&#42;</span>/TransitOperation/security is in SET {1, 3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/PlaceOfUnloading&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF /<span>&#42;</span>/TransitOperation/security is EQUAL to '0'<br>
+ELSE IF /<span>&#42;</span>/TransitOperation/security is EQUAL to '0'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/PlaceOfUnloading&nbsp;=&nbsp;"N"<br>
 ELSE<br>
@@ -751,8 +733,7 @@ ELSE<br>
 **Functional Description**
 
 IF &lt;CC141C-ENQUIRY.Text&gt; is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CC141C-CUSTOMS OFFICE OF DESTINATION (ACTUAL)&gt; is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CC141C-CUSTOMS OFFICE OF DESTINATION (ACTUAL)&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC141C-CONSIGNMENT&gt;&nbsp;=&nbsp;"O"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CC141C-CONSIGNMENT&gt;&nbsp;=&nbsp;"R"<br>
@@ -763,8 +744,7 @@ ELSE<br>
 **Technical Description**
 
 IF /CC141C/Enquiry/text is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /CC141C/CustomsOfficeOfDestinationActual is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /CC141C/CustomsOfficeOfDestinationActual is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /CC141C/Consignment&nbsp;=&nbsp;"O"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/CC141C/Consignment&nbsp;=&nbsp;"R"<br>
@@ -1016,8 +996,7 @@ IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N" AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
+ELSE IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"O"
@@ -1028,8 +1007,7 @@ IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/DepartureTransportMeans&nbsp;=&nbsp;"N" AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF/<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
+ELSE IF/<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"O"
@@ -1336,8 +1314,7 @@ ELSE<br>
 
 IF &lt;TRANSIT OPERATION.Additional declaration type&gt;&nbsp;=&nbsp;"D"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT.Place of loading&gt;&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt; is in SET<br>
+ELSE IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt; is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL289 (CountryPlaceOfLoadingNotRequired)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-PLACE OF LOADING&gt; &nbsp;=&nbsp;"O"<br>
 ELSE<br>
@@ -1347,8 +1324,7 @@ ELSE<br>
 
 IF /<span>&#42;</span>/TransitOperation/additionalDeclarationType&nbsp;=&nbsp;"D"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/PlaceOfLoading&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL289<br>
+ELSE IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL289<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/PlaceOfLoading&nbsp;=&nbsp;"O"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/PlaceOfLoading&nbsp;=&nbsp;"R"
@@ -1397,8 +1373,7 @@ IF (&lt;CC015C-CONSIGNMENT-PLACE OF LOADING&gt; is PRESENT OR &lt;CCA15D-CONSIGN
 &nbsp;&nbsp;&nbsp;&nbsp;PLACE OF LOADING&gt; is PRESENT OR &lt;CC013C-CONSIGNMENT-PLACE OF LOADING&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PRESENT OR &lt;CCA13D-CONSIGNMENT-PLACE OF LOADING&gt; is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-CONSIGNMENT-PLACE OF LOADING&gt;&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF (&lt;CCA15D-TRANSIT OPERATION.Security&gt; is in SET {0,2} OR &lt;CCA13D- TRANSIT<br>
+ELSE IF (&lt;CCA15D-TRANSIT OPERATION.Security&gt; is in SET {0,2} OR &lt;CCA13D- TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OPERATION.Security&gt; is in SET {0,2}) AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt; is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL289(CountryPlaceOfLoadingNotRequired)<br>
@@ -1412,8 +1387,7 @@ IF (/CC015C/Consignment/PlaceOfLoading is PRESENT OR /CCA15D/Consignment/PlaceOf
 &nbsp;&nbsp;&nbsp;&nbsp;is PRESENT OR /CC013C/Consignment/PlaceOfLoading is PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/Consignment/PlaceOfLoading is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/PlaceOfLoading&nbsp;=&nbsp;"O"<br>
-ELSE<br>
-IF (/CCA15D/TransitOperation/security is in SET {0,2} OR /CCA13D/TransitOperation/security is in<br>
+ELSE IF (/CCA15D/TransitOperation/security is in SET {0,2} OR /CCA13D/TransitOperation/security is in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;SET {0,2}) AND the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL289<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/PlaceOfLoading&nbsp;=&nbsp;"O"<br>
@@ -1550,7 +1524,7 @@ ELSE<br>
 
 **Technical Description**
 
-'IF (/CC028C/TransitOperation/declarationAcceptanceDate&gt; is PRESENT OR<br>
+IF (/CC028C/TransitOperation/declarationAcceptanceDate&gt; is PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CC028D/TransitOperation/declarationAcceptanceDate&gt; is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/TransitOperation/MRN&nbsp;=&nbsp;"R" AND<br>
@@ -1830,8 +1804,7 @@ IF &lt;TRANSIT OPERATION.Security&gt; is EQUAL to '0' AND &lt;TRANSIT OPERATION.
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-CONSIGNOR&gt;&nbsp;=&nbsp;"N" AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CONSIGNMENT-CONSIGNOR&gt; is PRESENT<br>
+ELSE IF &lt;CONSIGNMENT-CONSIGNOR&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt;&nbsp;=&nbsp;"N"<br>
 ELSE<br>
@@ -1843,8 +1816,7 @@ IF /<span>&#42;</span>/TransitOperation/security is EQUAL to '0' AND /<span>&#42
 &nbsp;&nbsp;&nbsp;&nbsp;EQUAL to '1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/Consignor&nbsp;=&nbsp;"N" AND /<span>&#42;</span>/Consignment/HouseConsignment/Consignor&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF /<span>&#42;</span>/Consignment/Consignor is PRESENT<br>
+ELSE IF /<span>&#42;</span>/Consignment/Consignor is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/Consignor&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/Consignor&nbsp;=&nbsp;"O"
@@ -2040,8 +2012,7 @@ ELSE<br>
 
 IF &lt;CONSIGNMENT.Mode of transport at the border&gt; is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (&lt;TRANSIT OPERATION.Security&gt; is EQUAL to '2' AND<br>
+ELSE IF (&lt;TRANSIT OPERATION.Security&gt; is EQUAL to '2' AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TRANSIT OPERATION.Additional declaration type&gt; is EQUAL to 'A')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"R"<br>
 ELSE<br>
@@ -2051,8 +2022,7 @@ ELSE<br>
 
 IF /<span>&#42;</span>/Consignment/modeOfTransportAtTheBorder is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (/<span>&#42;</span>/TransitOperation/security is EQUAL to '2' AND<br>
+ELSE IF (/<span>&#42;</span>/TransitOperation/security is EQUAL to '2' AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/TransitOperation/additionalDeclarationType is EQUAL to 'A')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"R"<br>
 ELSE<br>
@@ -2065,8 +2035,7 @@ ELSE<br>
 
 IF &lt;CC170C-CONSIGNMENT.Mode of transport at the border&gt; is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CC015C-TRANSIT OPERATION.Security&gt; is in SET {1,2,3}<br>
+ELSE IF &lt;CC015C-TRANSIT OPERATION.Security&gt; is in SET {1,2,3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AND &lt;CC013C-CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt; is NOT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AND &lt;CC015C-CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt; is NOT<br>
@@ -2079,8 +2048,7 @@ ELSE<br>
 
 IF /CC170C/Consignment/modeOfTransportAtTheBorder is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF /CC015C/TransitOperation/security is in SET {1,2,3}<br>
+ELSE IF /CC015C/TransitOperation/security is in SET {1,2,3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AND /CC013C/Consignment/ActiveBorderTransportMeans is NOT PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AND /CC015C/Consignment/ActiveBorderTransportMeans is NOT PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"R"<br>
@@ -2205,8 +2173,7 @@ ELSE<br>
 **Functional Description**
 
 IF &lt;CONSIGNMENT.Container indicator&gt; is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT.Container indicator&gt; is EQUAL to '1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CONSIGNMENT.Container indicator&gt; is EQUAL to '1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-TRANSPORT EQUIPMENT&gt;&nbsp;=&nbsp;"R"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-TRANSPORT EQUIPMENT&gt;&nbsp;=&nbsp;"O"<br>
@@ -2216,8 +2183,7 @@ ELSE<br>
 **Technical Description**
 
 IF /<span>&#42;</span>/Consignment/containerIndicator is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/containerIndicator is EQUAL to '1'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/containerIndicator is EQUAL to '1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/TransportEquipment&nbsp;=&nbsp;"R"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/TransportEquipment&nbsp;=&nbsp;"O"<br>
@@ -2231,14 +2197,12 @@ ELSE<br>
 
 IF (&lt;CC013C-TRANSIT OPERATION.Declaration type&gt; is PRESENT OR &lt;CCA13D-TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OPERATION.Declaration type&gt; is PRESENT)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF (&lt;CC013C-CONSIGNMENT.Container indicator&gt; is PRESENT or &lt;CCA13D-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF (&lt;CC013C-CONSIGNMENT.Container indicator&gt; is PRESENT or &lt;CCA13D-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONSIGNMENT.Container indicator&gt; is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-CONSIGNMENT.Container indicator&gt;&nbsp;=&nbsp;"O"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CC170C-CONSIGNMENT.Container indicator&gt;&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF (&lt;CC015C-CONSIGNMENT.Container indicator&gt; is PRESENT OR &lt;CCA15D-<br>
+ELSE IF (&lt;CC015C-CONSIGNMENT.Container indicator&gt; is PRESENT OR &lt;CCA15D-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CONSIGNMENT.Container indicator&gt; is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-CONSIGNMENT.Container indicator&gt;&nbsp;=&nbsp;"O"<br>
 ELSE<br>
@@ -2248,14 +2212,12 @@ ELSE<br>
 
 IF (/CC013C/TransitOperation/declarationType is PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/TransitOperation/declarationType is PRESENT)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF (/CC013C/Consignment/containerIndicator is PRESENT OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF (/CC013C/Consignment/containerIndicator is PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/Consignment/containerIndicator is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/containerIndicator&nbsp;=&nbsp;"O"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  /CC170C/Consignment/containerIndicator&nbsp;=&nbsp;"R"<br>
-ELSE<br>
-IF (/CC015C/Consignment/containerIndicator is PRESENT OR<br>
+ELSE IF (/CC015C/Consignment/containerIndicator is PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA15D/Consignment/containerIndicator is PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/containerIndicator&nbsp;=&nbsp;"O"<br>
 ELSE<br>
@@ -2270,8 +2232,7 @@ IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; = “N” AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
+ELSE IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;&nbsp;=&nbsp;"O"
@@ -2282,8 +2243,7 @@ IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/DepartureTransportMeans&nbsp;=&nbsp;"N" AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF /<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
+ELSE IF /<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"N"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"O"
@@ -2305,8 +2265,7 @@ ELSE IF (&lt;CC015C-CONSIGNMENT.DEPARTURE TRANSPORT MEANS&gt; is NOT PRESENT OR<
 &nbsp;&nbsp;&nbsp;&nbsp;PRESENT) AND (&lt;CC013C-CONSIGNMENT.HOUSE CONSIGNMENT. DEPARTURE TRANSPORT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;MEANS&gt; is NOT PRESENT OR &lt;CCA13D-CONSIGNMENT.HOUSE CONSIGNMENT. DEPARTURE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;TRANSPORT MEANS&gt; is NOT PRESENT)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CC170C-CONSIGNMENT-DEPARTURE TRANSPORT   MEANS&gt; is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CC170C-CONSIGNMENT-DEPARTURE TRANSPORT   MEANS&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= "N"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
@@ -2327,8 +2286,7 @@ ELSE IF (/CC015C/Consignment/DepartureTransportMeans is NOT PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/Consignment/DepartureTransportMeans is NOT PRESENT) AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(/CC013C/Consignment/HouseConsignment/DepartureTransportMeans is NOT PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/Consignment/HouseConsignment/DepartureTransportMeans is NOT PRESENT)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /CC170C/Consignment/DepartureTransportMeans is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /CC170C/Consignment/DepartureTransportMeans is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"N"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/CC170C/Consignment/HouseConsignment/DepartureTransportMeans&nbsp;=&nbsp;"O"
@@ -2369,8 +2327,7 @@ ELSE<br>
 IF &lt;AUTHORISATION.Type&gt; is NOT EQUAL to 'C521'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TRANSIT OPERATION.Limit date&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;Transit Operation/Additional declaration type&gt; is EQUAL to 'D'<br>
+ELSE IF &lt;Transit Operation/Additional declaration type&gt; is EQUAL to 'D'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;TRANSIT OPERATION.Limit date&gt;&nbsp;=&nbsp;"O"<br>
 ELSE<br>
@@ -2381,8 +2338,7 @@ ELSE<br>
 IF /<span>&#42;</span>/Authorisation/type is NOT EQUAL to 'C521'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/TransitOperation/limitDate&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF /<span>&#42;</span>/TransitOperation/additionalDeclarationType is EQUAL to 'D'<br>
+ELSE IF /<span>&#42;</span>/TransitOperation/additionalDeclarationType is EQUAL to 'D'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/TransitOperation/limitDate&nbsp;=&nbsp;"O"<br>
 ELSE<br>
@@ -2397,8 +2353,7 @@ IF (&lt;CC015C-AUTHORISATION.Type&gt; is NOT EQUAL to 'C521' OR &lt;CCA15D-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;AUTHORISATION.Type&gt; is NOT EQUAL to 'C521' OR &lt;CC013C-AUTHORISATION.Type&gt; is NOT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'C521' OR &lt;CCA13D-AUTHORISATION.Type&gt; is NOT EQUAL to 'C521')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-TRANSIT OPERATION.Limit date&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (&lt;CC015C-TRANSIT OPERATION.Limit date&gt; is NOT PRESENT OR &lt;CCA15D-TRANSIT<br>
+ELSE IF (&lt;CC015C-TRANSIT OPERATION.Limit date&gt; is NOT PRESENT OR &lt;CCA15D-TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OPERATION.Limit date&gt; is NOT PRESENT) AND (&lt;CC013C-TRANSIT OPERATION.Limit date&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NOT PRESENT OR &lt;CCA13D-TRANSIT OPERATION.Limit date&gt; is NOT PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CC170C-TRANSIT OPERATION.Limit date&gt;&nbsp;=&nbsp;"R"<br>
@@ -2411,8 +2366,7 @@ IF (/CC015C/Authorisation/type is NOT EQUAL to 'C521' OR /CCA15D/Authorisation/t
 &nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'C521' OR /CC013C/Authorisation/type is NOT EQUAL to 'C521' OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/Authorisation/type is NOT EQUAL to 'C521')<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/TransitOperation/limitDate&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF (/CC015C/TransitOperation/limitDate is NOT PRESENT OR /CCA15D/TransitOperation/limitDate is<br>
+ELSE IF (/CC015C/TransitOperation/limitDate is NOT PRESENT OR /CCA15D/TransitOperation/limitDate is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NOT PRESENT) AND (/CC013C/TransitOperation/limitDate is NOT PRESENT OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/CCA13D/TransitOperation/limitDate is NOT PRESENT)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /CC170C/TransitOperation/limitDate&nbsp;=&nbsp;"R"<br>
@@ -2495,13 +2449,11 @@ ELSE<br>
 **Functional Description**
 
 IF &lt;TRANSIT OPERATION.Declaration type&gt; is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;HOLDER OF THE TRANSIT PROCEDURE.TIR holder identification number&gt;&nbsp;=&nbsp;"R"<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;HOLDER OF THE TRANSIT PROCEDURE.TIR holder identification number&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;CC015C-TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR' OR &lt;CCA15D-TRANSIT<br>
+ELSE IF &lt;CC015C-TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR' OR &lt;CCA15D-TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OPERATION.Declaration type&gt; is EQUAL to 'TIR' OR &lt;CC013C-TRANSIT OPERATION.Declaration<br>
 &nbsp;&nbsp;&nbsp;&nbsp;type&gt; is EQUAL to 'TIR' OR &lt;CCA13D-TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;HOLDER OF THE TRANSIT PROCEDURE.TIR holder identification number&gt;&nbsp;=&nbsp;"R"<br>
@@ -2530,8 +2482,7 @@ ELSE<br>
 
 IF &lt;CONSIGNMENT.Mode of transport at the border&gt; is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF &lt;TRANSIT OPERATION.Security is in SET {1,2,3}<br>
+ELSE IF &lt;TRANSIT OPERATION.Security is in SET {1,2,3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"R"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-ACTIVE BORDER TRANSPORT MEANS&gt;&nbsp;=&nbsp;"O"
@@ -2540,8 +2491,7 @@ ELSE<br>
 
 IF /<span>&#42;</span>/Consignment/modeOfTransportAtTheBorder is EQUAL to '5'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"N"<br>
-ELSE<br>
-IF /<span>&#42;</span>/TransitOperation/security is in SET {1,2,3}<br>
+ELSE IF /<span>&#42;</span>/TransitOperation/security is in SET {1,2,3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"R"<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/ActiveBorderTransportMeans&nbsp;=&nbsp;"O"

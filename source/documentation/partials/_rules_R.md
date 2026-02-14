@@ -45,11 +45,11 @@ IF the first two characters of &lt;CUSTOMS OFFICE OF DESTINATION (DECLARED).Refe
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of at least one instance of &lt;CUSTOMS OFFICE OF TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; shall be EQUAL to the first two characters of &lt;CUSTOMS OFFICE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;OF DESTINATION (DECLARED).Reference number&gt;;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt; is in set<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CL112 (CountryCodesCTC) AND If the first two characters of &lt;CUSTOMS OFFICE OF DESTINATION<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is in set CL010 (CountryCodesCommunity)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of at least one instance of &lt;CUSTOMS OFFICE OF TRANSIT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; shall be in set CL010 (CountryCodesCommunity).
+IF the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference number&gt; is in set<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CL112 (CountryCodesCTC) AND If the first two characters of &lt;CUSTOMS OFFICE OF DESTINATION<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is in set CL010 (CountryCodesCommunity)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of at least one instance of &lt;CUSTOMS OFFICE OF TRANSIT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; shall be in set CL010 (CountryCodesCommunity).
 
 **Technical Description**
 
@@ -121,16 +121,16 @@ IF &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F} AND the first 
 &nbsp;&nbsp;&nbsp;&nbsp;(at least one &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-PREVIOUS<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DOCUMENT.Type&gt; is in SET CL178 (PreviousDocumentUnionGoods))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;for each and every Consignment Item;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is in SET<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{T2, T2F}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&gt; is in SET CL112 (CountryCodesCTC)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(at least one &lt;CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; is in SET CL178<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(PreviousDocumentUnionGoods)) OR<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(at least one &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-PREVIOUS<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOCUMENT.Type&gt; is in SET CL178 (PreviousDocumentUnionGoods)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for this ‘Consignment item’)
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is in SET<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{T2, T2F}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AND the first two characters of &lt;CUSTOMS OFFICE OF DEPARTURE.Reference<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&gt; is in SET CL112 (CountryCodesCTC)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(at least one &lt;CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; is in SET CL178<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(PreviousDocumentUnionGoods)) OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(at least one &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-PREVIOUS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DOCUMENT.Type&gt; is in SET CL178 (PreviousDocumentUnionGoods)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for this ‘Consignment item’)
 
 **Technical Description**
 
@@ -140,12 +140,12 @@ IF /<span>&#42;</span>/Transit Operation/declarationType is in SET {T2, T2F}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/PreviousDocument/type is in SET CL178) OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL178) for each and every Consignment Item;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL112<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/PreviousDocument/type is in SET CL178) OR<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CL178 for this ‘Consignment item’)
+IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2, T2F}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AND the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL112<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/PreviousDocument/type is in SET CL178) OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(at least one /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/PreviousDocument/type is in SET<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CL178 for this ‘Consignment item’)
 
 
 ## R0023
@@ -185,20 +185,20 @@ Numbering of items:<br>
 IF a discrepancy is identified in the Data Group THEN:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration for which the discrepancy is reported.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF a new Data Group is identified THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the number of the last sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of the Data Group<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 1 and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall be filled in except for the Data Elements that are defined as optional or dependent<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the declaration.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the information related to a Data Group is missing<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
+IF a new Data Group is identified THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the number of the last sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of the Data Group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+ 1 and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall be filled in except for the Data Elements that are defined as optional or dependent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in the declaration.<br>
+IF the information related to a Data Group is missing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
 
 **Technical Description**
 
@@ -206,20 +206,20 @@ Numbering of items:<br>
 IF a discrepancy is identified in the Data Group THEN:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration for which the discrepancy is reported.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF a new Data Group is identified THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the number of the last sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of the Data Group<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 1 and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall be filled in except for the Data Elements that are defined as optional or dependent<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the declaration.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the information related to a Data Group is missing<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
+IF a new Data Group is identified THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the number of the last sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of the Data Group<br>
+&nbsp;&nbsp;&nbsp;&nbsp;+ 1 and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall be filled in except for the Data Elements that are defined as optional or dependent<br>
+&nbsp;&nbsp;&nbsp;&nbsp;in the declaration.<br>
+IF the information related to a Data Group is missing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Sequence number' shall be unique AND EQUAL to the sequence number of the Data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Group defined in the declaration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
 
 
 ## R0055
@@ -232,22 +232,22 @@ IF a discrepancy is identified in the Data Group THEN:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration for which the discrepancy is reported AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the goods item number defined in the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;declaration for which the discrepancy is reported.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF a new Data Group is identified THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration + 1 AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration + 1 AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filled in except for the Data Elements that are defined as optional or dependent in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF a Goods item is missing THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goods item number defined in the declaration AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the item number defined in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
+IF a new Data Group is identified THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration + 1 AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration + 1 AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filled in except for the Data Elements that are defined as optional or dependent in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration.<br>
+IF a Goods item is missing THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;goods item number defined in the declaration AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the item number defined in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
 
 **Technical Description**
 
@@ -257,22 +257,22 @@ IF a discrepancy is identified in the Data Group THEN:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration for which the discrepancy is reported AND<br>
 &nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the goods item number defined in the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;declaration for which the discrepancy is reported.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF a new Data Group is identified THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration + 1 AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration + 1 AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filled in except for the Data Elements that are defined as optional or dependent in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF a Goods item is missing THEN:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goods item number defined in the declaration AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the item number defined in the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
+IF a new Data Group is identified THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the last declaration goods item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number defined in the declaration + 1 AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the last goods item number defined in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration + 1 AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the rest of the Data Items contained in the Data Group and all sub–Data Groups shall be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;filled in except for the Data Elements that are defined as optional or dependent in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration.<br>
+IF a Goods item is missing THEN:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- ‘Declaration goods item number' shall be unique AND EQUAL to the number of the declaration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;goods item number defined in the declaration AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;- 'Goods item number’ shall be unique AND EQUAL to the item number defined in the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;declaration AND the rest of the Data Items contained in the Data Group and all sub–Data Groups<br>
+&nbsp;&nbsp;&nbsp;&nbsp;shall not be filled.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Note: The Sequence number of a Data Group is unique if the XPath and the value of the sequence<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number of this Data Item is unique in this message.
 
 
 ## R0060
@@ -678,8 +678,7 @@ IF /<span>&#42;</span>/Consignment/TransportEquipment/containerIdentificationNum
 **Functional Description**
 
 IF &lt;CONSIGNMENT.Inland mode of transport&gt; is in SET {1,2,3,4,8}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first digit of &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS.Type of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;identification&gt; shall be EQUAL to &lt;CONSIGNMENT.Inland mode of transport&gt;<br>
@@ -693,8 +692,7 @@ IF &lt;CONSIGNMENT.Inland mode of transport&gt; is in SET {1,2,3,4,8}<br>
 **Technical Description**
 
 IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is in SET {1,2,3,4,8}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/DepartureTransportMeans is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first digit of /<span>&#42;</span>/Consignment/DepartureTransportMeans/typeOfIdentification shall be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to /<span>&#42;</span>/Consignment/inlandModeOfTransport<br>
@@ -740,21 +738,21 @@ ELSE IF /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans
 IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '3'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the first data group iteration &lt;Consignment-Departure Transport Means.Type of identification&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;must be EQUAL to '30';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '3'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN for THIS House Consignment, the first data group iteration &lt;CONSIGNMENT-HOUSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONSIGNMENT-DEPARTURE TRANSPORT MEANS.Type of identification&gt; must be EQUAL to '30'
+IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '3'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AND &lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN for THIS House Consignment, the first data group iteration &lt;CONSIGNMENT-HOUSE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CONSIGNMENT-DEPARTURE TRANSPORT MEANS.Type of identification&gt; must be EQUAL to '30'
 
 **Technical Description**
 
 IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '3'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the first data group iteration /<span>&#42;</span>/Consignment/DepartureTransportMeans/typeOfIdentification must<br>
 &nbsp;&nbsp;&nbsp;&nbsp;be EQUAL to '30';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '3'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN for THIS HouseConsignment, the first data group iteration<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans/typeOfIdentification must be EQUAL to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'30'.
+IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '3'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;AND /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN for THIS HouseConsignment, the first data group iteration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans/typeOfIdentification must be EQUAL to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'30'.
 
 
 ## R0476
@@ -762,8 +760,7 @@ IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '3'<br>
 **Functional Description**
 
 IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '3'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the multiplicity of the data group &lt;CONSIGNMENT-DEPARTURE TRANSPORT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the multiplicity of the data group &lt;CONSIGNMENT-DEPARTURE TRANSPORT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MEANS&gt; is more than 1x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the iteration 2 and the iteration 3 (if present) of the data group<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; must include<br>
@@ -779,8 +776,7 @@ IF &lt;CONSIGNMENT.Inland mode of transport&gt; is EQUAL to '3'<br>
 **Technical Description**
 
 IF /<span>&#42;</span>/Consignment/inlandModeOfTransport is EQUAL to '3'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the multiplicity of the data group /<span>&#42;</span>/Consignment/DepartureTransportMeans is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the multiplicity of the data group /<span>&#42;</span>/Consignment/DepartureTransportMeans is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more than 1x<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the iteration 2 and the iteration 3 (if present) of the data group<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/DepartureTransportMeans must include<br>
@@ -802,30 +798,30 @@ IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt; is PRESENT for all &lt;CONSIG
 &nbsp;&nbsp;&nbsp;&nbsp;HOUSE CONSIGNMENT&gt;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNOR&gt; must be<br>
 &nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt; is PRESENT for all &lt;CONSIGNMENT-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt; must be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for all &lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRANSPORT MEANS&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT- TRANSPORT CHARGES&gt; is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT- TRANSPORT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHARGES&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Reference number UCR&gt; is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Reference number<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UCR&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of dispatch&gt; is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of dispatch&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of destination&gt; is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of destination&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;must be different from the others.
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt; is PRESENT for all &lt;CONSIGNMENT-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNEE&gt; must be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE TRANSPORT MEANS&gt; is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for all &lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-DEPARTURE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;TRANSPORT MEANS&gt; must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT- TRANSPORT CHARGES&gt; is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT- TRANSPORT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CHARGES&gt; must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Reference number UCR&gt; is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Reference number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;UCR&gt; must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of dispatch&gt; is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of dispatch&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of destination&gt; is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT.Country of destination&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;must be different from the others.
 
 **Technical Description**
 
@@ -833,30 +829,30 @@ IF /<span>&#42;</span>/Consignment/HouseConsignment/Consignor is PRESENT for all
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/Consignor must be different from<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/Consignee is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/Consignee must be different<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans must<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/TransportCharges is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/TransportCharges must be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/referenceNumberUCR is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/referenceNumberUCR must be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDispatch is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDispatch must be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDestination is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDestination must be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different from the others.
+IF /<span>&#42;</span>/Consignment/HouseConsignment/Consignee is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/Consignee must be different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/DepartureTransportMeans must<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be different from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/TransportCharges is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/TransportCharges must be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/referenceNumberUCR is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/referenceNumberUCR must be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDispatch is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDispatch must be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDestination is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of /<span>&#42;</span>/Consignment/HouseConsignment/countryOfDestination must be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;different from the others.
 
 
 ## R0507
@@ -869,23 +865,23 @@ IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Country of dispatch&gt; is
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ITEM.Country<br>
 &nbsp;&nbsp;&nbsp;&nbsp;of dispatch&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Country of destination&gt; is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;all &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Country<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of destination&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Reference number UCR&gt; is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;all &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Reference<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number UCR&gt; must be different from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM. Declaration type &gt; is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Declaration type&gt; must be different from the others.
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Country of destination&gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Country<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of destination&gt; must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Reference number UCR&gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Reference<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number UCR&gt; must be different from the others;<br>
+IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM. Declaration type &gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ITEM.Declaration type&gt; must be different from the others.
 
 **Technical Description**
 
@@ -894,21 +890,21 @@ IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDis
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDispatch must be different from<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination must be different<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR must be different<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT for all<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType must be different from the<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;others
+IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/countryOfDestination must be different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/referenceNumberUCR must be different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;from the others;<br>
+IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT for all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN at least one occurrence of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType must be different from the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;others
 
 
 ## R0520
@@ -922,8 +918,7 @@ IF ( the Data Item &lt;CC013C-TRANSIT OPERATION.Amendment type flag&gt; is EQUAL
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the only difference between this CC013C and the CC015C (or the previous CC013C) shall be located<br>
 &nbsp;&nbsp;&nbsp;&nbsp;in the Data Group &lt;GUARANTEE&gt;<br>
-ELSE<br>
-IF (the Data Item &lt;TRANSIT OPERATION.Amendment type flag&gt; is EQUAL to '0' AND the<br>
+ELSE IF (the Data Item &lt;TRANSIT OPERATION.Amendment type flag&gt; is EQUAL to '0' AND the<br>
 &nbsp;&nbsp;&nbsp;&nbsp;movement IS NOT IN STATE “Guarantee under amendment”)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;all Data Groups and Data Items of the original declaration can be amended, with the exception of<br>
@@ -950,8 +945,7 @@ IF (the Data Item /CC013C/TransitOperation/amendmentTypeFlag is EQUAL to '1' AND
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;the only difference between this CC013C and the CC015C (or the previous CC013C) shall be located<br>
 &nbsp;&nbsp;&nbsp;&nbsp;in the Data Group /<span>&#42;</span>/Guarantee<br>
-ELSE<br>
-IF (the Data Item /<span>&#42;</span>/TransitOperation/amendmentTypeFlag is EQUAL to '0' AND the movement IS<br>
+ELSE IF (the Data Item /<span>&#42;</span>/TransitOperation/amendmentTypeFlag is EQUAL to '0' AND the movement IS<br>
 &nbsp;&nbsp;&nbsp;&nbsp;NOT IN STATE “Guarantee under amendment”)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
 &nbsp;&nbsp;&nbsp;&nbsp;all Data Groups and Data Items of the original declaration can be amended, with the exception of<br>
@@ -976,21 +970,17 @@ IF (the Data Item /<span>&#42;</span>/TransitOperation/amendmentTypeFlag is EQUA
 IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-ADDITIONAL<br>
 &nbsp;&nbsp;&nbsp;&nbsp;REFERENCE.Type&gt; is in SET CL234 (DocumentTypeExcise)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(i.e. Export of excise goods followed by transit (EMCS&AES+NCTS))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT–HOUSE CONSIGNMENT–PREVIOUS DOCUMENT.Type&gt; is EQUAL to 'N830'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CONSIGNMENT–HOUSE CONSIGNMENT–PREVIOUS DOCUMENT.Type&gt; is EQUAL to 'N830'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN (&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'T1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T1, TIR}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-SUPPORTING<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-SUPPORTING<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOCUMENT.Type&gt; is in SET CL234 (DocumentTypeExcise)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM. Declaration type&gt; is in<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET {T2, T2F}<br>
@@ -1001,18 +991,14 @@ IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-ADDITIONAL<br>
 
 IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/AdditionalReference/type is in SET CL234<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(i.e. Export of excise goods followed by transit (EMCS&AES+NCTS))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to 'N830'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/HouseConsignment/PreviousDocument/type is EQUAL to 'N830'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is EQUAL to 'T1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/TransitOperation/declarationType is in SET {T1, TIR}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/SupportingDocument/type is in SET CL234<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(i.e. Transit movement of EU goods under excise suspension (EMCS+NCTS))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is PRESENT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
@@ -1293,10 +1279,10 @@ IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINAT
 &nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is EQUAL to 'AD'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the country code (first two characters) in the &lt;CUSTOMS OFFICE OF TRANSIT<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is EQUAL to 'AD';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINATION<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is EQUAL to 'AD'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the country code (first two characters) in the &lt;CUSTOMS OFFICE OF TRANSIT<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ACTUAL).Reference number&gt; is EQUAL to 'AD'
+IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINATION<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference number&gt; is EQUAL to 'AD'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN the country code (first two characters) in the &lt;CUSTOMS OFFICE OF TRANSIT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ACTUAL).Reference number&gt; is EQUAL to 'AD'
 
 **Technical Description**
 
@@ -1304,9 +1290,9 @@ IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDec
 &nbsp;&nbsp;&nbsp;&nbsp;'AD'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of /<span>&#42;</span>/CustomsOfficeOfTransitDeclared/referenceNumber is EQUAL to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'AD';<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'AD'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of /<span>&#42;</span>/CustomsOfficeOfTransitActual/referenceNumber is EQUAL to 'AD'
+IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'AD'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN the first two characters of /<span>&#42;</span>/CustomsOfficeOfTransitActual/referenceNumber is EQUAL to 'AD'
 
 
 ## R0909
@@ -1315,55 +1301,47 @@ IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDec
 
 IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINATION<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(DECLARED) Reference number&gt; is EQUAL to 'SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is EQUAL to 'IT'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'T2SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is in set CL010 (CountryCodesCommunity) AND NOT EQUAL to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IT'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F} OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in SET {T2,T2F};<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINATION (ACTUAL)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reference number&gt; is EQUAL to 'SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is EQUAL to 'IT'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'T2SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is in set CL010 (CountryCodesCommunity) AND NOT EQUAL to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IT'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F} OR<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is in SET {T2,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F}
+&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DESTINATION (ACTUAL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reference number&gt; is EQUAL to 'SM'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is EQUAL to 'IT'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'T2SM'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DEPARTURE.Reference number&gt; is in set CL010 (CountryCodesCommunity) AND NOT EQUAL to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'IT'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F} OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM.Declaration type&gt; is in SET {T2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F}
 
 **Technical Description**
 
 IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is EQUAL to<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'IT',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'IT',<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'T2SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CL010<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND NOT EQUAL to 'IT'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F} OR<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F};<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationActual/referenceNumber is EQUAL to 'SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'IT',<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'T2SM'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL010<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND NOT EQUAL to 'IT'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F} OR<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F}
+&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationActual/referenceNumber is EQUAL to 'SM'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'IT',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'T2SM'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is in SET CL010<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND NOT EQUAL to 'IT'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F} OR<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/declarationType is in SET {T2,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T2F}
 
 
 ## R0910
@@ -1395,13 +1373,13 @@ IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DEPARTUR
 &nbsp;&nbsp;&nbsp;&nbsp;DESTINATION<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(DECLARED).Reference&gt; is in SET CL010 (CountryCodesCommunity)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F};<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DEPARTURE.Reference<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;number&gt; is<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'SM' AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESTINATION<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ACTUAL).Reference&gt; is in SET CL010 (CountryCodesCommunity)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F}
+IF the country code (first two characters) in the &lt;CUSTOMS OFFICE OF DEPARTURE.Reference<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&gt; is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to 'SM' AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the country code (first two characters) in the &lt;CUSTOMS OFFICE OF<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DESTINATION<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(ACTUAL).Reference&gt; is in SET CL010 (CountryCodesCommunity)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Declaration type&gt; is in SET {T2, T2F}
 
 **Technical Description**
 
@@ -1409,10 +1387,10 @@ IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/refe
 &nbsp;&nbsp;&nbsp;&nbsp;the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationDeclared/referenceNumber is in SET<br>
 &nbsp;&nbsp;&nbsp;&nbsp;CL010<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F};<br>
-&nbsp;&nbsp;&nbsp;&nbsp;IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'SM' AND<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationActual/referenceNumber is in SET<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CL010<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F}
+IF the first two characters of /<span>&#42;</span>/CustomsOfficeOfDeparture/referenceNumber is EQUAL to 'SM' AND<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the first two characters of /<span>&#42;</span>/CustomsOfficeOfDestinationActual/referenceNumber is in SET<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CL010<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/declarationType is in SET {T2, T2F}
 
 
 ## R0912
