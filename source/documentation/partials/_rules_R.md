@@ -318,20 +318,20 @@ IF /<span>&#42;</span>/Consignment/ActiveBorderTransportMeans/typeOfIdentificati
 
 **Functional Description**
 
-IF the last two characters of &lt;Message recipient&gt; are NOT in SET CL147<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(CountryCustomsSecurityAgreementArea)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; shall NOT be EQUAL to 'N355' (ENS)<br>
-ELSE IF &lt;TRANSIT OPERATION.Security&gt; is in SET {1, 3}<br>
+IF the last two characters of &lt;Message recipient&gt; are in SET CL147<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(CountryCustomsSecurityAgreementArea) AND &lt;TRANSIT OPERATION.Security&gt; is in SET {1, 3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one iteration of &lt;CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; must be EQUAL to<br>
-&nbsp;&nbsp;&nbsp;&nbsp;'N355' (ENS)
+&nbsp;&nbsp;&nbsp;&nbsp;'N355'<br>
+ELSE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;CONSIGNMENT-PREVIOUS DOCUMENT.Type&gt; shall NOT be EQUAL to 'N355'
 
 **Technical Description**
 
-IF the last two characters of /<span>&#42;</span>/messageRecipient are NOT in SET CL147<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/Consignment/PreviousDocument/type shall NOT be EQUAL to 'N355' (ENS)<br>
-ELSE IF /<span>&#42;</span>/TransitOperation/security is in SET {1, 3}<br>
+IF the last two characters of /<span>&#42;</span>/messageRecipient are in SET CL147 AND /<span>&#42;</span>/TransitOperation/security<br>
+&nbsp;&nbsp;&nbsp;&nbsp;is in SET {1, 3}<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one iteration of /<span>&#42;</span>/Consignment/PreviousDocument/type must be EQUAL to 'N355'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(ENS)
+ELSE<br>
+&nbsp;&nbsp;&nbsp;&nbsp; /<span>&#42;</span>/Consignment/PreviousDocument/type shall NOT be EQUAL to 'N355'
 
 
 ## R0102
@@ -414,7 +414,7 @@ IF &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-PACKAGING.Number of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;packages&gt; is EQUAL to '0' (zero)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN in this &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM&gt; any other<br>
 &nbsp;&nbsp;&nbsp;&nbsp;occurrence of &lt;CONSIGNMENT-HOUSE CONSIGNMENT-CONSIGNMENT ITEM-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;PACKAGING.Number of packages&gt; shall be EQUAL to '0' (zero).
+&nbsp;&nbsp;&nbsp;&nbsp;PACKAGING.Number of packages&gt; shall be EQUAL to “0” (zero).
 
 **Technical Description**
 
@@ -422,7 +422,7 @@ IF /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/Packaging/nu
 &nbsp;&nbsp;&nbsp;&nbsp;'0' (zero)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN in this /<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem any other occurrence of<br>
 &nbsp;&nbsp;&nbsp;&nbsp;/<span>&#42;</span>/Consignment/HouseConsignment/ConsignmentItem/Packaging /numberOfPackages shall be<br>
-&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to '0' (zero).
+&nbsp;&nbsp;&nbsp;&nbsp;EQUAL to “0” (zero).
 
 
 ## R0220
@@ -1066,13 +1066,13 @@ shall be validated by EU MS and by the country where the TCUIN is defined.
 
 **Functional Description**
 
-IF &lt;TRANSIT OPERATION.Declaration type&gt; is EQUAL to 'TIR'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION.Reduced dataset indicator&gt; = '0' (zero)
+IF &lt;TRANSIT OPERATION. Declaration Type&gt; is EQUAL to 'TIR'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;THEN &lt;TRANSIT OPERATION. Reduced Dataset Indicator&gt;&nbsp;=&nbsp;"O"
 
 **Technical Description**
 
 IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'TIR'<br>
-&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/reducedDatasetIndicator = '0' (zero)
+&nbsp;&nbsp;&nbsp;&nbsp;THEN /<span>&#42;</span>/TransitOperation/reducedDatasetIndicator&nbsp;=&nbsp;"O"
 
 
 ## R0850
@@ -1082,7 +1082,7 @@ IF /<span>&#42;</span>/TransitOperation/declarationType is EQUAL to 'TIR'<br>
 IF sender is in EU (CL010 (CountryCodesCommunity))<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the value must be a valid EORI or TCUIN (validated by receiver, if located in EU),<br>
 ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(sender is not in EU) the value must be a TIN number (validated by the message sender only)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(sender is not in EU) the value must be a TIN number (validated by the message sender only).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The EORI/TCUIN values shall comply with the following pattern: &lt;xs:pattern value="[A-Z]{2}[\x21-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;\x7E]{1,15}"/&gt;
 
@@ -1091,7 +1091,7 @@ ELSE<br>
 IF sender is in EU (CL010)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN the value must be a valid EORI or TCUIN (validated by receiver, if located in EU),<br>
 ELSE<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(sender is not in EU) the value must be a TIN number (validated by the message sender only)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(sender is not in EU) the value must be a TIN number (validated by the message sender only).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;The EORI/TCUIN values shall comply with the following pattern: &lt;xs:pattern value="[A-Z]{2}[\x21-<br>
 &nbsp;&nbsp;&nbsp;&nbsp;\x7E]{1,15}"/&gt;
 
@@ -1154,7 +1154,7 @@ ELSE<br>
 
 **Functional Description**
 
-IF &lt;TRANSIT OPERATION.Reduced dataset indicator&gt; = '1'<br>
+IF &lt;TRANSIT OPERATION. Reduced Dataset Indicator&gt; = '1'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;THEN at least one &lt;AUTHORISATION. Type&gt; is EQUAL to 'C524'<br>
 ELSE<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;AUTHORISATION. Type&gt; shall not be EQUAL to 'C524'
