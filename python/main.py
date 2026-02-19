@@ -79,7 +79,9 @@ for key, rule_list in extracted_rules.items():
 
 for cat, ruleset in extracted_rules.items():
     if expected_rules.__contains__(cat):
-        render.write_rules_file(cat, ruleset)
+        render.write_rules_files(cat, ruleset)
+
+render.write_rules_index()
 
 # finally, a diagnostic -- in each rule we check for CL\d{3} and compare it against our code lists. If it isn't available
 # from Europa, we'll print it out here.
