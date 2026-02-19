@@ -61,7 +61,7 @@ tail = """</table>"""
 
 
 def linkify_rule(rule: str) -> str:
-    return f"""<a href="../phase-6-rules.html#{rule.lower()}">{rule}</a>"""
+    return f"""<a href="../phase-6-rules/{rule}.html">{rule}</a>"""
 
 
 def create_rules(rules: list[str]):
