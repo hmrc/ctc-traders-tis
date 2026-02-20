@@ -17,7 +17,6 @@ import os
 import re
 from collections import defaultdict
 from inspect import cleandoc
-from itertools import zip_longest
 from os import path
 from typing import Optional
 
@@ -543,6 +542,9 @@ def _zip_n(lists: list[list], fill=None) -> list[list]:
     return zipped
 
 
+technical_rule_category_names = {'c': 'Conditions', 'g': 'Guidelines', 'r': 'Rules', 's': 'Sequencing Rules'}
+
+
 def write_rules_index() -> None:
     if not path.exists(ruby_templates_save_location):
         raise FileNotFoundError({ruby_templates_save_location})
@@ -564,7 +566,7 @@ def write_rules_index() -> None:
 
     rule_categories = rule_codes_by_category.keys()
 
-    rule_header_row = list(map(lambda cat: f"Rule code {cat}", rule_categories))
+    rule_header_row = list(map(lambda cat: technical_rule_category_names[cat.lower()], rule_categories))
 
     rule_rows = _zip_n(list(rule_codes_by_category.values()), '')
 
