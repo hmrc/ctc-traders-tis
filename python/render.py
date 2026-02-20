@@ -15,7 +15,9 @@
 """
 import os
 import re
+from collections import defaultdict
 from inspect import cleandoc
+from itertools import zip_longest
 from os import path
 from typing import Optional
 
@@ -432,7 +434,7 @@ def render_rules(rules: list[Rule]) -> str:
 
 def _write_md_rules_files(category: str, rules: list[Rule]):
     """
-    Writes the rules for a given category to Markdown files named "rules/category/_[a-z]\\d{4}.md"
+    Writes the rules for a given category to Markdown files named "rules/[a-z]/_[a-z]\\d{4}.md"
     :param category: The rule category, a single letter
     :param rules: The rules to render
     :return: None
@@ -519,6 +521,28 @@ def create_md_table(table_header_row: list[str], rows: list[list[str]]) -> str:
     return "\n".join(table_rows)
 
 
+def _zip_n(lists: list[list], fill=None) -> list[list]:
+    max_length = 0
+
+    for l in lists:
+        max_length = max(max_length, len(l))
+
+    zipped = []
+
+    for i in range(max_length):
+        curr = []
+
+        for l in lists:
+            if i < len(l):
+                curr.append(l[i])
+            else:
+                curr.append(fill)
+
+        zipped.append(curr)
+
+    return zipped
+
+
 def write_rules_index() -> None:
     if not path.exists(ruby_templates_save_location):
         raise FileNotFoundError({ruby_templates_save_location})
@@ -529,16 +553,20 @@ def write_rules_index() -> None:
 
     rule_codes = sorted(rule_codes)
 
-    rule_header_row = ['Rule code', 'Category']
+    rule_codes_by_category: dict[str, list[str]] = defaultdict(list)
 
-    rule_rows = []
+    md_rule_linkify_func = lambda rc: f"[{rc}](/documentation/phase-6-rules/{rc}.html)"
 
     for rule_code in rule_codes:
         category = rule_code[0]
-        rule_code_link = f"[{rule_code}](/documentation/phase-6-rules/{rule_code}.html)"
-        rule_row = [rule_code_link, category]
 
-        rule_rows.append(rule_row)
+        rule_codes_by_category[category].append(md_rule_linkify_func(rule_code))
+
+    rule_categories = rule_codes_by_category.keys()
+
+    rule_header_row = list(map(lambda cat: f"Rule code {cat}", rule_categories))
+
+    rule_rows = _zip_n(list(rule_codes_by_category.values()), '')
 
     rule_table = create_md_table(rule_header_row, rule_rows)
 
