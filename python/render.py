@@ -168,7 +168,7 @@ def render_children_fields(fields: list[MessageField], hyphens: int, parent_leve
         # fields
         r.append(cleandoc(f"""
         <tr data-parent="{parent_level}">
-            <td>{indent}{f.field}</td>
+            <td>{indent}- {f.field}</td>
             <td>{f.required}</td>
             <td>{special_formats.get(f.field, f.format)}</td>
             <td>{render_optional_code_list(f.code_list)}</td>
