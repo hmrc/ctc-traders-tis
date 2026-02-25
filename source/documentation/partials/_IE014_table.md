@@ -66,13 +66,13 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_0">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;LRN</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  LRN</td>
     <td>D</td>
     <td>an..22</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0467">C0467</a></td>
 </tr><tr data-parent="IE014_0">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;MRN</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  MRN</td>
     <td>D</td>
     <td>an18</td>
     <td>&nbsp;</td>
@@ -84,31 +84,31 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_1">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Request date and time</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Request date and time</td>
     <td>D</td>
     <td>an19</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0129">C0129</a><br /><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE014_1">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Decision date and time</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Decision date and time</td>
     <td>D</td>
     <td>an19</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0870">C0870</a><br /><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE014_1">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Decision</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Decision</td>
     <td>D</td>
     <td>n1</td>
     <td>CL027</td>
     <td><a href="../phase-6-rules.html#c0128">C0128</a><br /><a href="../phase-6-rules.html#r0102">R0102</a></td>
 </tr><tr data-parent="IE014_1">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Initiated by customs</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Initiated by customs</td>
     <td>R</td>
     <td>n1</td>
     <td>CL027</td>
     <td><a href="../phase-6-rules.html#g0101">G0101</a></td>
 </tr><tr data-parent="IE014_1">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Justification</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Justification</td>
     <td>D</td>
     <td>an..512</td>
     <td>&nbsp;</td>
@@ -120,7 +120,7 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_2">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Reference number</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Reference number</td>
     <td>R</td>
     <td>an8</td>
     <td>CL171</td>
@@ -132,19 +132,19 @@
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_3">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Identification number</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Identification number</td>
     <td>O</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#g0120">G0120</a><br /><a href="../phase-6-rules.html#r0850">R0850</a></td>
 </tr><tr data-parent="IE014_3">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;TIR holder identification number</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  TIR holder identification number</td>
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0904">C0904</a><br /><a href="../phase-6-rules.html#g0002">G0002</a></td>
 </tr><tr data-parent="IE014_3">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;-  Name</td>
     <td>D</td>
     <td>an..70</td>
     <td>&nbsp;</td>
@@ -156,25 +156,25 @@
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0250">C0250</a></td>
 </tr><tr data-parent="IE014_4">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street and number</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  Street and number</td>
     <td>R</td>
     <td>an..70</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_4">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Postcode</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  Postcode</td>
     <td>D</td>
     <td>an..17</td>
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#c0505">C0505</a></td>
 </tr><tr data-parent="IE014_4">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  City</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_4">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  Country</td>
     <td>R</td>
     <td>a2</td>
     <td>CL248</td>
@@ -186,19 +186,19 @@
     <td>&nbsp;</td>
     <td><a href="../phase-6-rules.html#g0105">G0105</a></td>
 </tr><tr data-parent="IE014_5">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  Name</td>
     <td>R</td>
     <td>an..70</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_5">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone number</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  Phone number</td>
     <td>R</td>
     <td>an..35</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr><tr data-parent="IE014_5">
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail address</td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- -  E-mail address</td>
     <td>O</td>
     <td>an..256</td>
     <td>&nbsp;</td>
