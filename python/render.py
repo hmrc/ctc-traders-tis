@@ -83,16 +83,19 @@ def render_optional_code_list(value: Optional[str]) -> str:
     else:
         return replace_code_list(value)
 
+
 level_counter = 0
 
 parent_stack = []
 
 message_type_prefix = ""
 
+
 def get_next_level():
     global level_counter
     level_counter += 1
     return f"{message_type_prefix}_{level_counter - 1}"
+
 
 def reset_level_counter(message_type: str = ""):
     global level_counter
@@ -101,6 +104,7 @@ def reset_level_counter(message_type: str = ""):
     level_counter = 0
     parent_stack = []
     message_type_prefix = message_type
+
 
 # ---- Rendering for Message Types
 
@@ -249,23 +253,146 @@ def write_message_type_file(message_type: str, categories: list[MessageCategory]
         md_file.write(render_type(categories, message_type))
 
 
-# ---- Rendering for Rules
-
-replace_line_break_regex = re.compile(r"([A-Za-z0-9]{2}[:.])\n")
-
-
-def process_rule_string(string: str, preserve_all_line_breaks = True) -> str:
-    string = string.replace("<", "&lt;").replace(">", "&gt;")
-    if preserve_all_line_breaks:
-        string = string.replace("\n", "<br />\n")
-    else:
-        # only preserve those preceded by a full stop -- in which case we emulate paragraphs with spacing a bit better
-        string = re.sub(replace_line_break_regex, r"\1<br /><br />\n", string)
-
-    return replace_code_list_full_string(string.replace("*", "<span>&#42;</span>"))
+def process_rule_string(string: str, rule_code: str) -> str:
+    formatted = indent_rule(string, rule_code)
+    formatted = replace_code_list_full_string(formatted)
+    formatted = formatted.replace("*", "<span>&#42;</span>")
+    return formatted
 
 
 specific_line_break_rules: list[str] = []
+
+
+def indent_rule(rule_text: str, rule_code: str = '', allow_if_in_else: bool = False) -> str:
+    """
+    Indents a rule text.
+    There are no scope terminators/delimiters, so dangling else problems are solved by pairing the ELSE with
+    the nearest unmatched IF. This means that indentation is biased and might not reflect the intended logic.
+    Also, an IF clause immediately after another IF clause will be indented within the previous IF clause. In case
+    of, for example, C0001, this is correct indentation, but in case of R0506, the IF clauses should be at the same
+    level (this is partially circumvented by a lookahead "strategy"). Generally, it's not possible to remedy this unless
+    explicit scope delimiters are introduced. For R0506, the original PDF document uses newlines between IF clauses as
+    delimiters, but they're being discarded as part of the parsing of the document into rules. This is not consistent
+    throughout the document, as for R0507 the IF clauses are not delimited by newlines, despite the fact that the
+    intention is for those clauses to be separate and not nested, like R0506.
+
+    :param rule_text: The rule description
+    :param rule_code: The rule code
+    :param allow_if_in_else: Whether to allow else blocks to contain nested conditionals
+    :return: The indented rule description with escaped HTML entities
+    """
+    # nbsp's are found in some of the rules' descriptions, so we replace them with ordinary whitespaces
+    rule_text = rule_text.replace('\xa0', ' ')
+    rule_text = rule_text.replace('\r\n', '\n')
+    rule_text = rule_text.replace('\r', '\n')
+    rule_text = rule_text.replace('<', '&lt;').replace('>', '&gt;')
+    rule_text = re.sub(r' = "([^"]*)"', r'&nbsp;=&nbsp;"\1"', rule_text)
+
+    rule_split_lines: list[str] = rule_text.split('\n')
+
+    # some rule lines start with an 'IF ex: C0467 line 1
+    # some rule lines start with ELSE IF where there are more than 1 spaces between ELSE and IF: ex C0003 line 5
+    rule_sanitize_replacements = [(re.compile(r"^'IF"), 'IF'), (re.compile(r"^ELSE\s+IF"), 'ELSE IF')]
+
+    rule_sanitized_lines: list[str] = []
+
+    for rule_line in rule_split_lines:
+        rule_line = rule_line.strip()
+
+        for pattern, repl in rule_sanitize_replacements:
+            rule_line = re.sub(pattern, repl, rule_line)
+
+        rule_sanitized_lines.append(rule_line)
+
+    rule_merged_lines: list[str] = []
+
+    rule_if_pattern = re.compile(r"^(?:THEN\s)?IF")
+
+    i = 0
+    # merge empty ELSE and THEN lines with the next IF line, if the IF line occurs immediately after
+    while i < len(rule_sanitized_lines) - 1:
+        if rule_sanitized_lines[i] in ['ELSE', 'THEN'] and re.match(rule_if_pattern, rule_sanitized_lines[i + 1]):
+            rule_merged_lines.append(f"{rule_sanitized_lines[i]} {rule_sanitized_lines[i + 1]}")
+
+            i += 1
+        else:
+            rule_merged_lines.append(rule_sanitized_lines[i])
+
+        i += 1
+
+    if i == len(rule_sanitized_lines) - 1:
+        rule_merged_lines.append(rule_sanitized_lines[i])
+
+    indented_rule_lines = []
+
+    ifs = []
+
+    base_indent = 4
+
+    print(f"Indenting rule {rule_code}...")
+
+    for line_number, rule_line in enumerate(rule_merged_lines):
+        if re.match(rule_if_pattern, rule_line):
+            # when else conditional nesting is not allowed, step out of the else
+            if not allow_if_in_else and ifs and ifs[-1]:
+                ifs.pop()
+
+            # lookahead strategy;
+            # if the current IF is inside the previous IF, if the next clause is IF then there's a
+            # high chance, based on looking through the original PDF document, that the current IF
+            # should not be nested inside the previous IF
+            if rule_line.startswith('IF') and ifs and not ifs[-1]:
+                is_next_if = False
+
+                i = line_number + 1
+                while i < len(rule_merged_lines):
+                    if rule_merged_lines[i].startswith('ELSE'):
+                        break
+                    elif re.match(rule_if_pattern, rule_merged_lines[i]):
+                        is_next_if = True
+                        break
+
+                    i += 1
+
+                if is_next_if or i == len(rule_merged_lines):
+                    ifs.pop()
+
+            depth = len(ifs)
+
+            indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{rule_line}")
+
+            ifs.append(False)
+        elif rule_line.startswith('ELSE'):
+            # find nearest unmatched if
+            while ifs and ifs[-1]:
+                ifs.pop()
+
+            if not ifs:
+                error_message_iter = map(lambda rl: f"{rl[0] + 1}. {rl[1]}", enumerate(rule_merged_lines))
+                raise RuntimeError(
+                    f"Malformed rule: found unmatchable ELSE on line: {line_number + 1} in rule {rule_code}\n" +
+                    "\n".join(error_message_iter)
+                )
+
+            depth = len(ifs)
+
+            if not rule_line.startswith('ELSE IF'):
+                indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}ELSE")
+
+                else_suite = rule_line[5:]
+
+                if else_suite:
+                    indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{else_suite}")
+
+                ifs[-1] = True
+            else:
+                indented_rule_lines.append(f"{(depth - 1) * base_indent * '&nbsp;'}{rule_line}")
+        else:
+            depth = len(ifs)
+
+            indented_rule_lines.append(f"{depth * base_indent * '&nbsp;'}{rule_line}")
+
+    return '<br>\n'.join(indented_rule_lines)
 
 
 def should_replace_line_breaks(rule_code: str) -> bool:
@@ -281,8 +408,8 @@ def render_rule(rule: Rule) -> str:
     :param rule: The rule to render
     :return: The markdown
     """
-    func = process_rule_string(rule.functional_description, should_replace_line_breaks(rule.rule_code))
-    tech = process_rule_string(rule.technical_description)
+    func = process_rule_string(rule.functional_description, rule.rule_code)
+    tech = process_rule_string(rule.technical_description, rule.rule_code)
     return cleandoc(
         f"""## {rule.rule_code}
 

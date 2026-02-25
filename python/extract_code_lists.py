@@ -1,8 +1,10 @@
+import csv
 import os
 import re
 import sys
-import csv
+
 from PyPDF2 import PdfReader
+
 
 def extract_cl_references(search_dir):
     pattern = re.compile(r"CL[0-9]{3}", re.IGNORECASE)
@@ -18,6 +20,7 @@ def extract_cl_references(search_dir):
                     found_refs.update(m.upper() for m in matches)
 
     return sorted(found_refs, key=lambda x: int(x[2:]))
+
 
 def extract_bracketed_from_pdf(pdf_path, cl_codes):
     results = {}
@@ -50,6 +53,7 @@ def extract_bracketed_from_pdf(pdf_path, cl_codes):
             results[cl] = bracket_value
 
     return results
+
 
 def extract_mappings(cl_list, csv_file, pdf_file, output_file):
     ENTITY_COLUMN = "ENTITY_NAME"
@@ -104,6 +108,7 @@ def extract_mappings(cl_list, csv_file, pdf_file, output_file):
             writer.writerow([cl, entity_value])
 
     print(f"\nOutput saved to: {output_file}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:

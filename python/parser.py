@@ -13,12 +13,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 """
+import re
+from typing import Optional, Iterator
+
+from PyPDF2 import PdfReader
+
 import hmrc_exceptions
 from data_types import MessageField, MessageCategory, Rule
-from typing import Optional, Iterator
 from message_reference import expected_message_references
-import re
-from PyPDF2 import PdfReader
 
 regex = "Message Structure for: (IE\\d{3})"
 
@@ -43,8 +45,8 @@ def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[li
             # We start the scan from this page for the new type, and we now have the range for the previous message type
             # which we store.
             if current_message_type is not None:
-                print(f"... message type {current_message_type}, pages {start_page} to {x-1}")
-                l.append((current_message_type, start_page, x-1))
+                print(f"... message type {current_message_type}, pages {start_page} to {x - 1}")
+                l.append((current_message_type, start_page, x - 1))
 
             # Of course, we only care about external domain types, so we ignore IE messages that are not of interest
             # to us, such as the IE001, which is common domain.
@@ -97,7 +99,7 @@ def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> 
     categories_iter: Optional[Iterator[MessageCategory]] = None
     field: Optional[MessageField] = None
     # for the first pages, until we encounter "MESSAGE", we have categories
-    for page in range(start, end+1):
+    for page in range(start, end + 1):
         text = reader.pages[page].extract_text().splitlines()
         # A page will EITHER contain categories, OR will contain fields, NOT BOTH
         # We can determine the boundary by looking for the word MESSAGE as the first message
@@ -165,6 +167,7 @@ def read_and_transform(reader: PdfReader, start: int, end: int, message_type: st
     hmrc_exceptions.message_category_transformation(message_type, categories)
     return categories
 
+
 def extract_reference_pages(reader: PdfReader, start, end, message_type, valid_references) -> (int, int):
     actual_start = 0
     actual_end = end
@@ -179,7 +182,7 @@ def extract_reference_pages(reader: PdfReader, start, end, message_type, valid_r
                     actual_start = page
                 else:
                     if (actual_start != 0):
-                        actual_end = page -1
+                        actual_end = page - 1
     return actual_start, actual_end
 
 
@@ -225,4 +228,3 @@ def extract_rules(reader: PdfReader, start_page: int) -> dict[str, list[Rule]]:
 
     print(f"Rule extraction complete")
     return rules
-

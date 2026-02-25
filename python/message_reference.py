@@ -32,6 +32,7 @@ def expected_message_references():
         result.append(e.reference)
     return result
 
+
 def expected_message_types():
     result = []
     for e in load_message_reference():

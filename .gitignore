@@ -8,7 +8,7 @@ tmp
 .history
 dist
 /.idea
-/*.iml
+*.iml
 /*.ipr
 /out
 /.idea_modules

@@ -20,18 +20,18 @@ This script takes the DDNTA Q2 PDF and turns it into a series of markdown files 
 
 Read the included README.md file to understand usage of this script.
 """
-import pprint
+
+import re
+import sys
+from os.path import abspath, expanduser
 
 from PyPDF2 import PdfReader
 
 import code_lists
-from parser import find_pages, read_and_transform, extract_rules
-from data_types import MessageCategory, MessageField, Rule
-from message_reference import expected_message_types
 import render
-import sys
-import re
-from os.path import abspath, expanduser
+from data_types import MessageCategory
+from message_reference import expected_message_types
+from parser import find_pages, read_and_transform, extract_rules
 
 if len(sys.argv) > 1:
     pdf_file_name = abspath(expanduser(sys.argv[1]))

@@ -53,16 +53,23 @@ def set_to_optional(message_type: str, path: list[str], message_category: list[M
 
 def message_category_transformation(message_type: str, message_category: list[MessageCategory]):
     if message_type == "IE025":
-        set_to_optional(message_type, ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"], message_category)
+        set_to_optional(message_type,
+                        ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"],
+                        message_category)
 
     if message_type == "IE029":
         set_to_optional(message_type, ["CONSIGNMENT", "PLACE OF LOADING"], message_category)
-        set_to_optional(message_type, ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"], message_category)
+        set_to_optional(message_type,
+                        ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"],
+                        message_category)
 
     if message_type == "IE043":
-        set_to_optional(message_type, ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"], message_category)
+        set_to_optional(message_type,
+                        ["CONSIGNMENT", "HOUSE CONSIGNMENT", "CONSIGNMENT ITEM", "COMMODITY", "GOODS MEASURE"],
+                        message_category)
 
 
 def rule_transformation(rule: Rule):
     if rule.rule_code == "E1104":
-        rule.technical_description = rule.technical_description.replace("/*/Consignment/ActiveBorderTransportmeans/conveyanceReferenceNumber AND\n", "")
+        rule.technical_description = rule.technical_description.replace(
+            "/*/Consignment/ActiveBorderTransportmeans/conveyanceReferenceNumber AND\n", "")

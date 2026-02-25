@@ -14,17 +14,18 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 """
+import difflib
 import pprint
-
-from data_types import MessageField, MessageCategory, Rule
-from parser import find_pages, read_and_transform, extract_rules
-from PyPDF2 import PdfReader
 import sys
 from os.path import abspath, expanduser
-from message_reference import expected_message_types
-from deepdiff import DeepDiff
 from typing import Optional
-import difflib
+
+from PyPDF2 import PdfReader
+from deepdiff import DeepDiff
+
+from data_types import MessageField, MessageCategory, Rule
+from message_reference import expected_message_types
+from parser import find_pages, read_and_transform, extract_rules
 
 expected_message_types = expected_message_types()
 
@@ -195,7 +196,6 @@ if diff.keys().__contains__("values_changed"):
         {new_rules[rule_code][index]}
         {print(new_rules[rule_code][index])}
         ------""".replace("        ", ""))
-
 
 if len(rules_to_print) > 2:
     for r in rules_to_print:

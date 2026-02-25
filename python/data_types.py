@@ -17,7 +17,6 @@ import re
 
 
 class MessageField:
-
     regex = "(CL\\d{3})?([BCEGRS]\\d{4})?$"
 
     def __init__(self):
@@ -33,7 +32,7 @@ class MessageField:
         # Release date Ran10 G0002 (no code list)
         # Message recipient Ran..35 (no rule, no codelist)
 
-        #Sequence number Rn..5 R0987
+        # Sequence number Rn..5 R0987
 
         # We'll start from the right, a rule is always 5 characters, a letter and four numbers. Do we have that?
         match = re.search(self.regex, line.strip())
@@ -61,7 +60,6 @@ class MessageField:
 
 
 class MessageCategory:
-
     hyphen_pattern = re.compile("^(-+)")
 
     def __init__(self, message_type: str):
@@ -127,4 +125,4 @@ class Rule:
         # we split the list on "Functional Description:"
         idx = rule_text.index("Functional Description:")
         self.technical_description = "\n".join(rule_text[1:idx])
-        self.functional_description = "\n".join(rule_text[idx+1:len(rule_text)])
+        self.functional_description = "\n".join(rule_text[idx + 1:len(rule_text)])
