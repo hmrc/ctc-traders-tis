@@ -15,6 +15,7 @@
 """
 import os
 import re
+from collections import defaultdict
 from inspect import cleandoc
 from os import path
 from typing import Optional
@@ -22,7 +23,7 @@ from typing import Optional
 from code_lists import replace_code_list, replace_code_list_full_string
 from data_types import MessageCategory, MessageField, Rule
 
-save_location = path.join("..", "source", "documentation", "partials")
+partials_save_location = path.join("..", "source", "documentation", "partials")
 
 special_formats = {
     "Message sender": """an..35""",
@@ -61,7 +62,7 @@ tail = """</table>"""
 
 
 def linkify_rule(rule: str) -> str:
-    return f"""<a href="../phase-6-rules.html#{rule.lower()}">{rule}</a>"""
+    return f"""<a href="../phase-6-rules/{rule}.html">{rule}</a>"""
 
 
 def create_rules(rules: list[str]):
@@ -246,10 +247,10 @@ def write_message_type_file(message_type: str, categories: list[MessageCategory]
     :return: None
     """
     file_name = f"_{message_type}_table.md"
-    if not path.exists(save_location):
-        os.makedirs(save_location)
+    if not path.exists(partials_save_location):
+        os.makedirs(partials_save_location)
     print(f"Writing file {file_name}")
-    with open(file=path.join(save_location, file_name), mode="w") as md_file:
+    with open(file=path.join(partials_save_location, file_name), mode="w") as md_file:
         md_file.write(render_type(categories, message_type))
 
 
@@ -410,9 +411,7 @@ def render_rule(rule: Rule) -> str:
     """
     func = process_rule_string(rule.functional_description, rule.rule_code)
     tech = process_rule_string(rule.technical_description, rule.rule_code)
-    return cleandoc(
-        f"""## {rule.rule_code}
-
+    return cleandoc(f"""
     **Functional Description**
 
     {func}
@@ -432,16 +431,173 @@ def render_rules(rules: list[Rule]) -> str:
     return "\n\n".join(map(lambda x: render_rule(x), rules))
 
 
-def write_rules_file(category: str, rules: list[Rule]):
+def _write_md_rules_files(category: str, rules: list[Rule]):
     """
-    Writes the rules for a given category to a markdown file named "rules/_rules_X.md"
+    Writes the rules for a given category to Markdown files named "rules/[a-z]/_[a-z]\\d{4}.md"
     :param category: The rule category, a single letter
     :param rules: The rules to render
     :return: None
     """
-    file_name = f"_rules_{category}.md"
-    print(f"Writing file {file_name}")
-    if not path.exists(save_location):
-        os.makedirs(save_location)
-    with open(file=path.join(save_location, file_name), mode="w") as md_file:
-        md_file.write(render_rules(rules))
+    rules_md_dir = path.join(partials_save_location, 'rules', category.lower())
+
+    for rule in rules:
+        partial_file_name = f"_{rule.rule_code}.md"
+        print(f"Writing file {partial_file_name}")
+        if not path.exists(rules_md_dir):
+            os.makedirs(rules_md_dir)
+        with open(file=path.join(rules_md_dir, partial_file_name), mode="w") as md_file:
+            md_file.write(render_rule(rule))
+
+
+rule_num = 0
+
+ruby_templates_save_location = path.join('..', 'source', 'documentation', 'phase-6-rules')
+
+
+def _write_erb_rules_files(category: str, rules: list[Rule]) -> None:
+    global rule_num
+
+    rules_md_dir = path.join(partials_save_location, 'rules', category.lower())
+
+    for rule in rules:
+        ruby_template_file_name = f"{rule.rule_code}.html.md.erb"
+        partial_file_name = f"_{rule.rule_code}.md"
+
+        partial_file_location = path.join(rules_md_dir, partial_file_name)
+
+        if not path.exists(partial_file_location):
+            raise FileNotFoundError(partial_file_location)
+
+        if not path.exists(ruby_templates_save_location):
+            os.makedirs(ruby_templates_save_location)
+
+        with open(file=path.join(ruby_templates_save_location, ruby_template_file_name), mode="w") as erb_file:
+            content = cleandoc(f"""
+            ---
+            title: {rule.rule_code}
+            weight: {rule_num + 1}
+            ---
+            
+            # {rule.rule_code}
+            
+            <%= partial 'documentation/partials/rules/{category.lower()}/{rule.rule_code}' %>
+            """)
+
+            erb_file.write(content)
+
+            rule_num += 1
+
+
+def create_md_table(table_header_row: list[str], rows: list[list[str]]) -> str:
+    def create_formatted_row(row_with_max_lengths: list[tuple[str, int]]) -> str:
+        def transform_func(col_and_max_length: tuple[str, int]) -> str:
+            return f" {col_and_max_length[0]}{' ' * (max(col_and_max_length[1] - len(col_and_max_length[0]), 0))} "
+
+        return f"|{'|'.join(map(transform_func, row_with_max_lengths))}|"
+
+    def create_separator_row(max_lengths: list[int]) -> str:
+        return f"|{'|'.join([f"{'-' * (max_length + 2)}" for max_length in max_lengths])}|"
+
+    row_max_lengths = [len(col) for col in table_header_row]
+
+    for row in rows:
+        if len(row) != len(table_header_row):
+            raise ValueError(f"Row {row} has wrong number of elements. Expected: {len(table_header_row)}")
+
+        for i, col in enumerate(row):
+            row_max_lengths[i] = max(row_max_lengths[i], len(col))
+
+    table_header_row = create_formatted_row(list(zip(table_header_row, row_max_lengths)))
+    table_header_separator_row = create_separator_row(row_max_lengths)
+
+    table_rows = [table_header_row, table_header_separator_row]
+
+    for row in rows:
+        formatted_row = create_formatted_row(list(zip(row, row_max_lengths)))
+
+        table_rows.append(formatted_row)
+
+    return "\n".join(table_rows)
+
+
+def _zip_n(lists: list[list], fill=None) -> list[list]:
+    max_length = 0
+
+    for l in lists:
+        max_length = max(max_length, len(l))
+
+    zipped = []
+
+    for i in range(max_length):
+        curr = []
+
+        for l in lists:
+            if i < len(l):
+                curr.append(l[i])
+            else:
+                curr.append(fill)
+
+        zipped.append(curr)
+
+    return zipped
+
+
+technical_rule_category_names = {'c': 'Conditions', 'g': 'Guidelines', 'r': 'Rules', 's': 'Sequencing Rules'}
+
+
+def write_rules_index() -> None:
+    if not path.exists(ruby_templates_save_location):
+        raise FileNotFoundError({ruby_templates_save_location})
+
+    os.remove(path.join(ruby_templates_save_location, 'index.html.md.erb'))
+
+    rule_codes = list(map(lambda fn: fn.rstrip('.html.md.erb'), os.listdir(ruby_templates_save_location)))
+
+    rule_codes = sorted(rule_codes)
+
+    rule_codes_by_category: dict[str, list[str]] = defaultdict(list)
+
+    md_rule_linkify_func = lambda rc: f"[{rc}](/documentation/phase-6-rules/{rc}.html)"
+
+    for rule_code in rule_codes:
+        category = rule_code[0]
+
+        rule_codes_by_category[category].append(md_rule_linkify_func(rule_code))
+
+    rule_categories = rule_codes_by_category.keys()
+
+    rule_header_row = list(map(lambda cat: technical_rule_category_names[cat.lower()], rule_categories))
+
+    rule_rows = _zip_n(list(rule_codes_by_category.values()), '')
+
+    rule_table = create_md_table(rule_header_row, rule_rows)
+
+    index_tile = 'Phase 6 Rules'
+    weight = 5
+    index_description = ('Software developers, designers, product owners or business analysts. Learn about the '
+                         'processes involved in the exchange of messages between traders and phase 6 of the NCTS '
+                         'at departure and arrival of transit movements, and about the definitions, formats and '
+                         'validations of those messages.')
+
+    index = cleandoc(f"""
+    ---
+    title: {index_tile}
+    weight: {weight}
+    description: {index_description}
+    ---
+    
+    # Rules
+    
+    This section contains the rules used in Phase 6 of NCTS.
+    """)
+
+    # cleandoc acting up when interpolating `rule_table` in the f-string
+    index += f"\n\n{rule_table}"
+
+    with open(file=path.join(ruby_templates_save_location, 'index.html.md.erb'), mode="w") as index_file:
+        index_file.write(index)
+
+
+def write_rules_files(category: str, rules: list[Rule]) -> None:
+    _write_md_rules_files(category, rules)
+    _write_erb_rules_files(category, rules)
