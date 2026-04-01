@@ -8,71 +8,117 @@ from subprocess import CalledProcessError
 import requests
 
 
-def prepare_git_command(command, repo_path, print_stdout=False):
-    def run():
-        try:
-            process_result = subprocess.run(
-                args=['git'] + command,
-                cwd=repo_path,
-                capture_output=True,
-                text=True, check=True
+class GitCommands:
+    def __init__(self, repo_path):
+        self.repo_path = repo_path
+
+    def __prepare_git_command(self, command: list[str], print_stdout=False):
+        def run():
+            try:
+                process_result = subprocess.run(
+                    args=['git'] + command,
+                    cwd=self.repo_path,
+                    capture_output=True,
+                    text=True, check=True
+                )
+
+                if print_stdout:
+                    print(process_result.stdout)
+                return True
+            except CalledProcessError as e:
+                print(f"{e.stderr}")
+
+                return False
+
+        return run
+
+    def checkout(self, branch='main', create_new=False):
+        create_new_option = ['-b'] if create_new else []
+        checkout_command = ['checkout'] + create_new_option + [branch]
+
+        return self.__prepare_git_command(checkout_command)
+
+    def pull(self, branch='main', remote='origin'):
+        pull_command = ['pull', remote, branch]
+
+        return self.__prepare_git_command(pull_command)
+
+    def add_all(self):
+        add_all_command = ['add', '.']
+
+        return self.__prepare_git_command(add_all_command)
+
+    def commit(self, message):
+        commit_command = ['commit', '-m', message]
+
+        return self.__prepare_git_command(commit_command)
+
+    def push(self, branch, remote='origin'):
+        push_command = ['push', remote, branch]
+
+        return self.__prepare_git_command(push_command)
+
+    def diff(self, branch='main'):
+        diff_command = ['diff', '--color=always', f'{branch}...']
+
+        return self.__prepare_git_command(diff_command, print_stdout=True)
+
+    def delete_branch(self, branch):
+        delete_command = ['branch', '-D', branch]
+
+        return self.__prepare_git_command(delete_command)
+
+
+class GitHubClient:
+    def __init__(self):
+        self.token = os.getenv('GITHUB_TOKEN')
+        if self.token is None:
+            print(
+                "Warning: GitHub token not found in the environment variables. "
+                "Calls to the GitHub API will likely fail."
             )
 
-            if print_stdout:
-                print(process_result.stdout)
-            return True
-        except CalledProcessError as e:
-            print(f"{e.stderr}")
+        self.session = requests.session()
+        self.base_url = 'https://api.github.com'
+        self.session.headers.update({
+            'Accept': 'application/vnd.github+json',
+            'Authorization': f'Bearer {self.token}'
+        })
 
-            return False
+    def __post(self, endpoint, data):
+        url = f'{self.base_url}{endpoint}'
+        return self.session.post(url, json=data)
 
-    return run
+    def create_pull_request(self, repo, owner, branch, title):
+        create_pr_endpoint = f'/repos/{owner}/{repo}/pulls'
 
+        request_data = {
+            'title': title,
+            'head': branch,
+            'base': 'main'
+        }
 
-def prepare_git_pull_request(owner, guide_repo, pr_branch):
-    def create_pull_request():
-        github_token = os.getenv('GITHUB_TOKEN')
+        response = self.__post(create_pr_endpoint, data=request_data)
 
-        if github_token is not None:
-            github_base_url = 'https://api.github.com'
-
-            request_headers = {
-                'Accept': 'application/vnd.github+json',
-                'Authorization': f'Bearer {github_token}'
-            }
-
-            request_data = {
-                'title': 'Update quick links',
-                'head': pr_branch,
-                'base': 'main'
-            }
-
-            create_pr_url = f'{github_base_url}/repos/{owner}/{guide_repo}/pulls'
-
-            pr_request_response = requests.post(
-                url=create_pr_url,
-                json=request_data,
-                headers=request_headers,
-            )
-
-            if pr_request_response.status_code == requests.codes.created:
-                print(
-                    f"PR creation for {pr_branch} in {guide_repo} successful")
-            else:
-                print(
-                    f"PR creation for {pr_branch} in {guide_repo} failed. "
-                    f"Error response: {pr_request_response.json()}")
+        if response.status_code == requests.codes.created:
+            print(
+                f"PR creation for {branch} in {repo} successful")
         else:
-            print("Warning: GitHub token not found. PR can't be created")
+            print(
+                f"PR creation for {branch} in {repo} failed. "
+                f"Error response: {response.text}")
 
-        return None
-
-    return create_pull_request
+    def prepare_pull_request(self, repo, owner, branch, title):
+        return lambda: self.create_pull_request(repo, owner, branch, title)
 
 
 def apply_until_false(*funcs):
     for func in funcs:
-        if not func():
+        if isinstance(func, list):
+            for f in func:
+                if not f():
+                    break
+        elif not func():
             break
 
 
@@ -138,6 +184,9 @@ def main(service_anchors: list[tuple[str, str]], guides_path):
             'quick-links.html.md.erb'
         )
 
+        github_client = GitHubClient()
+        repo_owner = 'hmrc'
+
         for entry in it:
             if entry.is_dir() and entry.name.endswith('-guide'):
                 prepared_quick_links_update = lambda: prepare_quick_links_update(
@@ -146,74 +195,47 @@ def main(service_anchors: list[tuple[str, str]], guides_path):
                     service_anchors
                 )
 
-                commands_to_run = [prepared_quick_links_update]
+                update_commands = [prepared_quick_links_update]
 
                 is_git_repo = os.path.isdir(
                     os.path.join(entry.path, '.git'))
 
                 if is_git_repo:
+                    git_commands = GitCommands(entry.path)
+
                     branch_name = f"update-quick-links-{os.urandom(2).hex()}"
 
                     commands_to_run_before_update = [
-                        prepare_git_command(
-                            ['checkout', 'main'],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['pull', 'origin', 'main'],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['checkout', '-b', branch_name],
-                            entry.path
-                        ),
+                        git_commands.checkout(),
+                        git_commands.pull(),
+                        git_commands.checkout(branch_name, create_new=True),
                     ]
 
                     commands_to_run_after_update = [
-                        prepare_git_command(
-                            ['add', '.'],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['commit', '-m', 'update quick links'],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['push', 'origin', branch_name],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['diff', '--color=always', 'main...'],
-                            entry.path,
-                            print_stdout=True
-                        ),
-                        prepare_git_pull_request(
-                            "tudorsonycx",
+                        git_commands.add_all(),
+                        git_commands.commit('update quick links'),
+                        git_commands.push(branch_name),
+                        git_commands.diff(),
+                        github_client.prepare_pull_request(
                             entry.name,
-                            branch_name
+                            repo_owner,
+                            branch_name,
+                            title="Update quick links"
                         )
                     ]
 
-                    commands_to_run = (
+                    update_commands = (
                             commands_to_run_before_update
-                            + commands_to_run
+                            + update_commands
                             + commands_to_run_after_update
                     )
 
-                    apply_until_false(*commands_to_run)
-
                     cleanup_commands = [
-                        prepare_git_command(
-                            ['checkout', 'main'],
-                            entry.path
-                        ),
-                        prepare_git_command(
-                            ['branch', '-D', branch_name],
-                            entry.path
-                        )
+                        git_commands.checkout(),
+                        git_commands.delete_branch(branch_name)
                     ]
 
-                    apply_until_false(*cleanup_commands)
+                    apply_until_false(update_commands, cleanup_commands)
 
 
 if __name__ == '__main__':
