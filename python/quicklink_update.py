@@ -277,6 +277,8 @@ if __name__ == '__main__':
         print(
             f"Quick links file not found for ctc-traders-tis")
 
+        sys.exit(1)
+
     guides_abs_path = os.path.abspath(os.path.expanduser(sys.argv[1]))
 
     if not os.path.isdir(guides_abs_path):
