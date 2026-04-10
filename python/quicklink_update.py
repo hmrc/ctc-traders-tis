@@ -2,6 +2,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from subprocess import CalledProcessError
 
@@ -26,7 +27,8 @@ class GitCommands:
                     print(process_result.stdout)
                 return True
             except CalledProcessError as e:
-                print(f"{e.stderr}")
+                print(
+                    f"Error when running git command in {self.repo_path}: {e.stderr}")
 
                 return False
 
@@ -58,7 +60,7 @@ class GitCommands:
 
         return self.__prepare_git_command(push_command)
 
-    def diff(self, branch='main'):
+    def diff_branch(self, branch='main'):
         diff_command = ['diff', '--color=always', f'{branch}...']
 
         return self.__prepare_git_command(diff_command, print_stdout=True)
@@ -143,8 +145,8 @@ def update_quick_links_for_guide(
         with open(quick_links_file_absolute_path) as fr:
             guide_quick_links_file_content = fr.read()
 
-            guide_quick_links_file_split_at_heading = \
-                guide_quick_links_file_content.split("# Quick Links", 1)
+            guide_quick_links_file_split_at_heading = split_at_heading(
+                guide_quick_links_file_content)
 
             guide_quick_links_file_front_matter = \
                 guide_quick_links_file_split_at_heading[0]
@@ -185,7 +187,7 @@ def main(guide_entries: list[GuideEntry], updated_quick_links_file_content):
     print("Updating quick links...")
 
     github_client = GitHubClient()
-    repo_owner = 'hmrc'
+    repo_owner = 'tudorsonycx'
 
     for guide_entry in guide_entries:
         if os.path.isdir(guide_entry.path):
@@ -214,7 +216,7 @@ def main(guide_entries: list[GuideEntry], updated_quick_links_file_content):
                     git_commands.add_all(),
                     git_commands.commit('update quick links'),
                     git_commands.push(branch_name),
-                    git_commands.diff(),
+                    git_commands.diff_branch(),
                     github_client.prepare_pull_request(
                         guide_entry.name,
                         repo_owner,
@@ -252,11 +254,92 @@ def grab_guides(quick_links_file_content):
     return guides_regex.findall(quick_links_file_content)
 
 
+def preview_quick_links_update(guide_entries: list[GuideEntry],
+                               quick_links_file_content):
+    try:
+        with tempfile.NamedTemporaryFile(mode='w') as tfw1:
+            tfw1.write(quick_links_file_content)
+            tfw1.flush()
+
+            quick_links_file_path = os.path.join(
+                'source',
+                'documentation',
+                'quick-links.html.md.erb'
+            )
+
+            for guide_entry in guide_entries:
+                guide_quick_links_file_absolute_path = os.path.join(
+                    guide_entry.path,
+                    quick_links_file_path
+                )
+
+                try:
+                    with open(guide_quick_links_file_absolute_path) as fr:
+                        guide_quick_links_file_content = fr.read()
+
+                        guide_quick_links_file_split_at_heading = split_at_heading(
+                            guide_quick_links_file_content)
+
+                        guide_quick_links_file_content_no_front_matter = \
+                            guide_quick_links_file_split_at_heading[1]
+
+                        with tempfile.NamedTemporaryFile(mode='w') as tfw2:
+                            tfw2.write(
+                                guide_quick_links_file_content_no_front_matter)
+                            tfw2.flush()
+
+                            process_result = subprocess.run(
+                                args=['git', 'diff', '--color=always',
+                                      tfw2.name, tfw1.name],
+                                capture_output=True,
+                                text=True
+                            )
+
+                            if process_result.returncode == 0:
+                                print(
+                                    f"Quick links file identical for {guide_entry.name}")
+                            elif process_result.returncode == 1:
+                                print(
+                                    f"Update needed for {guide_entry.name}:")
+
+                                print("".join(process_result.stdout.splitlines(
+                                    keepends=True)[4:]))
+                            else:
+                                print(
+                                    f"Error when previewing diff: {process_result.stderr}")
+                except FileNotFoundError:
+                    print(
+                        f"Quick links file not found for {guide_entry.name}. Skipping...")
+    except Exception as e:
+        print(f"Preview operation failed: {e}")
+
+
+def split_at_heading(content, heading="# Quick Links"):
+    content_split_at_heading = content.split(heading, 1)
+
+    content_front_matter = content_split_at_heading[0]
+
+    content_no_front_matter = content_split_at_heading[1]
+
+    return content_front_matter, content_no_front_matter
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print("Usage: python main.py <path_to_guides>")
+        print("Usage: python main.py <path_to_guides> --preview")
 
         sys.exit(1)
+
+    is_preview = False
+
+    if len(sys.argv) == 3:
+        if sys.argv[2] == '--preview':
+            is_preview = True
+        else:
+            print("Usage: python main.py <path_to_guides> --preview")
+
+            sys.exit(1)
 
     quick_links_file_relative_path = os.path.join(
         '..',
@@ -286,12 +369,14 @@ if __name__ == '__main__':
 
         sys.exit(1)
 
-    quick_links_file_content = \
-        quick_links_file_content.split("# Quick Links", 1)[1]
+    quick_links_file_content = split_at_heading(quick_links_file_content)[1]
 
     guides = grab_guides(quick_links_file_content)
 
     guide_entries = [GuideEntry(guide, os.path.join(guides_abs_path, guide))
                      for guide in guides]
 
-    main(guide_entries, quick_links_file_content)
+    if is_preview:
+        preview_quick_links_update(guide_entries, quick_links_file_content)
+    else:
+        main(guide_entries, quick_links_file_content)
