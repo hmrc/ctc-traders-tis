@@ -59,32 +59,6 @@ bundle exec middleman serve
 ```
 The local URL and port where the files can be previewed will be output, this is normally http://localhost:4567.
 
-## Running the Scala Application
-
-Requirements:
-* Scala/sbt
-
-### Build the HTML files
-```
-./batect build
-```
-
-If you don't wish to use batect and have Ruby 3.0.2 installed:
-```
-bundle install
-bundle exec middleman build --build-dir=public/ --clean
-```
-
-`bundle inst`
-
-### Run the Scala Application
-```
-sbt run
-```
-
-The local URL and port where the files can be previewed will be output, this is normally http://localhost:9000.
-
-
 ### License
 
 This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
