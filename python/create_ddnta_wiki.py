@@ -77,7 +77,7 @@ def _extract_delta_paths(ddnta_delta: str):
         path, description = delta_item.rsplit('>', 1)
 
         path = path.strip('- ')
-        description = description.strip()
+        description = description.strip(',. ') + '.'
         description_insensitive = description.lower()
 
         target_path = None
@@ -111,10 +111,12 @@ def _extract_delta_paths(ddnta_delta: str):
 
 
 def _generate_md_from_ddnta(ddnta_rows):
+    print("Generating changelog Md...")
+
     md = ['## Message Changes\n', '---\n']
 
     for ddnta_row in ddnta_rows:
-        ddnta_delta = ddnta_row['delta (p5 vs p6)']
+        ddnta_delta = ddnta_row['delta']
         ddnta_code = ddnta_row['code']
         ddnta_message = ddnta_row['message']
 
@@ -125,8 +127,8 @@ def _generate_md_from_ddnta(ddnta_rows):
         if paths_by_status:
             message_section = [table_heading]
             for status, paths_with_descriptions in paths_by_status.items():
-                md_table = create_md_messages_table(status,
-                                                    paths_with_descriptions)
+                md_table = _create_md_messages_table(status,
+                                                     paths_with_descriptions)
 
                 message_section.append(f"{md_table}\n")
 
@@ -137,18 +139,20 @@ def _generate_md_from_ddnta(ddnta_rows):
     return '\n'.join(md)
 
 
-def create_md_messages_table(status, paths_with_descriptions):
+def _create_md_messages_table(status, paths_with_descriptions):
     table_header_row = ['Key', 'Description']
 
     messages_md_table = MdTable(table_header_row, paths_with_descriptions)
 
-    md_messages_table = messages_md_table.generate_formatted_table()
+    formatted_table = messages_md_table.generate_formatted_table()
 
     return '\n'.join(
-        [f"**{status.capitalize()}**\n", md_messages_table])
+        [f"**{status.capitalize()}**\n", formatted_table])
 
 
 def _read_ddnta_csv(path_to_csv, ddnta_fields):
+    print("Reading DDNTA analysis document...")
+
     ddnta_rows: list[dict[str, str]] = []
 
     try:
@@ -156,13 +160,20 @@ def _read_ddnta_csv(path_to_csv, ddnta_fields):
             reader = csv.DictReader(rf)
 
             for row_no, row in enumerate(reader):
-                dict_row = {field_name.lower(): field
-                            for field_name, field in row.items()
-                            if field_name.lower() in ddnta_fields and field}
+                dict_row = {}
+
+                for field_name, field in row.items():
+                    field_name = field_name.lower()
+
+                    if field_name.startswith('delta'):
+                        field_name = 'delta'
+
+                    if field_name in ddnta_fields and field:
+                        dict_row[field_name] = field
 
                 if len(dict_row) < len(ddnta_fields):
                     print(
-                        f"Essential fields missing from current row {row_no + 1}: "
+                        f"Essential fields missing from CSV row {row_no + 1}: "
                         f"{ddnta_fields.difference(dict_row.keys())}")
 
                     sys.exit(1)
@@ -178,6 +189,8 @@ def _read_ddnta_csv(path_to_csv, ddnta_fields):
 
 
 def _write_ddnta_md_file(path_to_md_file, md_file):
+    print("Writing Md to file...")
+
     try:
         with open(path_to_md_file, mode='w') as wf:
             wf.write(md_file)
@@ -213,7 +226,7 @@ def main():
 
         sys.exit(1)
 
-    ddnta_essential_fields = {'code', 'message', 'delta (p5 vs p6)'}
+    ddnta_essential_fields = {'code', 'message', 'delta'}
 
     ddnta_rows = _read_ddnta_csv(path_to_ddnta_csv, ddnta_essential_fields)
 
@@ -222,6 +235,8 @@ def main():
     path_to_md_file = os.path.join(md_output_path, 'ddnta_changelog.md')
 
     _write_ddnta_md_file(path_to_md_file, md)
+
+    print("Done")
 
 
 if __name__ == '__main__':
