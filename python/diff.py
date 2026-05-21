@@ -17,7 +17,6 @@
 import difflib
 import pprint
 import sys
-import csv
 import re
 from os.path import abspath, expanduser
 from typing import Optional
