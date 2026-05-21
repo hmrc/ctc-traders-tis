@@ -17,6 +17,8 @@
 import difflib
 import pprint
 import sys
+import csv
+import re
 from os.path import abspath, expanduser
 from typing import Optional
 
@@ -195,15 +197,88 @@ if diff.keys().__contains__("values_changed"):
         New rule:
         {new_rules[rule_code][index]}
         {print(new_rules[rule_code][index])}
-        ------""".replace("        ", ""))
+        ------\n""".replace("        ", ""))
 
 if len(rules_to_print) > 2:
     for r in rules_to_print:
         result.append(r)
 
 result.append("--------------------------------")
-result.append("------------- END --------------")
+result.append("--- DNNTA CODELIST ANALYSIS ----")
+result.append("--------------------------------\n")
+
+code_pattern = re.compile(r'CL\d{3,}')
+
+def scan_pdf_for_codes(pdf_path):
+    codes = {}
+    reader = PdfReader(pdf_path)
+    for page in reader.pages:
+        text = page.extract_text()
+        if text:
+            for line in text.splitlines():
+                clean_line = " ".join(line.split()).strip()
+                for m in code_pattern.findall(line):
+                    if m not in codes:
+                        codes[m] = set()
+                    codes[m].add(clean_line)
+    return codes
+
+old_codes = scan_pdf_for_codes(old_pdf)
+new_codes = scan_pdf_for_codes(new_pdf)
+
+old_set = set(old_codes.keys())
+new_set = set(new_codes.keys())
+
+added = new_set - old_set
+deleted = old_set - new_set
+common = old_set & new_set
+
+amended = {
+    code for code in common
+    if old_codes[code] != new_codes[code]
+}
+
+if not added and not deleted and not amended:
+    result.append("No code list changes detected.\n")
+else:
+    result.append("*** NEW CODE LISTS ***\n")
+    if added:
+        for code in sorted(added):
+            result.append(f"New Code List: {code}")
+            for line in sorted(new_codes[code]):
+                    result.append(f"Content added: {line}\n")
+    else:
+        result.append("No new code lists.\n")
+
+    result.append("*** DELETED CODE LISTS ***\n")
+    if deleted:
+        for code in sorted(deleted):
+            result.append(f"Deleted Code List: {code}")
+            for line in sorted(old_codes[code]):
+                    result.append(f"Content deleted: {line}\n")
+    else:
+        result.append("No deleted codes lists.\n")
+
+    result.append("*** AMENDED CODE LISTS ***\n")
+    if amended:
+        for code in sorted(amended):
+            only_in_old = old_codes[code] - new_codes[code]
+            only_in_new = new_codes[code] - old_codes[code]
+            result.append(f"Amended Code List: {code}")
+            if only_in_old:
+                result.append("Removed lines:")
+                for line in sorted(only_in_old):
+                    result.append(f" - {line}\n")
+            if only_in_new:
+                result.append("Added lines:")
+                for line in sorted(only_in_new):
+                    result.append(f" + {line}\n")
+    else:
+        result.append("No amended code lists.\n")
+
 result.append("--------------------------------")
+result.append("------------- END --------------")
+result.append("--------------------------------\n")
 
 with open("diff_result.txt", "w") as file:
     for line in result:
