@@ -159,21 +159,32 @@ def _read_ddnta_csv(path_to_csv, ddnta_fields):
         with open(path_to_csv, newline='') as rf:
             reader = csv.DictReader(rf)
 
+            for i in range(len(reader.fieldnames)):
+                field_name = reader.fieldnames[i].lower()
+
+                if field_name.startswith('delta'):
+                    field_name = 'delta'
+
+                reader.fieldnames[i] = field_name
+
+            field_names_diff = ddnta_fields.difference(reader.fieldnames)
+
+            if field_names_diff:
+                print(
+                    f"Essential field names missing from CSV header row: {field_names_diff}")
+
+                sys.exit(1)
+
             for row_no, row in enumerate(reader):
                 dict_row = {}
 
                 for field_name, field in row.items():
-                    field_name = field_name.lower()
-
-                    if field_name.startswith('delta'):
-                        field_name = 'delta'
-
                     if field_name in ddnta_fields and field:
                         dict_row[field_name] = field
 
                 if len(dict_row) < len(ddnta_fields):
                     print(
-                        f"Essential fields missing from CSV row {row_no + 1}: "
+                        f"Empty fields found in CSV row {row_no + 1} for field names: "
                         f"{ddnta_fields.difference(dict_row.keys())}")
 
                     sys.exit(1)
