@@ -1,0 +1,692 @@
+Code,Message,Message Type,Message From,Delta (P5 vs P6),RFC 39 vs RFC 42 (Interim DDNTA)
+IE004',Amendment Acceptance,Departure,NCTS,No Changes,No Change
+IE007',Arrival Notification,Arrival,Trader,"At Header level: Consignment> Incident > Data group has been fully removed which has data elements>Endorsement, Location, Transport Equipment
+
+-  TRANSIT OPERATION> Incident Flag> Data item has been removed,
+- TRADER AT DESTINATION > Communication language at destination > Rule 'R0100' has been changed to rule 'G0100' 
+- CONSIGNMENT> INCIDENT> ENDORSEMENT> All data items removed under this data group.
+- CONSIGNMENT> INCIDENT> LOCATION> All data items removed under this data group.
+- INCIDENT > Transport Equipment> Seal and Good Reference has been removed,
+- INCIDENT > Transhipment > Transport means has been removed.","At Header level: Consignment> Incident > data group has been fully removed which has Endorsement, Location, Transport Equipment
+- > Transport Equipment> Seal and Good Reference has been removed,
+- > Transhipment > Transport means has been removed,
+-  Transit Operation> Incident Flag> data item has been removed,
+- TRADER AT DESTINATION > Communication language at destination > Rule 'R0100' has been changed to rule 'G0100' 
+CONSIGNMENT> INCIDENT> ENDORSEMENT> All data items removed under this data group."
+IE009',Invalidation Decision,Departure,NCTS,No Changes,No Changes
+IE013',Declaration Amendment,Departure,Trader,"- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted.
+- MESSAGE > CONSIGNEE > Rule 'B1823' has been deleted.
+- MESSAGE > LOCATION OF GOODS> rule 'B1804' has been deleted.
+- MESSAGE > DEPARTURE TRNASPORT MEANS > Rule 'B1890' and 'B1891' has been deleted.
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'B1848' has been deleted.
+- MESSAGE > ACTIVE BORDER TRANSPORT MEANS > Rule 'B1806' and 'E1406' has been deleted.
+- MESSAGE > PLACE OF LOADING > Rule 'B1893' has been deleted.
+- MESSAGE > PLACE OF LOADING > Rule 'C0403' has been replaced with 'C0409'. 
+- MESSAGE > PLACE OF UNLOADING > Rule 'B1858' has been deleted.
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > Rule 'E1406' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNOR > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNEE > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > DEPARTURE TRANSPORT MEANS 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > TRANSPORT CHARGES > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Complete Data element has been removed along with Rules 'B1820', 'B1877', 'B2400'and 'G0001'.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Data item has been removed along with  Rule 'B1821'.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > COMMODITY CODE > Rule 'B1834' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > DANGEROUS GOODS > Rule 'E1406' & 'C0153' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > GOODS MEASURE > Rule 'B2101' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > GOODS MEASURE > 'Optional (O)' has been changed to 'Required (R)'.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > PREVIOUS DOCUMENT > Rule 'B1000' and 'E1401' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > SUPPORTING DOCUMENT > Rule 'E1407' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Data item has been removed along with Rules 'B1896', 'B2400', and 'E1407' .
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > ADDITIONAL REFERENCE > Rule 'E1407' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT CHARGES > Data item has been removed along with Rules 'B1875', 'B1877', and 'B2400'.
+
+
+- MESSAGE > Correlation Identifier > Rule 'B1833' has been deleted.
+- TRANSIT OPERATION > Declaration type > Rule 'B1922' has been deleted.
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100'. 
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Reference number > Rule 'B1813' has been deleted.
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1831' and 'B1904' has been deleted.
+- HOLDER OF THE TRANSIT PROCEDURE > Name > Rule 'E1104' has been deleted.
+- HOLDER OF THE TRANSIT PROCEDURE > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- HOLDER OF THE TRANSIT PROCEDURE > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- GUARANTEE > Guarantee type >'Optional (O)' has been changed to 'Required (R)'. 
+- GUARANTEE REFERENCE > Access code > Rule 'E1118' has been deleted.
+- GUARANTEE REFERENCE > Amount to be covered > Rule 'B2101' has been deleted. 
+- GUARANTEE REFERENCE > Amount to be covered > 'Optional (O)' has been changed to 'Required (R)'.
+- GUARANTEE REFERENCE > Currency > Rules 'B1898' and 'B2101' has been deleted.
+- GUARANTEE REFERENCE > Currency > 'Optional (O)' has been changed to 'Required (R)'.
+- CONSIGNMENT > Country of dispatch > Rule 'B1965' has been deleted.
+- CONSIGNMENT > Mode of transport at the border > Rule 'B1889' has been deleted.
+- CONSIGNMENT > Gross mass > Rule 'E1109' has been deleted.
+- CONSIGNMENT > Reference number UCR > Rule 'B1895' has been deleted.
+- CONSIGNMENT > CONSIGNOR > Name > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- CONSIGNMENT > CONSIGNEE > Name > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- CONSIGNMENT >TRANSPORT EQUIPMENT > Number of seals > Rule 'B1832' has been deleted.
+- CONSIGNMENT > LOCATION OF GOODS > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > LOCATION OF GOODS > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- DEPARTURE TRANSPORT MEANS > Type of identification > Rules 'B1091', 'B1892', 'B2101' has been deleted.
+- DEPARTURE TRANSPORT MEANS > Type of identification > Optional ('O') has been changed to Required ('R').
+- DEPARTURE TRANSPORT MEANS > Identification number > Rules 'B1815', 'B1892', 'B2101', 'E1103' has been deleted.
+- DEPARTURE TRANSPORT MEANS > Identification number > Optional ('O') has been changed to Required ('R').
+- DEPARTURE TRANSPORT MEANS > Nationality > Rule 'B1897' and 'B2101' has been deleted.
+- DEPARTURE TRANSPORT MEANS > Nationality > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Rule 'B1016' and 'B2101' has been deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Rule 'B1838' and 'B2101' has been deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Rule 'B1811', 'B1838', 'B2101', and 'E1103' are deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Rule 'B1850' and 'B2101' has been deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Optional ('O') has been changed to Required ('R').
+
+- PLACE OF LOADING > Location > Rule 'E1114' has been deleted.
+
+- HOUSE CONSIGNMENT > Country of dispatch > Rule 'B1965' and 'E1301' has been deleted.
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been deleted.
+- HOUSE CONSIGNMENT > Country of destination > New Rule G0002 has been added.
+- HOUSE CONSIGNMENT > Reference number UCR > Rule 'E1301' has been deleted.
+
+- HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Declaration type > Rule 'B1922' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Country of dispatch > Rule 'B1965' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Reference number UCR > Rule 'B1895' has been deleted.
+
+- CONSIGNEE > Identification number > Full data item has been removed and Rule 'R0851' has been deleted.
+- CONSIGNEE > Name > Full data item has been removed and Rule 'B1821' and 'E1104' has been deleted.
+
+- CONSIGNEE > ADDRESS > Street and number > Full data item has been removed and Rule 'E1104' has been deleted.
+- CONSIGNEE > ADDRESS > Postcode > Full data item has been removed and Rule 'B1822' and 'E1102' has been deleted.
+- CONSIGNEE > ADDRESS > City > Full data item has been removed.
+- CONSIGNEE > ADDRESS > Country > Full data item has been removed and code list 'CL248' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > COMMODITY > Description of goods > CUS CODE> Rule 'E1107' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > COMMODITY > GOODS MEASURE > Gross mass > Rule 'B1860', 'B2101' and 'E1109' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > COMMODITY > GOODS MEASURE > Gross mass > Optional ('O') has been changed to Required ('R').
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > COMMODITY > GOODS MEASURE > Net mass > Rule 'B1805', 'B1862' and 'E1109' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > PACKAGING > Type of packages > Rule 'B1919' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > PACKAGING > Number of packages > Rule 'B1819', 'B1964' and 'C0060' and 'E1111' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > PACKAGING > Shipping marks > Rule 'E1105' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > PREVIOUS DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+-HOUSE CONSIGNMENT > CONSIGNMENT ITEM  >  PREVIOUS DOCUMENT > Complement of information > Rule 'E1117' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > SUPPORTING DOCUMENT > Reference number > Rule 'E1104' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > SUPPORTING DOCUMENT > Complement of information > Rule 'E1117' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > TRANSPORT DOCUMENT > Sequence number > Full data item has been removed and Rule 'R0987' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > TRANSPORT DOCUMENT > Type > Full data item has been removed and Rule 'G0057' and code list 'CL754' has been deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > TRANSPORT DOCUMENT > Reference number > Full data item has been removed and Rule 'E1104' and 'G0321' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > ADDITIONAL REFERENCE > Reference number > Rule 'E1104' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > ADDITIONAL INFORMATION > Code > Rule 'B1814' has been deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM  > TRANSPORT CHARGES > Method of payment > Full data item has been removed and code list 'CL116' has been deleted.","- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted.
+- MESSAGE > CONSIGNEE > Rule 'B1823' has been deleted.
+- MESSAGE > LOCATION OF GOODS> rule 'B1804' has been deleted.
+- MESSAGE > DEPARTURE TRNASPORT MEANS > Rule 'B1890' and 'B1891' has been deleted.
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'B1848' has been deleted.
+- MESSAGE > ACTIVE BORDER TRANSPORT MEANS > Rule 'B1806' and 'E1406' has been deleted.
+- MESSAGE > PLACE OF LOADING > Rule 'B1893' has been deleted.
+- MESSAGE > PLACE OF LOADING > Rule 'C0403' has been replaced >'C0409'. 
+- MESSAGE > PLACE OF UNLOADING > Rule 'B1858' has been deleted.
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted.
+- MESSAGE > HOUSE CONSIGNMENT > Rule 'E1406' has been deleted.
+- MESSAGE > CONSIGNOR > Rule 'E1301' has been deleted.
+- MESSAGE > CONSIGNEE > Rule 'E1301' has been deleted.
+- MESSAGE > DEPARTURE TRANSPORT MEANS 'E1301' has been deleted.
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted.
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted.
+- MESSAGE > TRANSPORT CHARGES > Rule 'E1301' has been deleted.
+- MESSAGE > CONSIGNEE > Rules 'B1820', 'B1877', 'B2400', and 'G0001' has been deleted.
+- MESSAGE > ADDRESS > Rule 'B1821' has been deleted.
+- MESSAGE > COMMODITY CODE > Rule 'B1834' has been deleted.
+- MESSAGE > DANGEROUS GOODS > Rule 'E1406' has been deleted.
+- MESSAGE > GOODS MEASURE > Rule 'B2101' has been removed, 'Optional (O)' has been changed to 'Required (R)' 
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'B1000' and 'E1401' has been deleted.
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1407' has been deleted.
+- MESSAGE > TRANSPORT DOCUMENT > Rules 'B1896', 'B2400', and 'E1407' has been deleted.
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1407' has been deleted.
+- MESSAGE > TRANSPORT CHARGES > Rules 'B1875', 'B1877', and 'B2400' has been deleted.
+
+
+- MESSAGE > Correlation Identifier > Rule 'B1833' has been deleted.
+- TRANSIT OPERATION > Declaration type > Rule 'B1922' has been deleted.
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100'. 
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Reference number > Rule 'B1813' has been deleted.
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1831' and 'B1904' has been deleted.
+- HOLDER OF THE TRANSIT PROCEDURE > Name > Rule 'E1104' has been deleted.
+- ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- GUARANTEE > Guarantee type >'Optional (O)' has been changed to 'Required (R)'. 
+- GUARANTEE REFERENCE > Access code > Rule 'E1118' has been deleted.
+- GUARANTEE REFERENCE > Amount to be covered > Rule 'B2101' has been removed, 'Optional (O)' has been changed to 'Required (R)'. 
+- GUARANTEE REFERENCE > Currency > Rules 'B1898' and 'B2101' has been removed, 'Optional (O)' has been changed to 'Required (R)'. 
+- CONSIGNMENT > Country of dispatch > Rule 'B1965' has been deleted.
+- CONSIGNMENT > Mode of transport at the border > Rule 'B1889' has been deleted.
+- CONSIGNMENT > Gross mass > Rule 'E1109' has been deleted.
+- CONSIGNMENT > Reference number UCR > Rule 'B1895' has been deleted.
+- CONSIGNMENT > CONSIGNOR > Name > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- CONSIGNMENT > CONSIGNEE > Name > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- CONSIGNMENT >TRANSPORT EQUIPMENT > Number of seals > Rule 'B1832' has been deleted.
+- CONSIGNMENT > LOCATION OF GOODS > ADDRESS > Street and number > Rule 'E1104' has been deleted.
+- CONSIGNMENT > LOCATION OF GOODS > ADDRESS > Postcode > Rule 'E1102' has been deleted.
+- DEPARTURE TRANSPORT MEANS > Type of identification > Rules 'B1091', 'B1892', 'B2101' has been removed,, Optional ('O') has been changed to Required ('R') 
+- DEPARTURE TRANSPORT MEANS > Identification number > Rules 'B1815', 'B1892', 'B2101', 'E1103' has been removed, Optional ('O') has been changed to Required ('R') 
+- DEPARTURE TRANSPORT MEANS > Nationality > Rule 'B1897' and 'B2101' has been removed, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Rule 'B1016' and 'B2101' has been removed, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Rule 'B1838' and 'B2101' has been removed, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Rule 'B1811', 'B1838', 'B2101', and 'E1103' are deleted, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Rule 'B1850' and 'B2101' has been removed, Optional ('O') has been changed to Required ('R') 
+
+- PLACE OF LOADING > Location > Rule 'E1114' has been deleted.
+
+- HOUSE CONSIGNMENT > Country of dispatch > Rule 'B1965' and 'E1301' has been deleted.
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been deleted.and new rule G0002 has been added
+- HOUSE CONSIGNMENT > Reference number UCR > Rule 'E1301' has been deleted.
+
+- PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted.
+
+- CONSIGNMENT ITEM > Declaration type > Rule 'B1922' has been deleted.
+- CONSIGNMENT ITEM > Country of dispatch > Rule 'B1965' has been deleted.
+- CONSIGNMENT ITEM > Reference number UCR > Rule 'B1895' has been deleted.
+
+- CONSIGNEE > Identification number > Full data item has been removed and Rule 'R0851' has been deleted.
+- CONSIGNEE > Name > Full data item has been removed and Rule 'B1821' and 'E1104' has been deleted.
+
+- CONSIGNEE > ADDRESS > Street and number > Full data item has been removed and Rule 'E1104' has been deleted.
+- CONSIGNEE > ADDRESS > Postcode > Full data item has been removed and Rule 'B1822' and 'E1102' has been deleted.
+- CONSIGNEE > ADDRESS > City > Full data item has been removed.
+- CONSIGNEE > ADDRESS > Country > Full data item has been removed and code list 'CL248' has been deleted. 
+
+- COMMODITY > Description of goods > Rule 'E1107' has been deleted.
+
+- GOODS MEASURE > Gross mass > Rule 'B1860', 'B2101' and 'E1109' has been removed, Optional ('O') has been changed to Required ('R') 
+- GOODS MEASURE > Net mass > Rule 'B1805', 'B1862' and 'E1109' has been deleted.
+
+- PACKAGING > Type of packages > Rule 'B1919' has been deleted.
+- PACKAGING > Number of packages > Rule 'B1819', 'B1964' and 'C0060' and 'E1111' has been deleted.
+- PACKAGING > Shipping marks > Rule 'E1105' has been deleted.
+
+- PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted.
+- PREVIOUS DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+- PREVIOUS DOCUMENT > Complement of information > Rule 'E1117' has been deleted.
+
+- SUPPORTING DOCUMENT > Reference number > Rule 'E1104' has been deleted.
+- SUPPORTING DOCUMENT > Complement of information > Rule 'E1117' has been deleted.
+
+- TRANSPORT DOCUMENT > Sequence number > Full data item has been removed and Rule 'R0987' has been deleted.
+- TRANSPORT DOCUMENT > Type > Full data item has been removed and Rule 'G0057' and code list 'CL754' has been deleted.
+- TRANSPORT DOCUMENT > Reference number > Full data item has been removed and Rule 'E1104' and 'G0321' has been deleted.
+
+- ADDITIONAL REFERENCE > Reference number > Rule 'E1104' has been deleted.
+
+- ADDITIONAL INFORMATION > Code > Rule 'B1814' has been deleted.
+
+- TRANSPORT CHARGES > Method of payment > Full data item has been removed and code list 'CL116' has been deleted."
+IE014',Declaration Invalidation Request,Departure,Trader,No Changes,No Changes
+IE015',Declaration Data,Departure,Trader,"- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted. 
+- MESSAGE > CONSIGNEE > Rule 'B1823' has been deleted. 
+- MESSAGE > LOCATION OF GOODS > Rule 'B1804' has been deleted. 
+- MESSAGE > DEPARTURE TRANSPORT MEANS > Rule 'B1890' and 'B1891' has been deleted. 
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'B1848' has been deleted. 
+- MESSAGE > ACTIVE BORDER TRANSPORT MEANS > Rule 'B1806' and 'E1406' has been deleted. 
+- MESSAGE > PLACE OF LOADING > Rule 'B1893' is deleted.
+- MESSAGE > PLACE OF LOADING > the rule 'C0403' has been changed to 'C0409'.
+- MESSAGE > PLACE OF UNLOADING > Rule 'B1858' has been deleted. 
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted. 
+- MESSAGE > HOUSE CONSIGNMENT > Rule 'E1406' has been deleted. 
+- MESSAGE > CONSIGNOR > Rule 'E1301' has been deleted. 
+- MESSAGE > CONSIGNEE > Rule 'E1301' has been deleted. 
+- MESSAGE > DEPARTURE TRANSPORT MEANS > Rule 'E1301' has been deleted.
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT CHARGES > Rule 'E1301' has been deleted. 
+- MESSAGE > CONSIGNMENT ITEM > CONSIGNEE > data element has been removed and Rules 'B1820', 'B1877', 'B2400', and 'G0001' has been deleted. 
+- MESSAGE > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > data item has been removed and Rule 'B1821' has been deleted. 
+- MESSAGE > COMMODITY CODE > Rule 'B1834' has been deleted. 
+- MESSAGE > DANGEROUS GOODS > Rule 'E1406' has been deleted. 
+- MESSAGE > GOODS MEASURE > Rule 'B2101' is deleted.
+- MESSAGE > GOODS MEASURE > Optional ('O') has been changed to Required ('R').
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'B1000' and 'E1401' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1407' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Full data group has been removed and rules 'B1896', 'B2400', and 'E1407' has been deleted. 
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1407' has been deleted. 
+- MESSAGE > TRANSPORT CHARGES > Full data item remove along with Rules 'B1875', 'B1877' and 'B2400' has been deleted. 
+
+- Correlation identifier > B1833 rule has been removed
+- TRANSIT OPERATION > Declaration Type> B1922 has been removed
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100'.
+
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Reference number > Rule 'B1813' has been deleted. 
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1831' and 'B1904' has been deleted. 
+
+- HOLDER OF THE TRANSIT PROCEDURE > Name > Rule 'E1104' has been deleted. 
+
+
+- HOLDER OF THE TRANSIT PROCEDURE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+
+- HOLDER OF THE TRANSIT PROCEDURE >ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- GUARANTEE > GUARANTEE REFERENCE > Access code > Rule 'E1118' has been deleted.
+- GUARANTEE > GUARANTEE REFERENCE > Amount to be covered > Rule 'B2101' is deleted.
+- GUARANTEE > GUARANTEE REFERENCE > Amount to be covered > Optional ('O') changed to Required ('R').
+- GUARANTEE > GUARANTEE REFERENCE > Currency > Rule 'B1898' and 'B2101' is deleted.
+- GUARANTEE > GUARANTEE REFERENCE > Currency > Optional ('O') changed to Required ('R').
+
+- CONSIGNMENT > Country of dispatch > Rule 'B1965' has been deleted. 
+- CONSIGNMENT > Mode of transport at the border > Rule 'B1869' has been deleted. 
+- CONSIGNMENT > Gross mass > Rule 'E1109' has been deleted. 
+- CONSIGNMENT > Reference number UCR > Rule 'B1895' has been deleted. 
+
+- CONSIGNMENT > CONSIGNOR > Name > Rule 'E1104' has been deleted. 
+
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- CONSIGNMENT > CONSIGNEE > Name > Rule 'E1104' has been deleted. 
+
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- TRANSPORT EQUIPMENT > Number of seals > Rule 'B1832' has been deleted. 
+
+-  ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+-  ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- DEPARTURE TRANSPORT MEANS > Type of identification > Rule 'B1091', 'B1892' and 'B2101' is deleted.
+- DEPARTURE TRANSPORT MEANS > Type of identification > Optional ('O') has been changed to Required ('R').
+- DEPARTURE TRANSPORT MEANS > Identification number > Rule 'B1815', 'B1892', 'B2101' and 'E1103' is deleted.
+- DEPARTURE TRANSPORT MEANS > Identification number > Optional ('O') has been changed to Required ('R').
+- DEPARTURE TRANSPORT MEANS > Nationality > Rule 'B1897' and 'B2101' is deleted.
+- DEPARTURE TRANSPORT MEANS > Nationality > Optional ('O') has been changed to Required ('R').
+
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Rule 'B1016', 'B2101' is deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Rule 'B1838', and 'B2101' is deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Rule 'B1811', 'B1838', 'B2101', and 'E1103' is deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Optional ('O') has been changed to Required ('R').
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Rule 'B1850' and 'B2101' is deleted.
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Optional ('O') has been changed to Required ('R').
+
+- PLACE OF LOADING > Location > Rule 'E1114' has been deleted. 
+
+- HOUSE CONSIGNMENT > Country of dispatch > Rule 'B1965' and 'E1301' has been deleted. 
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been deleted
+- HOUSE CONSIGNMENT > Reference number UCR > Rule 'E1301' has been deleted. 
+
+- HOUSE CONSIGNMENT >  PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Declaration type > Rule 'B1922' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Country of dispatch > Rule 'B1965' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Reference number UCR > Rule 'B1895' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Full data group has been removed
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Identification number > Rule 'R0851' has been deleted.  
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Name > Rule 'B1821' and 'E1104' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Postcode > Rule 'B1822' and 'E1102' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > City has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Country with code list 'CL248' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > Description of goods > Rule 'E1107' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > GOODS MEASURE > Gross mass > Rule 'B1860', 'B2101', and 'E1109' is deleted.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > GOODS MEASURE > Gross mass > Optional ('O') has been changed to Required ('R').
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > GOODS MEASURE > Net mass > Rule 'B1805', 'B1862' and 'E1109' is deleted.
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Type of packages > Rule 'B1919' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Number of packages > Rule 'B1819', 'B1964', and 'E1111' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Shipping marks > Rule 'E1105' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Complement of information > Rule 'E1117' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > SUPPORTING DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > SUPPORTING DOCUMENT > Complement of information > Rule 'E1117' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > TRANSPORT DOCUMENT > Full data group has been removed
+>> TRANSPORT DOCUMENT > Sequence number > Rule 'R0987' has been deleted. 
+>> TRANSPORT DOCUMENT > Type with code list 'CL754' and rule 'G0057' has been deleted. 
+>> TRANSPORT DOCUMENT > Reference number > Rule 'E1104' and 'G0321' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDITIONAL REFERENCE > Reference number > Rule 'E1104' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >ADDITIONAL INFORMATION > Code > Rule 'B1814' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >TRANSPORT CHARGES > Method of payment > 'Required' data item has been removed with code list 'CL116' has been deleted.","- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted. 
+- MESSAGE > CONSIGNEE > Rule 'B1823' has been deleted. 
+- MESSAGE > LOCATION OF GOODS > Rule 'B1804' has been deleted. 
+- MESSAGE > DEPARTURE TRANSPORT MEANS > Rule 'B1890' and 'B1891' has been deleted. 
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'B1848' has been deleted. 
+- MESSAGE > ACTIVE BORDER TRANSPORT MEANS > Rule 'B1806' and 'E1406' has been deleted. 
+- MESSAGE > PLACE OF LOADING > Rule 'B1893' is deleted and the rule 'C0403' has been changed to 'C0409'. 
+- MESSAGE > PLACE OF UNLOADING > Rule 'B1848' has been deleted. 
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted. 
+- MESSAGE > HOUSE CONSIGNMENT > Rule 'E1406' has been deleted. 
+- MESSAGE > CONSIGNOR > Rule 'E1301' has been deleted. 
+- MESSAGE > CONSIGNEE > Rule 'E1301' has been deleted. 
+- MESSAGE > DEPARTURE TRANSPORT MEANS > Rule 'E1301' has been deleted.
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Rule 'E1301' has been deleted. 
+- MESSAGE > ADDITIONAL INFORMATION > Rule 'E1301' has been deleted. 
+- MESSAGE > TRANSPORT CHARGES > Rule 'E1301' has been deleted. 
+- MESSAGE > CONSIGNEE > Rules 'B1820', 'B1877', 'B2400', and 'G0001' has been deleted. 
+- MESSAGE > ADDRESS > Rule 'B1821' has been deleted. 
+- MESSAGE > COMMODITY CODE > Rule 'B1834' has been deleted. 
+- MESSAGE > DANGEROUS GOODS > Rule 'E1406' has been deleted. 
+- MESSAGE > GOODS MEASURE > Rule 'B2101' is deleted, Optional ('O') has been changed to Required ('R') 
+- MESSAGE > PREVIOUS DOCUMENT > Rule 'B1000' and 'E1401' has been deleted. 
+- MESSAGE > SUPPORTING DOCUMENT > Rule 'E1407' has been deleted. 
+- MESSAGE > TRANSPORT DOCUMENT > Full data group has been removed and rules 'B1896', 'B2400', and 'E1407' has been deleted. 
+- MESSAGE > ADDITIONAL REFERENCE > Rule 'E1407' has been deleted. 
+- MESSAGE > TRANSPORT CHARGES > Rules 'B1875', 'B1877' and 'B2400' has been deleted. 
+
+- Correlation identifier > B1833 rule has been removed
+- TRANSIT OPERATION > Declaration Type> B1922 has been removed
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100' 
+
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Reference number > Rule 'B1813' has been deleted. 
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1813' and 'B1904' has been deleted. 
+
+- HOLDER OF THE TRANSIT PROCEDURE > Name > Rule 'E1104' has been deleted. 
+
+
+- HOLDER OF THE TRANSIT PROCEDURE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+
+- HOLDER OF THE TRANSIT PROCEDURE >ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- GUARANTEE > GUARANTEE REFERENCE > Access code > Rule 'E1118' has been deleted.
+- GUARANTEE > GUARANTEE REFERENCE > Amount to be covered > Rule 'B2101' is deleted, Optional ('O') changed to Required ('R') 
+- GUARANTEE > GUARANTEE REFERENCE > Currency > Rule 'B1898' and 'B2101' is deleted, Optional ('O') changed to Required ('R') 
+
+- CONSIGNMENT > Country of dispatch > Rule 'B1965' has been deleted. 
+- CONSIGNMENT > Mode of transport at the border > Rule 'B1869' has been deleted. 
+- CONSIGNMENT > Gross mass > Rule 'E1109' has been deleted. 
+- CONSIGNMENT > Reference number UCR > Rule 'B1895' has been deleted. 
+
+- CONSIGNMENT > CONSIGNOR > Name > Rule 'E1104' has been deleted. 
+
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- CONSIGNMENT > CONSIGNOR > ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- CONSIGNMENT > CONSIGNEE > Name > Rule 'E1104' has been deleted. 
+
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- CONSIGNMENT > CONSIGNEE > ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- TRANSPORT EQUIPMENT > Number of seals > Rule 'B1832' has been deleted. 
+
+-  ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+-  ADDRESS > Postcode > Rule 'E1102' has been deleted. 
+
+- DEPARTURE TRANSPORT MEANS > Type of identification > Rule 'B1091', 'B1892' and 'B2101' is deleted, Optional ('O') has been changed to Required ('R') 
+- DEPARTURE TRANSPORT MEANS > Identification number > Rule 'B1815', 'B1892', 'B2101' and 'E1103' is deleted, Optional ('O') has been changed to Required ('R') 
+- DEPARTURE TRANSPORT MEANS > Nationality > Rule 'B1897' and 'B2101' is deleted, Optional ('O') has been changed to Required ('R') 
+
+- ACTIVE BORDER TRANSPORT MEANS > Customs office at border reference number > Rule 'B1016', 'B2101' is deleted, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Type of identification > Rule 'B1838', and 'B2101' is deleted, Optional ('O') has been changed to Required ('R')
+- ACTIVE BORDER TRANSPORT MEANS > Identification number > Rule 'B1811', 'B1838', 'B2101', and 'E1103' is deleted, Optional ('O') has been changed to Required ('R') 
+- ACTIVE BORDER TRANSPORT MEANS > Nationality > Rule 'B1850' and 'B2101' is deleted, Optional ('O') has been changed to Required ('R') 
+
+- PLACE OF LOADING > Location > Rule 'E1114' has been deleted. 
+
+- HOUSE CONSIGNMENT > Country of dispatch > Rule 'B1965' and 'E1301' has been deleted. 
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been replaced with 'G0002'. 
+- HOUSE CONSIGNMENT > Reference number UCR > Rule 'E1301' has been deleted. 
+
+- HOUSE CONSIGNMENT >  PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Declaration type > Rule 'B1922' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Country of dispatch > Rule 'B1965' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Reference number UCR > Rule 'B1895' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Full data group has been removed
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Identification number > Rule 'R0851' has been deleted.  
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Name > Rule 'B1821' and 'E1104' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Street and number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Postcode > Rule 'B1822' and 'E1102' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > City has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Country with code list 'CL248' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > Description of goods > Rule 'E1107' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > GOODS MEASURE > Gross mass > Rule 'B1860', 'B2101', and 'E1109' is deleted, Optional ('O') has been changed to Required ('R') 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > COMMODITY > GOODS MEASURE > Net mass > Rule 'B1805', 'B1862' and 'E1109' is deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Type of packages > Rule 'B1919' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Number of packages > Rule 'B1819', 'B1964', and 'E1111' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PACKAGING > Shipping marks > Rule 'E1105' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > PREVIOUS DOCUMENT > Complement of information > Rule 'E1117' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > SUPPORTING DOCUMENT > Reference number > Rule 'E1104' has been deleted. 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > SUPPORTING DOCUMENT > Complement of information > Rule 'E1117' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > TRANSPORT DOCUMENT > Full data group has been removed
+- TRANSPORT DOCUMENT > Sequence number > Rule 'R0987' has been deleted. 
+- TRANSPORT DOCUMENT > Type with code list 'CL754' and rule 'G0057' has been deleted. 
+- TRANSPORT DOCUMENT > Reference number > Rule 'E1104' and 'G0321' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDITIONAL REFERENCE > Reference number > Rule 'E1104' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >ADDITIONAL INFORMATION > Code > Rule 'B1814' has been deleted. 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >TRANSPORT CHARGES > Method of payment with code list 'CL116' has been deleted. 
+
+
+
+"
+IE019',Discrepancies,Arrival,NCTS,"- GUARANTOR > Identification number > Rule 'R0860' has been added.
+- GUARANTOR > Identification number > Optional ('O') has been changed to Required ('R').","- GUARANTOR > Identification number > Rule 'R0860' has been added, Optional ('O') has been changed to Required ('R') "
+IE022',Notification To Amend Declaration* (Out of scope for P5 LID),Departure,NCTS,No Changes,No Changes
+IE025',Goods Release Notification,Arrival,NCTS,"- PACKAGING > Type of packages > Rule 'R0220' has been added
+- PACKAGING > Number of packages > Rule 'R0219' has been added","- PACKAGING > Type of packages > Rule 'R0220' has been added
+- PACKAGING > Number of packages > Rule 'R0219' has been added"
+IE028',MRN Allocated,Departure,NCTS,No Changes,No Changes
+IE029,Release For Transit,Departure,NCTS,"- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted 
+- MESSAGE > CONSIGNMENT> PLACE OF LOADING > Rule 'C0410' has been added.
+- MESSAGE > CONSIGNMENT> PLACE OF LOADING > Required ('R') has been changed to Dependent ('D').
+- MESSAGE > CONSIGNEE > Rule 'G0001' and 'G0989' has been deleted 
+- MESSAGE > ADDRESS > Rule 'G0989' has been deleted 
+- MESSAGE > TRANSPORT DOCUMENT > Full data group has been removed > Rule 'G0825' and 'G0989' is deleted
+- MESSAGE > TRANSPORT CHARGES > Full data group has been removed > Rule 'G0989' has been deleted 
+
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100'.
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1903' has been deleted 
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been removed. 
+- HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Full data group has been removed
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Identification number > Rule 'R0851' has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Name has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >  Full data group has been removed
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Street and number has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Postcode has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > City has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > ADDRESS > Country with code list 'CL248' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM >PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted
+ 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Full data group has been removed 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Sequence number > Rule 'R0987' has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Type > Rule 'G0057' and code list 'CL754' has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Reference number > Rule 'G0321' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT CHARGES > Method of payment > Required field has been removed with code list 'CL116' has been deleted
+","- MESSAGE > CUSTOMS OFFICE OF EXIT FOR TRANSIT (DECLARED) > Rule 'B1966' has been deleted 
+- MESSAGE > PLACE OF LOADING > Rule 'C0410' has been added, Required ('R') has been changed to Dependent ('D') 
+- MESSAGE > CONSIGNEE > Rule 'G0001' and 'G0989' has been deleted 
+- MESSAGE > ADDRESS > Rule 'G0989' has been deleted 
+- MESSAGE > TRANSPORT DOCUMENT > Full data group has been removed > Rule 'G0825' and 'G0989' is deleted
+- MESSAGE > TRANSPORT CHARGES > Full data group has been removed > Rule 'G0989' has been deleted 
+
+- TRANSIT OPERATION > Communication language at departure > Rule 'R0100' has been changed to 'G0100' 
+- CUSTOMS OFFICE OF TRANSIT (DECLARED) > Arrival date and time (estimated) > Rule 'B1903' has been deleted 
+- HOUSE CONSIGNMENT > Country of destination > Rule 'E1301' has been replaced with 'G0002'. 
+- HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Full data group has been removed
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Identification number > Rule 'R0851' has been deleted 
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE > Name has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > CONSIGNEE >  Full data group has been removed
+- ADDRESS > Street and number has been deleted 
+- ADDRESS > Postcode has been deleted 
+- ADDRESS > City has been deleted 
+- ADDRESS > Country with code list 'CL248' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM >PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted
+ 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > TRANSPORT DOCUMENT > Full data group has been removed 
+- TRANSPORT DOCUMENT > Sequence number > Rule 'R0987' has been deleted 
+- TRANSPORT DOCUMENT > Type > Rule 'G0057' and code list 'CL754' has been deleted 
+- TRANSPORT DOCUMENT > Reference number > Rule 'G0321' has been deleted 
+
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM >TRANSPORT CHARGES > Method of payment with code list 'CL116' has been deleted 
+"
+IE035',Recovery Notification,Departure,NCTS,"- GUARANTOR > Identification number > Rule 'R0860' has been added.
+- GUARANTOR > Identification number > Optional ('O') has been changed to Required ('R').","- GUARANTOR > Identification number > Rule 'R0860' has been added, Optional ('O') has been changed to Required ('R')"
+IE043',Unloading Permission,Arrival,NCTS,"- MESSAGE > CONSIGNEE > Rule 'C0001' has been changed to 'C0003'. 
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > New 'Dependent' field has been added with Rule 'C0586' and 'G0079'.
+- MESSAGE > CONSIGNEE > Rule 'C0001' has been changed to 'C0003' 
+- MESSAGE > COMMODITY CODE > Rule 'C0153' has been changed to 'C0154' 
+
+- CONSIGNMENT > Reference number UCR > New 'Dependent' field with Rules 'C0502' and 'G0002' has been added. 
+
+- CONSIGNMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Sequence number > New 'Required' field with Rule 'R0987' has been added. 
+- CONSIGNMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Country > New 'Required' field with code list 'CL008' has been added. 
+- CONSIGNMENT >  PREVIOUS DOCUMENT > Type> Rule R0093 has been added 
+
+- CONSIGNMENT > TRANSPORT EQUIPMENT > Number of seals > Rule 'R0448' has been deleted 
+
+- HOUSE CONSIGNMENT > Country of destination > Rule 'G0042' has been deleted 
+- HOUSE CONSIGNMENT > Reference number UCR > New 'Dependent' field with Rules 'C0502' and 'G0002' has been added 
+
+- HOUSE CONSIGNMENT >CONSIGNEE > Identification number > Rule 'R0851' has been deleted 
+
+- HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted 
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM > Reference number UCR > New 'Dependent' field with Rules 'C0502', 'G0002', and 'G0062' has been added 
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM >  CONSIGNEE> ADDRESS > Country > code list 'CL248' has been changed to 'CL199'. 
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted ","- MESSAGE > CONSIGNEE > Rule 'C0001' has been changed to 'C0003'. 
+- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'C0586' and 'G0079' has been added. 
+- MESSAGE > CONSIGNEE > Rule 'C0001' has been changed to 'C0003' 
+- MESSAGE > COMMODITY CODE > Rule 'C0153' has been changed to 'C0154' 
+
+- CONSIGNMENT > Reference number UCR > new dependent field with Rules 'C0502' and 'G0002' has been added. 
+
+
+- CONSIGNMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Sequence number > Rule 'R0987' has been added. 
+
+- CONSIGNMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Country with code list 'CL008' has been added. 
+- CONSIGNMENT >  PREVIOUS DOCUMENT > Type> Rule R0093 has been added 
+
+- CONSIGNMENT > TRANSPORT EQUIPMENT > Number of seals > Rule 'R0448' has been deleted 
+
+- HOUSE CONSIGNMENT > Country of destination > Rule 'G0042' has been deleted 
+- HOUSE CONSIGNMENT > Reference number UCR > New field - Dependent' with Rules 'C0502' and 'G0002' has been added 
+
+- HOUSE CONSIGNMENT >CONSIGNEE > Identification number > Rule 'R0851' has been deleted 
+
+- HOUSE CONSIGNMENT > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted 
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM > Reference number UCR > Rule 'C0502', 'G0002', and 'G0062' are new data item has been added > Rules. 
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM >  CONSIGNEE> ADDRESS > Country with code list 'CL248' has been changed to 'CL199'. 
+
+
+- HOUSE CONSIGNMENT >CONSIGNMENT ITEM > PREVIOUS DOCUMENT > Type > Rule 'G0991' has been deleted "
+IE044',Unloading Remarks,Arrival,Trader,"- MESSAGE > CONSIGNMENT> COUNTRY OF ROUTING OF CONSIGNMENT > New 'Optional' field has been added with Rule 'G0360'
+- CONSIGNMENT > Reference number UCR >  New 'Optional' field has been added with Rule 'G0360'.
+- CONSIGNMENT > TRANSPORT EQUIPMENT > SEAL > Identifier > Required ('R') field has been changed to Optional ('O') field and Rule 'R0107' is deleted.
+- CONSIGNMENT > TRANSPORT EQUIPMENT > GOODS REFERENCE > Declaration goods item number> data field has been changed from Required ('R') to Optional ('O') 
+- CONSIGNMENT > TRANSPORT EQUIPMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Sequence number > New 'Required' data item has been added with Rule 'R0054'
+- CONSIGNMENT > TRANSPORT EQUIPMENT > COUNTRY OF ROUTING OF CONSIGNMENT > Country> New 'Optional' data item has been added with code list 'CL008' and rule 'G0360'.
+- CONSIGNMENT > TRANSPORT DOCUMENT > Type > Rule 'G0057' has been deleted 
+
+- HOUSE CONSIGNMENT > Reference number UCR > New 'Optional' field has been added with Rule 'G0360'.
+- HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Reference number UCR >New 'Optional' field has been added with Rule 'G0360'.","- MESSAGE > COUNTRY OF ROUTING OF CONSIGNMENT > Rule 'G0360' has been added. 
+- CONSIGNMENT > Reference number UCR > Rule 'G0360' has been added. 
+- SEAL > Identifier > Rule 'R0107' is deleted, Required ('R') has been changed to Optional ('O') 
+
+- TRANSPORT EQUIPMENT> GOODS REFERENCE > Declaration goods item number has been changed from Required ('R') to Optional ('O') 
+- COUNTRY OF ROUTING OF CONSIGNMENT > Sequence number > Rule 'R0054' has been added 
+- COUNTRY OF ROUTING OF CONSIGNMENT > Country with code list 'CL008' and rule 'G0360' has been added. 
+- TRANSPORT DOCUMENT > Type > Rule 'G0057' has been deleted 
+- HOUSE CONSIGNMENT > Reference number UCR as a new 'Optional' field > Rule 'G0360' has been added 
+-  HOUSE CONSIGNMENT > CONSIGNMENT ITEM > Reference number UCR > Rules 'G0002' and 'G0360' has been added"
+IE045',Write-Off Notification,Arrival,NCTS,"- GUARANTOR > Identification > has been changed from Optional ('O') to Required ('R').
+- GUARANTOR > Identification > added Rule 'R0860'.",- GUARANTOR > Identification has been changed from Optional ('O') to Required ('R') and added > Rule 'R0860'
+IE051',No Release For Transit,Departure,NCTS,No Changes,No Changes
+IE055,Guarantee Not Valid,Departure,NCTS,No Changes,No Changes
+IE056,Rejection From Office Of Departure,Departure,NCTS,"- TRANSIT OPERATION > Business rejection type > Rule 'R0852' has been added 
+- TRANSIT OPERATION > Rejection reason > Rule 'C0492' has been changed to rule 'C0495' 
+- FUNCTIONAL ERROR > Error code > Code list 'CL180' has been changed to code list 'CL437'.
+- FUNCTIONAL ERROR > Error code > Rule 'R0437' has been added.","- TRANSIT OPERATION > Business rejection type with code list 'CL560' has been added > Rule 'R0852' 
+- TRANSIT OPERATION > Rejection reason > Rule 'C0492' has been changed to rule 'C0495' 
+- FUNCTIONAL ERROR > Error code with code list 'CL180' has been changed to code list 'CL437' and rule 'R0437' has been added "
+IE057',Rejection From Office Of Destination,Arrival,NCTS,No Changes,- TRANSIT OPERATION > Business rejection type with code list 'CL570' has been changed to code list 'CL560' 
+IE060',Control Decision Notification,Departure,NCTS,"- TRANSIT OPERATION > LRN > Rule 'C0685' has been changed to 'C0467' 
+- TRANSIT OPERATION > MRN > Rule 'C0685' has been changed to 'C0467' ","- TRANSIT OPERATION > LRN > Rule 'C0685' has been changed to 'C0467' 
+- TRANSIT OPERATION > MRN > Rule 'C0685' has been changed to 'C0467' "
+IE140',Request On Non-Arrived Movement,Departure,NCTS,No Changes,No Changes
+IE141',Information About Non-Arrived Movement,Departure,Trader,No Changes,No Changes
+IE170',Presentation Notification For The Pre-Lodged Declaration,Departure,Trader,"- MESSAGE > CONSIGNMENT> GOODS REFERENCE has been added > Rule 'R0010' 
+- MESSAGE > CONSIGNMENT> PLACE OF LOADING > Rule 'C0404' has been changed to rule 'C0412' 
+- CONSIGNMENT> DEPARTURE TRANSPORT MEANS > Type of identification > Rule 'B1091' has been deleted ","- MESSAGE > CONSIGNMENT> GOODS REFERENCE has been added > Rule 'R0010' 
+- MESSAGE > CONSIGNMENT> PLACE OF LOADING > Rule 'C0404' has been changed to rule 'C0412' 
+- CONSIGNMENT> DEPARTURE TRANSPORT MEANS > Type of identification > Rule 'B1091' has been deleted "
+IE182',Forwarded Incident Notification To ED,Arrival,NCTS,- TRANSPORT EQUIPMENT > Number of seals > Rule 'R0448' has been deleted ,"""- TRANSPORT EQUIPMENT > Number of seals > Rule 'R0448' has been deleted "
+IE928',Positive Acknowledge,Departure,NCTS,No Changes,No Changes

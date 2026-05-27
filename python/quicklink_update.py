@@ -187,7 +187,7 @@ def main(guide_entries: list[GuideEntry], updated_quick_links_file_content):
     print("Updating quick links...")
 
     github_client = GitHubClient()
-    repo_owner = 'tudorsonycx'
+    repo_owner = 'hmrc'
 
     for guide_entry in guide_entries:
         if os.path.isdir(guide_entry.path):
@@ -326,8 +326,8 @@ def split_at_heading(content, heading="# Quick Links"):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python main.py <path_to_guides>")
-        print("Usage: python main.py <path_to_guides> --preview")
+        print("Usage: python quicklink_update.py <path_to_guides>")
+        print("Usage: python quicklink_update.py <path_to_guides> --preview")
 
         sys.exit(1)
 
@@ -337,7 +337,7 @@ if __name__ == '__main__':
         if sys.argv[2] == '--preview':
             is_preview = True
         else:
-            print("Usage: python main.py <path_to_guides> --preview")
+            print("Usage: python quicklink_update.py <path_to_guides> --preview")
 
             sys.exit(1)
 
