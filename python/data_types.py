@@ -17,7 +17,8 @@ import re
 
 
 class MessageField:
-    regex = "(CL\\d{3})?([BCEGRS]\\d{4})?$"
+    regex = re.compile(
+        r"(?:(CL\d{3})\s+([BCEGRS]\d{4})|(CL\d{3})|([BCEGRS]\d{4}))$")
 
     def __init__(self):
         self.field: str = ""
@@ -27,24 +28,43 @@ class MessageField:
         self.rules: list[str] = list()
 
     def parse_line(self, line: str):
-        # Reference number Ran8CL172R0901 (Everything)
-        # Binding itinerary Rn1CL027 (no rule)
-        # Release date Ran10 G0002 (no code list)
-        # Message recipient Ran..35 (no rule, no codelist)
+        # Reference number R an8 CL172 R0901 (Everything)
+        # Binding itinerary R n1 CL027 (no rule)
+        # Release date R an10 G0002 (no code list)
+        # Message recipient R an..35 (no rule, no codelist)
 
-        # Sequence number Rn..5 R0987
-
-        # We'll start from the right, a rule is always 5 characters, a letter and four numbers. Do we have that?
+        # We'll start from the right. Do we have the optional code list and/or rule?
         match = re.search(self.regex, line.strip())
-        captured = match.group(0)
-        field_tup = line.removesuffix(captured).strip().rpartition(" ")
-        self.field = field_tup[0].strip()
-        # we then parse the line as 1xD[potential rule]
-        self.required = field_tup[2][0].strip()
-        self.format = field_tup[2][1:].strip()
-        self.code_list = match.group(1)
-        if match.group(2) is not None:
-            self.rules.append(match.group(2))
+
+        captured = ""
+        code_list = None
+        rule = None
+
+        # if we have a match then we have at least the code list or rule
+        if match:
+            captured = match.group(0)
+            code_list = match.group(1) or match.group(3)
+            rule = match.group(2) or match.group(4)
+
+        # we now partition the rest of the line by the first space starting from the right
+        # this will yield a part containing the field and required, and another one
+        # containing the format. we strip where needed for consistency
+        line_partition = [s.strip() for s in
+                          line.removesuffix(captured).strip().rpartition(" ")]
+
+        field, required = line_partition[0].rsplit(" ", 1)
+        field = field.strip()
+
+        field_format = line_partition[2]
+
+        self.field = field
+        self.required = required
+        self.format = field_format
+        self.code_list = code_list
+
+        # we add the rule to the list if present
+        if rule is not None:
+            self.rules.append(rule)
 
     def add_rule(self, line: str):
         self.rules.append(line)
@@ -73,21 +93,35 @@ class MessageCategory:
         self.level = 0
 
     def parse_line(self, line: str):
-        # "------TRANSPORT CHARGES 1xDC0186"
-        category_tup = line.rpartition(" ")
-        self.category = re.sub(self.hyphen_pattern, lambda x: f"{x.group(0)} ", category_tup[0])
-        self.category_name_only = category_tup[0].strip().replace("-", "")
-        self.level = int(category_tup[0].count("-") / 3)
-        # we then parse the line as 1xD[potential rule]
-        metadata_tup = category_tup[2].partition("x")
-        self.multiplicity = f"{metadata_tup[0]}x"
-        try:
-            self.required = metadata_tup[2][0]
-        except Exception as e:
-            print(metadata_tup)
-            raise e
-        if len(metadata_tup[2]) > 1:
-            self.rules.append(metadata_tup[2][1:])
+        # "------TRANSPORT CHARGES 1x D C0186"
+        # "---TRANSIT OPERATION 1x R" (no rule)
+
+        # a line will always contain the multiplicity, so we can just partition by
+        # the lowercase x. this will yield a part containing the category and
+        # multiplicity number, and another one containing the required and possibly
+        # the rule. we strip where needed for consistency
+        line_x_partition = [s.strip() for s in line.rpartition("x")]
+
+        category, multiplicity = line_x_partition[0].rsplit(" ", 1)
+        category = category.strip()
+
+        required_and_maybe_rule = line_x_partition[2].split(" ", 1)
+        required = required_and_maybe_rule[0].strip()
+
+        rule = None
+        if len(required_and_maybe_rule) > 1:
+            rule = required_and_maybe_rule[1]
+
+        self.category = re.sub(self.hyphen_pattern, lambda x: f"{x.group(0)} ",
+                               category)
+        self.category_name_only = category.replace("-", "")
+        self.level = int(category.count("-") / 3)
+        self.multiplicity = f"{multiplicity}x"
+        self.required = required
+
+        # we add the rule to the list if present
+        if rule is not None:
+            self.rules.append(rule)
 
     def add_rule(self, line: str):
         self.rules.append(line)
@@ -125,4 +159,5 @@ class Rule:
         # we split the list on "Functional Description:"
         idx = rule_text.index("Functional Description:")
         self.technical_description = "\n".join(rule_text[1:idx])
-        self.functional_description = "\n".join(rule_text[idx + 1:len(rule_text)])
+        self.functional_description = "\n".join(
+            rule_text[idx + 1:len(rule_text)])

@@ -52,7 +52,7 @@ Ensure that all three bits of information are added. The script will then pick u
 
 ## Customising the behaviour of the conversion script
 
-This script has been designed to be semi-modular and extensible, such that the rendering logic is separate(ish) from the main code -- it's just a case of swapping out rendering functions for whatever format you wish to use -- for example, a CSV file writer. It is currently set up to only handle external domain messages.
+This script has been designed to be semi-modular and extensible, such that the rendering logic is separate(ish) from the main code -- it's just a case of swapping out rendering functions for whatever format you wish to use; for example, a CSV file writer. It is currently set up to only handle external domain messages.
 
 The main script, `main.py`, augmented by `data_types.py`, will generate `MessageCategory` (with child `MessageFields`) and `Rule` objects that can then be manipulated as required.
 
@@ -98,11 +98,11 @@ The results are separated into the message types and the rules. The rules are se
 
 * which rules have been added
 * which rules have been removed
-* whicb rules have been changed
+* which rules have been changed
 
 For added and changed rules, the script will print out the old and new rules where changed.
 
-For the message types, you'll get a slightly more Json like output that looks like this:
+For the message types, you'll get a slightly more JSON like output that looks like this:
 
 ```text
 Diff for IE015
@@ -139,7 +139,7 @@ It should be noted that order is indeed important, but that'll be handled by the
 
 > This section explains the technical detail of what the script expects and how it parses it. If you are just running the script, feel free to ignore this section.
 
-This script makes use of the `PyPDF 3` library, specifically the `extract_text` function. This allows us to get rid of the various bits of formatting, but does give us a slightly mangled output. Thankfully, this output is also consistent across multiple versions of the DDNTA and so we can exploit this fact in our parsing.
+This script makes use of the `pypdf` library, specifically the `extract_text` function. This allows us to get rid of the various bits of formatting, but does give us a slightly mangled output. Thankfully, this output is also consistent across multiple versions of the DDNTA, and so we can exploit this fact in our parsing.
 
 ## Message types, data groups, data items
 
@@ -147,21 +147,20 @@ In the Q2 PDF, the data groups and data items are separated, and usefully, are s
 
 * the headers on the pages are not exposed by `extract_text`
 * the data item page **always** begins with `MESSAGE`
-* the data groups page starts with a title containing the message type -- this might split over two lines so we also look for `E_` to ensure we don't accidently parse a title line improperly.
+* the data groups page starts with a title containing the message type -- this might split over multiple lines so we skip it
 
-We use this to be able to build up a picture of what is a data group, and what is a data item. Both have their own challenges in parsing however. In all cases, we ignore headers and complete parsing of a page when we see the "Page X" identifier.
+We use this to be able to build up a picture of what is a data group, and what is a data item. Both have their own challenges in parsing, however. In all cases, we ignore headers and complete parsing of a page when we see the "Page X" identifier.
 
 **For data groups**, we know that either the first non-title line, or a line that begins with a hyphen, is a data group, so we then parse it as such. The line will look something like:
 
 ```
-------TRANSPORT CHARGES 1xDC0186
+------TRANSPORT CHARGES 1x D C0186
 ```
-
-The title is up to the last space, while we can extract:
-
-* multiplicity up to and including the `x` (regex: `\d+x`)
-* the next letter is the requirement status (will be R, D or O)
-* the last five letters, if they exist, will be a rule (regex `[BCEGRST](\d{4})`)
+Taking the example, we can extract:
+* title - everything before multiplicity ("TRANSPORT CHARGES")
+* multiplicity - everything after title up to and including the `x` (regex: `\d+x`) ("1x")
+* requirement status - the next character after multiplicity (will be R, D or O) ("D")
+* the last five letters, if they exist, will be a rule (regex `[BCEGRST](\d{4})`) ("C0186")
 
 Any additional rows below that don't contain hyphens will just contain additional rules for this data group.
 
@@ -170,21 +169,21 @@ Any additional rows below that don't contain hyphens will just contain additiona
 The line for data items will look something like one of the following:
 
 ```
-Reference number Ran8CL172R0901 (Everything)
-Binding itinerary Rn1CL027 (no rule)
-Release date Ran10 G0002 (no code list)
-Message recipient Ran..35 (no rule, no codelist)
+Reference number R an8 CL172 R0901 (Everything)
+Binding itinerary R n1 CL027 (no rule)
+Release date R an10 G0002 (no code list)
+Message recipient R an..35 (no rule, no codelist)
 ```
 
 Taking the top example, we have:
 
-* the name of the item, followed by a space
-* the next letter is the requirement status (will be R, D or O)
-* a set of characters defining the format
-* a code list, starting CL followed by three digits (regex `CL\d{3}`)
-* the last five letters, if they exist, will be a rule (regex `[BCEGRST](\d{4})`)
+* the name of the item, followed by a space ("Reference number")
+* the next letter is the requirement status (will be R, D or O) ("R")
+* a set of characters defining the format ("an8")
+* a code list, starting CL followed by three digits (regex `CL\d{3}`) ("CL172")
+* the last five letters, if they exist, will be a rule (regex `[BCEGRST](\d{4})`) ("R0901")
 
-Other formats exist based on the fact that code lists and rules are optional. The parser takes care of this baed on what it sees.
+Other formats exist based on the fact that code lists and rules are optional. The parser takes care of this based on what it sees.
 
 Like with data groups, there is the potential for multiple rules for a given item. They are presented and parsed in the same way.
 
@@ -194,7 +193,7 @@ Like with data groups, there is the potential for multiple rules for a given ite
 B1000 Technical Description:
 ```
 
-so we know the rule, and that we start with the techncial decription. We categorise based on the letter, and then store the rule details. The lines below the technical description are stored, with line breaks, as the technical description. We will then come across
+so we know the rule, and that we start with the technical description. We categorise based on the letter, and then store the rule details. The lines below the technical description are stored, with line breaks, as the technical description. We will then come across
 
 ```
 Functional Description:
