@@ -1,4 +1,4 @@
-PyPDF2==3.0.1
-typing_extensions==4.8.0
-deepdiff==8.6.1
-requests==2.33.1
+pypdf==6.12.2
+typing_extensions==4.15.0
+deepdiff==9.1.0
+requests==2.34.2
