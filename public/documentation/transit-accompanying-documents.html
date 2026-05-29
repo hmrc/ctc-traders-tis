@@ -1,0 +1,1684 @@
+<!doctype html>
+<html lang="en" class="govuk-template govuk-template--rebranded no-js">
+  <head>
+    
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>Transit accompanying documents | NCTS Technical Interface Specification - NCTS Technical Interface Specification</title>
+
+    <link href="/guides/ctc-traders-tis/stylesheets/manifest.css" rel="stylesheet" />
+
+    <link rel="canonical" href="developer.service.hmrc.gov.uk/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html">
+      <link rel="icon" sizes="48x48" href="/guides/ctc-traders-tis/assets/govuk/assets/rebrand/images/favicon.ico">
+      <link rel="icon" sizes="any" href="/guides/ctc-traders-tis/assets/govuk/assets/rebrand/images/favicon.svg" type="image/svg+xml">
+      <link rel="mask-icon" href="/guides/ctc-traders-tis/assets/govuk/assets/rebrand/images/govuk-icon-mask.svg" color="#0b0c0c">
+      <link rel="apple-touch-icon" href="/guides/ctc-traders-tis/assets/govuk/assets/rebrand/images/govuk-icon-180.png">
+      <link rel="manifest" href="/guides/ctc-traders-tis/assets/govuk/assets/rebrand/manifest.json">
+
+      <meta name="description" content="Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages." />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="developer.service.hmrc.gov.uk/assets/govuk/assets/rebrand/images/govuk-opengraph-image.png" />
+      <meta name="twitter:title" content="Transit accompanying documents | NCTS Technical Interface Specification - NCTS Technical Interface Specification" />
+      <meta name="twitter:url" content="developer.service.hmrc.gov.uk/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html" />
+
+      <meta property="og:description" content="Software developers, designers, product owners or business analysts. Learn about the processes involved in the exchange of messages between traders and phase 6 of the NCTS at departure and arrival of transit movements, and about the definitions, formats and validations of those messages." />
+      <meta property="og:image" content="developer.service.hmrc.gov.uk/assets/govuk/assets/rebrand/images/govuk-opengraph-image.png" />
+      <meta property="og:site_name" content="NCTS Technical Interface Specification" />
+      <meta property="og:title" content="Transit accompanying documents | NCTS Technical Interface Specification" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="developer.service.hmrc.gov.uk/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html" />
+
+    
+  </head>
+
+  <body class="govuk-template__body">
+    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+    <div class="app-pane">
+      <div class="app-pane__header toc-open-disabled">
+        <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+        <header class="govuk-header app-header" role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-header__container--full-width">
+    <div class="govuk-header__logo">
+      <a href="/guides/ctc-traders-tis" class="govuk-header__link govuk-header__link--homepage">
+        <svg
+          focusable="false"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 324 60"
+          height="30"
+          width="162"
+          fill="currentcolor"
+          class="govuk-header__logotype"
+          aria-label="GOV.UK">
+          <title>GOV.UK</title>
+          <g>
+            <circle cx="20" cy="17.6" r="3.7"></circle>
+            <circle cx="10.2" cy="23.5" r="3.7"></circle>
+            <circle cx="3.7" cy="33.2" r="3.7"></circle>
+            <circle cx="31.7" cy="30.6" r="3.7"></circle>
+            <circle cx="43.3" cy="17.6" r="3.7"></circle>
+            <circle cx="53.2" cy="23.5" r="3.7"></circle>
+            <circle cx="59.7" cy="33.2" r="3.7"></circle>
+            <circle cx="31.7" cy="30.6" r="3.7"></circle>
+            <path d="M33.1,9.8c.2-.1.3-.3.5-.5l4.6,2.4v-6.8l-4.6,1.5c-.1-.2-.3-.3-.5-.5l1.9-5.9h-6.7l1.9,5.9c-.2.1-.3.3-.5.5l-4.6-1.5v6.8l4.6-2.4c.1.2.3.3.5.5l-2.6,8c-.9,2.8,1.2,5.7,4.1,5.7h0c3,0,5.1-2.9,4.1-5.7l-2.6-8ZM37,37.9s-3.4,3.8-4.1,6.1c2.2,0,4.2-.5,6.4-2.8l-.7,8.5c-2-2.8-4.4-4.1-5.7-3.8.1,3.1.5,6.7,5.8,7.2,3.7.3,6.7-1.5,7-3.8.4-2.6-2-4.3-3.7-1.6-1.4-4.5,2.4-6.1,4.9-3.2-1.9-4.5-1.8-7.7,2.4-10.9,3,4,2.6,7.3-1.2,11.1,2.4-1.3,6.2,0,4,4.6-1.2-2.8-3.7-2.2-4.2.2-.3,1.7.7,3.7,3,4.2,1.9.3,4.7-.9,7-5.9-1.3,0-2.4.7-3.9,1.7l2.4-8c.6,2.3,1.4,3.7,2.2,4.5.6-1.6.5-2.8,0-5.3l5,1.8c-2.6,3.6-5.2,8.7-7.3,17.5-7.4-1.1-15.7-1.7-24.5-1.7h0c-8.8,0-17.1.6-24.5,1.7-2.1-8.9-4.7-13.9-7.3-17.5l5-1.8c-.5,2.5-.6,3.7,0,5.3.8-.8,1.6-2.3,2.2-4.5l2.4,8c-1.5-1-2.6-1.7-3.9-1.7,2.3,5,5.2,6.2,7,5.9,2.3-.4,3.3-2.4,3-4.2-.5-2.4-3-3.1-4.2-.2-2.2-4.6,1.6-6,4-4.6-3.7-3.7-4.2-7.1-1.2-11.1,4.2,3.2,4.3,6.4,2.4,10.9,2.5-2.8,6.3-1.3,4.9,3.2-1.8-2.7-4.1-1-3.7,1.6.3,2.3,3.3,4.1,7,3.8,5.4-.5,5.7-4.2,5.8-7.2-1.3-.2-3.7,1-5.7,3.8l-.7-8.5c2.2,2.3,4.2,2.7,6.4,2.8-.7-2.3-4.1-6.1-4.1-6.1h10.6,0Z"></path>
+          </g>
+          <circle class="govuk-logo-dot" cx="226" cy="36" r="7.3"/>
+          <path d="M93.94 41.25c.4 1.81 1.2 3.21 2.21 4.62 1 1.4 2.21 2.41 3.61 3.21s3.21 1.2 5.22 1.2 3.61-.4 4.82-1c1.4-.6 2.41-1.4 3.21-2.41.8-1 1.4-2.01 1.61-3.01s.4-2.01.4-3.01v.14h-10.86v-7.02h20.07v24.08h-8.03v-5.56c-.6.8-1.38 1.61-2.19 2.41-.8.8-1.81 1.2-2.81 1.81-1 .4-2.21.8-3.41 1.2s-2.41.4-3.81.4a18.56 18.56 0 0 1-14.65-6.63c-1.6-2.01-3.01-4.41-3.81-7.02s-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83a20.45 20.45 0 0 1 19.46-13.65c3.21 0 4.01.2 5.82.8 1.81.4 3.61 1.2 5.02 2.01 1.61.8 2.81 2.01 4.01 3.21s2.21 2.61 2.81 4.21l-7.63 4.41c-.4-1-1-1.81-1.61-2.61-.6-.8-1.4-1.4-2.21-2.01-.8-.6-1.81-1-2.81-1.4-1-.4-2.21-.4-3.61-.4-2.01 0-3.81.4-5.22 1.2-1.4.8-2.61 1.81-3.61 3.21s-1.61 2.81-2.21 4.62c-.4 1.81-.6 3.71-.6 5.42s.8 5.22.8 5.22Zm57.8-27.9c3.21 0 6.22.6 8.63 1.81 2.41 1.2 4.82 2.81 6.62 4.82S170.2 24.39 171 27s1.4 5.62 1.4 8.83-.4 6.02-1.4 8.83-2.41 5.02-4.01 7.02-4.01 3.61-6.62 4.82-5.42 1.81-8.63 1.81-6.22-.6-8.63-1.81-4.82-2.81-6.42-4.82-3.21-4.41-4.01-7.02-1.4-5.62-1.4-8.83.4-6.02 1.4-8.83 2.41-5.02 4.01-7.02 4.01-3.61 6.42-4.82 5.42-1.81 8.63-1.81Zm0 36.73c1.81 0 3.61-.4 5.02-1s2.61-1.81 3.61-3.01 1.81-2.81 2.21-4.41c.4-1.81.8-3.61.8-5.62 0-2.21-.2-4.21-.8-6.02s-1.2-3.21-2.21-4.62c-1-1.2-2.21-2.21-3.61-3.01s-3.21-1-5.02-1-3.61.4-5.02 1c-1.4.8-2.61 1.81-3.61 3.01s-1.81 2.81-2.21 4.62c-.4 1.81-.8 3.61-.8 5.62 0 2.41.2 4.21.8 6.02.4 1.81 1.2 3.21 2.21 4.41s2.21 2.21 3.61 3.01c1.4.8 3.21 1 5.02 1Zm36.32 7.96-12.24-44.15h9.83l8.43 32.77h.4l8.23-32.77h9.83L200.3 58.04h-12.24Zm74.14-7.96c2.18 0 3.51-.6 3.51-.6 1.2-.6 2.01-1 2.81-1.81s1.4-1.81 1.81-2.81a13 13 0 0 0 .8-4.01V13.9h8.63v28.15c0 2.41-.4 4.62-1.4 6.62-.8 2.01-2.21 3.61-3.61 5.02s-3.41 2.41-5.62 3.21-4.62 1.2-7.02 1.2-5.02-.4-7.02-1.2c-2.21-.8-4.01-1.81-5.62-3.21s-2.81-3.01-3.61-5.02-1.4-4.21-1.4-6.62V13.9h8.63v26.95c0 1.61.2 3.01.8 4.01.4 1.2 1.2 2.21 2.01 2.81.8.8 1.81 1.4 2.81 1.81 0 0 1.34.6 3.51.6Zm34.22-36.18v18.92l15.65-18.92h10.82l-15.03 17.32 16.03 26.83h-10.21l-11.44-20.21-5.62 6.22v13.99h-8.83V13.9"/>
+        </svg>
+        <span class="govuk-header__product-name">
+          NCTS Technical Interface Specification
+        </span>
+      </a>
+    </div>
+    <div class="govuk-header__content">
+      <nav class="govuk-header__navigation govuk-header__navigation--end" aria-label="Menu">
+        <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" hidden>Menu</button>
+        <ul id="navigation" class="govuk-header__navigation-list">
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://developer.service.hmrc.gov.uk">Developer Hub</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://developer.service.hmrc.gov.uk/api-documentation/docs/using-the-hub">Getting started</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://developer.service.hmrc.gov.uk/api-documentation/docs/api">API documentation</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://developer.service.hmrc.gov.uk/developer/applications">Applications</a>
+            </li>
+            <li class="govuk-header__navigation-item">
+              <a class="govuk-header__link" href="https://developer.service.hmrc.gov.uk/developer/support">Support</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+      </div>
+
+        <div id="toc-heading" class="toc-show fixedsticky">
+          <button type="button" class="toc-show__label js-toc-show" aria-controls="toc">
+            Table of contents <span class="toc-show__icon"></span>
+          </button>
+        </div>
+
+      <div class="app-pane__body" data-module="in-page-navigation">
+          <div class="app-pane__toc">
+            <div class="toc" data-module="table-of-contents" tabindex="-1">
+              <div class="search" data-module="search" data-path-to-site-root="/guides/ctc-traders-tis/">
+  <form action="https://www.google.co.uk/search" method="get" role="search" class="search__form govuk-!-margin-bottom-4">
+    <input type="hidden" name="as_sitesearch" value="developer.service.hmrc.gov.uk"/>
+    <label class="govuk-label search__label" for="search">
+      Search (via Google)
+    </label>
+    <input
+      type="search"
+      id="search" name="q"
+      class="govuk-input govuk-!-margin-bottom-0 search__input"
+      aria-controls="search-results"
+      placeholder="Search">
+    <button type="submit" class="search__button">Search</button>
+  </form>
+</div>
+
+              <button type="button" class="toc__close js-toc-close" aria-controls="toc" aria-label="Hide table of contents"></button>
+              <nav id="toc" class="js-toc-list toc__list" aria-labelledby="toc-heading" data-module="collapsible-navigation">
+                      <ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/"><span>NCTS Technical Interface Specification</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/#introduction"><span>Introduction</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/process_flows.html"><span>Common Process flows</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/process_flows.html#pre-lodgement-message-flows"><span>Pre-lodgement message flows</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/process_flows.html#departure-message-flows"><span>Departure message flows</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/process_flows.html#arrival-message-flows"><span>Arrival message flows</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/process_flows.html#recovery-message-flows"><span>Recovery message flows</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/process_flows.html#guarantee-message-flows"><span>Guarantee message flows</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/messageoverview.html"><span>Message overview</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/messageoverview.html#message-categorisation-by-sender"><span>Message categorisation by sender</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/messageoverview.html#message-identification-sender-and-recipient-guidelines"><span>Message identification, sender and recipient guidelines</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/messageoverview.html#message-details"><span>Message details</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/messageoverview.html#accessing-the-xml-schemas"><span>Accessing the XML schemas</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul><li><a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/index.html">Phase 6 Message Types</a>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE004.html"><span>IE004 Amendment Acceptance</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE007.html"><span>IE007 Arrival Notification</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE009.html"><span>IE009 Invalidation Decision</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE013.html"><span>IE013 Declaration Amendment</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE014.html"><span>IE014 Declaration Invalidation Request</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE015.html"><span>IE015 Declaration Data</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE019.html"><span>IE019 Discrepancies</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE022.html"><span>IE022 Notification To Amend Declaration</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE025.html"><span>IE025 Goods Release Notification</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE028.html"><span>IE028 MRN Allocated</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE029.html"><span>IE029 Release For Transit</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE035.html"><span>IE035 Recovery Notification</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE043.html"><span>IE043 Unloading Permission</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE044.html"><span>IE044 Unloading Remarks</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE045.html"><span>IE045 Write-Off Notification</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE051.html"><span>IE051 No Release For Transit</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE055.html"><span>IE055 Guarantee Not Valid</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE056.html"><span>IE056 Rejection From Office Of Departure</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE057.html"><span>IE057 Rejection From Office Of Destination</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE060.html"><span>IE060 Control Decision Notification</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE170.html"><span>IE170 Presentation Notification For The Pre-Lodged Declaration</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE182.html"><span>IE182 Forwarded Incident Notification To ED</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-messages-types/IE928.html"><span>IE928 Positive Acknowledge</span></a>
+  </li>
+</ul>
+</li></ul><ul><li><a href="/guides/ctc-traders-tis/documentation/phase-6-rules/index.html">Phase 6 Rules</a>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0001.html"><span>C0001</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0003.html"><span>C0003</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0015.html"><span>C0015</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0027.html"><span>C0027</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0029.html"><span>C0029</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0030.html"><span>C0030</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0035.html"><span>C0035</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0040.html"><span>C0040</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0045.html"><span>C0045</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0055.html"><span>C0055</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0060.html"><span>C0060</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0085.html"><span>C0085</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0086.html"><span>C0086</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0101.html"><span>C0101</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0102.html"><span>C0102</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0128.html"><span>C0128</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0129.html"><span>C0129</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0130.html"><span>C0130</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0137.html"><span>C0137</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0153.html"><span>C0153</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0154.html"><span>C0154</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0170.html"><span>C0170</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0186.html"><span>C0186</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0191.html"><span>C0191</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0215.html"><span>C0215</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0220.html"><span>C0220</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0240.html"><span>C0240</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0250.html"><span>C0250</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0298.html"><span>C0298</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0315.html"><span>C0315</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0337.html"><span>C0337</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0339.html"><span>C0339</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0343.html"><span>C0343</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0349.html"><span>C0349</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0352.html"><span>C0352</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0353.html"><span>C0353</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0382.html"><span>C0382</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0387.html"><span>C0387</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0394.html"><span>C0394</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0396.html"><span>C0396</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0409.html"><span>C0409</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0410.html"><span>C0410</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0411.html"><span>C0411</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0412.html"><span>C0412</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0440.html"><span>C0440</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0451.html"><span>C0451</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0452.html"><span>C0452</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0455.html"><span>C0455</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0460.html"><span>C0460</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0467.html"><span>C0467</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0489.html"><span>C0489</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0492.html"><span>C0492</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0495.html"><span>C0495</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0502.html"><span>C0502</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0505.html"><span>C0505</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0511.html"><span>C0511</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0531.html"><span>C0531</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0542.html"><span>C0542</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0569.html"><span>C0569</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0586.html"><span>C0586</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0587.html"><span>C0587</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0598.html"><span>C0598</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0599.html"><span>C0599</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0600.html"><span>C0600</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0670.html"><span>C0670</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0671.html"><span>C0671</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0710.html"><span>C0710</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0806.html"><span>C0806</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0807.html"><span>C0807</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0808.html"><span>C0808</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0816.html"><span>C0816</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0820.html"><span>C0820</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0821.html"><span>C0821</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0822.html"><span>C0822</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0823.html"><span>C0823</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0824.html"><span>C0824</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0826.html"><span>C0826</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0833.html"><span>C0833</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0837.html"><span>C0837</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0839.html"><span>C0839</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0840.html"><span>C0840</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0844.html"><span>C0844</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0870.html"><span>C0870</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0872.html"><span>C0872</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0904.html"><span>C0904</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0908.html"><span>C0908</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/C0909.html"><span>C0909</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0001.html"><span>G0001</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0002.html"><span>G0002</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0005.html"><span>G0005</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0006.html"><span>G0006</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0009.html"><span>G0009</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0010.html"><span>G0010</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0014.html"><span>G0014</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0015.html"><span>G0015</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0016.html"><span>G0016</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0017.html"><span>G0017</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0020.html"><span>G0020</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0021.html"><span>G0021</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0023.html"><span>G0023</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0024.html"><span>G0024</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0025.html"><span>G0025</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0026.html"><span>G0026</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0029.html"><span>G0029</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0030.html"><span>G0030</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0033.html"><span>G0033</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0034.html"><span>G0034</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0042.html"><span>G0042</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0045.html"><span>G0045</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0050.html"><span>G0050</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0057.html"><span>G0057</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0058.html"><span>G0058</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0061.html"><span>G0061</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0062.html"><span>G0062</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0068.html"><span>G0068</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0069.html"><span>G0069</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0071.html"><span>G0071</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0072.html"><span>G0072</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0079.html"><span>G0079</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0088.html"><span>G0088</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0090.html"><span>G0090</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0100.html"><span>G0100</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0101.html"><span>G0101</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0102.html"><span>G0102</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0103.html"><span>G0103</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0105.html"><span>G0105</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0112.html"><span>G0112</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0113.html"><span>G0113</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0114.html"><span>G0114</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0115.html"><span>G0115</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0117.html"><span>G0117</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0118.html"><span>G0118</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0119.html"><span>G0119</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0120.html"><span>G0120</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0123.html"><span>G0123</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0126.html"><span>G0126</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0127.html"><span>G0127</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0131.html"><span>G0131</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0139.html"><span>G0139</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0142.html"><span>G0142</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0160.html"><span>G0160</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0165.html"><span>G0165</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0167.html"><span>G0167</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0186.html"><span>G0186</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0196.html"><span>G0196</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0201.html"><span>G0201</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0205.html"><span>G0205</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0217.html"><span>G0217</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0300.html"><span>G0300</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0301.html"><span>G0301</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0321.html"><span>G0321</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0332.html"><span>G0332</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0360.html"><span>G0360</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0414.html"><span>G0414</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0424.html"><span>G0424</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0500.html"><span>G0500</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0510.html"><span>G0510</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0587.html"><span>G0587</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0670.html"><span>G0670</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0789.html"><span>G0789</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0825.html"><span>G0825</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0850.html"><span>G0850</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0860.html"><span>G0860</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0868.html"><span>G0868</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0988.html"><span>G0988</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/G0989.html"><span>G0989</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0003.html"><span>R0003</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0004.html"><span>R0004</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0005.html"><span>R0005</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0006.html"><span>R0006</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0007.html"><span>R0007</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0008.html"><span>R0008</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0010.html"><span>R0010</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0020.html"><span>R0020</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0023.html"><span>R0023</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0028.html"><span>R0028</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0054.html"><span>R0054</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0055.html"><span>R0055</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0060.html"><span>R0060</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0076.html"><span>R0076</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0093.html"><span>R0093</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0102.html"><span>R0102</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0103.html"><span>R0103</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0106.html"><span>R0106</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0107.html"><span>R0107</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0165.html"><span>R0165</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0219.html"><span>R0219</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0220.html"><span>R0220</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0221.html"><span>R0221</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0223.html"><span>R0223</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0315.html"><span>R0315</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0318.html"><span>R0318</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0350.html"><span>R0350</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0352.html"><span>R0352</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0364.html"><span>R0364</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0410.html"><span>R0410</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0416.html"><span>R0416</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0437.html"><span>R0437</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0448.html"><span>R0448</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0472.html"><span>R0472</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0473.html"><span>R0473</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0474.html"><span>R0474</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0476.html"><span>R0476</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0506.html"><span>R0506</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0507.html"><span>R0507</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0520.html"><span>R0520</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0601.html"><span>R0601</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0789.html"><span>R0789</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0790.html"><span>R0790</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0840.html"><span>R0840</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0849.html"><span>R0849</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0850.html"><span>R0850</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0851.html"><span>R0851</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0852.html"><span>R0852</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0855.html"><span>R0855</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0859.html"><span>R0859</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0860.html"><span>R0860</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0871.html"><span>R0871</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0900.html"><span>R0900</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0901.html"><span>R0901</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0904.html"><span>R0904</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0905.html"><span>R0905</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0906.html"><span>R0906</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0909.html"><span>R0909</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0910.html"><span>R0910</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0911.html"><span>R0911</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0912.html"><span>R0912</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0983.html"><span>R0983</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0987.html"><span>R0987</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0988.html"><span>R0988</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0990.html"><span>R0990</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R0994.html"><span>R0994</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R3060.html"><span>R3060</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R3061.html"><span>R3061</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/R3062.html"><span>R3062</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/S1018.html"><span>S1018</span></a>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/phase-6-rules/S1023.html"><span>S1023</span></a>
+  </li>
+</ul>
+</li></ul><ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/code_lists.html"><span>Phase 6 code lists</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/code_lists.html#download-taxud-code-lists"><span>Download TAXUD Code Lists</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/code_lists.html#automate-daily-updates"><span>Automate Daily Updates</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/code_lists.html#synchronise-validation"><span>Synchronise Validation</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/code_lists.html#cl505-requirement"><span>CL505 Requirement</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/code_lists.html#code-list-mapping"><span>Code List Mapping</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/uk-specific-rules.html"><span>UK Specific Rules</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/uk-specific-rules.html#gb001"><span>GB001</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/uk-specific-rules.html#gb002"><span>GB002</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/uk-specific-rules.html#xi001"><span>XI001</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/uk-specific-rules.html#xi002"><span>XI002</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html"><span>Transit accompanying documents</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html#fallback-procedure"><span>Fallback procedure</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html#manually-printing-tads"><span>Manually printing TADs</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/transit-accompanying-documents.html#example-tads"><span>Example TADs</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/error-codes.html"><span>Error codes</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/error-codes.html#ncts-error-codes"><span>NCTS error codes</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/error-codes.html#business-rules"><span>Business rules</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/quick-links.html"><span>Quick Links</span></a>
+    <ul>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/quick-links.html#phase-6"><span>Phase 6</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/quick-links.html#phase-5"><span>Phase 5</span></a>
+      </li>
+      <li>
+        <a href="/guides/ctc-traders-tis/documentation/quick-links.html#ctc-guarantee-balance"><span>CTC Guarantee Balance</span></a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<ul>
+  <li>
+    <a href="/guides/ctc-traders-tis/documentation/changelog.html"><span>Changelog</span></a>
+  </li>
+</ul>
+
+
+              </nav>
+            </div>
+          </div>
+
+        <div class="app-pane__content toc-open-disabled" aria-label="Content">
+          <main id="content" class="technical-documentation" data-module="anchored-headings">
+            <h1 id="transit-accompanying-documents">Transit accompanying documents</h1>
+
+<p>A Transit Accompanying Document (TAD) is required for each NCTS transit declaration.</p>
+<p><strong>Note:</strong> Although safety and security (S&amp;S) data elements can be provided in an IE015 message and a Transit Security Accompanying Document (TSAD) can be printed for a UK transit departure, safety and security declarations (SSDs) must be completed separately. This means that you cannot use a TSAD to fulfil your UK entry summary declaration (ENS) and exit summary declaration (EXS) requirements.</p>
+<p>TADs must be created by using information only from IE029 messages.</p>
+<p>TADs are electronically authenticated by the NCTS, so they do not need to be authenticated by the Office of Departure (OoDep) by stamp. A Common Transit (CT) movement cannot be released from transit <strong>legally</strong> until after the relevant IE029 message has been generated by Customs and a valid TAD has been created.</p>
+<p><strong>Note:</strong> A TAD should be created using only data that has been validated or provided by the NCTS. This can be achieved by generating the TAD directly from the IE029 message either electronically or through printing it manually, or by using data from the relevant IE029 message to update a previously created and validated transit record, and then creating the TAD from that.</p>
+<p>Traders using the NCTS normal procedure will have the option either to collect the TAD from the OoDep or to generate the TAD at their own premises. Approval to create the TAD is granted by the Central Community Transit Office (CCTO), to which a trader’s application must be submitted for consideration. Traders must provide evidence of their ability to create TADs in the required format.</p>
+<p>Traders authorised to use NCTS simplified procedures as Authorised Consignors can generate their own TADs as part of their authorisation permission.</p>
+<h2 id="fallback-procedure">Fallback procedure</h2>
+
+<p>For information about the TAD fallback procedure, see section &lsquo;Business continuity: ‘Unscheduled’ Downtime&rsquo; of the <a href="https://www.gov.uk/government/publications/transit-manual-supplement" rel="noopener noreferrer">Transit Manual Supplement</a>.</p>
+<h2 id="manually-printing-tads">Manually printing TADs</h2>
+
+<p>Guidelines for printing TADs are available in this <a href="/guides/ctc-traders-tis/downloads/NCTS5_TAD_Printing_Guidelines_Oct_2024.zip" rel="noopener noreferrer">zip file</a></p>
+<p>The following printing guidelines are important:</p>
+
+<ul>
+<li>the ‘liability amount‘ information in the guarantee data group is not printed on a TAD</li>
+<li>the printer and print driver used for printing a TAD must be capable of printing a bar code of standard ISO code 128 set B (but not EAN128)</li>
+<li>use the font type BC C128 Narrow (True Type) version 2.0</li>
+</ul>
+<h2 id="example-tads">Example TADs</h2>
+
+
+<ul>
+<li><p>the TAD/TLoI Template is available <a href="/guides/ctc-traders-tis/downloads/Template_TAD_TLoI_Post-Transition_Period_v1.4.xlsx" rel="noopener noreferrer">here</a></p></li>
+<li><p>the TAD Correlation Data spreadsheet is available <a href="/guides/ctc-traders-tis/downloads/Correlation_Table_TAD_and_TLoI_V2.4_Post-Transition.xlsx" rel="noopener noreferrer">here</a></p></li>
+<li><p>the <a href="/guides/ctc-traders-tis/downloads/Post-Transition_Example_TAD-populated.pdf" rel="noopener noreferrer">example TAD</a>(PDF) generated from the example <a href="/guides/ctc-traders-tis/downloads/Post-Transition_IE029_TAD.xml" rel="noopener noreferrer">IE029 message</a>(XML).</p></li>
+</ul>
+
+            
+          </main>
+
+          <aside>
+          </aside>
+
+          <footer class="govuk-footer app-footer" role="contentinfo">
+  <svg focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 60" height="30" width="32" fill="currentcolor" class="govuk-footer__crown">
+    <g>
+      <circle cx="20" cy="17.6" r="3.7"></circle>
+      <circle cx="10.2" cy="23.5" r="3.7"></circle>
+      <circle cx="3.7" cy="33.2" r="3.7"></circle>
+      <circle cx="31.7" cy="30.6" r="3.7"></circle>
+      <circle cx="43.3" cy="17.6" r="3.7"></circle>
+      <circle cx="53.2" cy="23.5" r="3.7"></circle>
+      <circle cx="59.7" cy="33.2" r="3.7"></circle>
+      <circle cx="31.7" cy="30.6" r="3.7"></circle>
+      <path d="M33.1,9.8c.2-.1.3-.3.5-.5l4.6,2.4v-6.8l-4.6,1.5c-.1-.2-.3-.3-.5-.5l1.9-5.9h-6.7l1.9,5.9c-.2.1-.3.3-.5.5l-4.6-1.5v6.8l4.6-2.4c.1.2.3.3.5.5l-2.6,8c-.9,2.8,1.2,5.7,4.1,5.7h0c3,0,5.1-2.9,4.1-5.7l-2.6-8ZM37,37.9s-3.4,3.8-4.1,6.1c2.2,0,4.2-.5,6.4-2.8l-.7,8.5c-2-2.8-4.4-4.1-5.7-3.8.1,3.1.5,6.7,5.8,7.2,3.7.3,6.7-1.5,7-3.8.4-2.6-2-4.3-3.7-1.6-1.4-4.5,2.4-6.1,4.9-3.2-1.9-4.5-1.8-7.7,2.4-10.9,3,4,2.6,7.3-1.2,11.1,2.4-1.3,6.2,0,4,4.6-1.2-2.8-3.7-2.2-4.2.2-.3,1.7.7,3.7,3,4.2,1.9.3,4.7-.9,7-5.9-1.3,0-2.4.7-3.9,1.7l2.4-8c.6,2.3,1.4,3.7,2.2,4.5.6-1.6.5-2.8,0-5.3l5,1.8c-2.6,3.6-5.2,8.7-7.3,17.5-7.4-1.1-15.7-1.7-24.5-1.7h0c-8.8,0-17.1.6-24.5,1.7-2.1-8.9-4.7-13.9-7.3-17.5l5-1.8c-.5,2.5-.6,3.7,0,5.3.8-.8,1.6-2.3,2.2-4.5l2.4,8c-1.5-1-2.6-1.7-3.9-1.7,2.3,5,5.2,6.2,7,5.9,2.3-.4,3.3-2.4,3-4.2-.5-2.4-3-3.1-4.2-.2-2.2-4.6,1.6-6,4-4.6-3.7-3.7-4.2-7.1-1.2-11.1,4.2,3.2,4.3,6.4,2.4,10.9,2.5-2.8,6.3-1.3,4.9,3.2-1.8-2.7-4.1-1-3.7,1.6.3,2.3,3.3,4.1,7,3.8,5.4-.5,5.7-4.2,5.8-7.2-1.3-.2-3.7,1-5.7,3.8l-.7-8.5c2.2,2.3,4.2,2.7,6.4,2.8-.7-2.3-4.1-6.1-4.1-6.1h10.6,0Z"></path>
+    </g>
+  </svg>
+  <div class="govuk-footer__meta">
+    <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+        <ul class="govuk-footer__inline-list">
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="https://www.tax.service.gov.uk/accessibility-statement/hmrc-developer-hub">Accessibility statement</a>
+            </li>
+        </ul>
+
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        class="govuk-footer__licence-logo"
+        xmlns="http://www.w3.org/2000/svg"
+        viewbox="0 0 483.2 195.7"
+        height="17"
+        width="41"
+      >
+        <path
+          fill="currentColor"
+          d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+        />
+      </svg>
+      <span class="govuk-footer__licence-description">
+        All content is available under the
+        <a
+          class="govuk-footer__link"
+          href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+          rel="license"
+        >Open Government Licence v3.0</a>, except where otherwise stated
+      </span>
+    </div>
+    <div class="govuk-footer__meta-item">
+      <a
+        class="govuk-footer__link govuk-footer__copyright-logo"
+        href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+      >© Crown copyright</a>
+    </div>
+  </div>
+</footer>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="/guides/ctc-traders-tis/javascripts/govuk_frontend.js" type="module"></script>
+    <script src="/guides/ctc-traders-tis/javascripts/application.js"></script>
+  </body>
+</html>
