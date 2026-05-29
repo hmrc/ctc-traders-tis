@@ -60,15 +60,18 @@ export goods.
 
 From 01/06/2026, Transit Declaration IE015 and IE013 Security-Type cannot include ENS data.
 
-Data group - Transit Operation, data element – Security, values from CL217 (Declaration Type Security) have been
-restricted to only values 0 (not used for safety and security purposes) and 2 (EXS - Exit Summary Declaration data).
-Values 1 (ENS - Entry Summary Declaration data) and 3 (Combined EXS & ENS) include ENS data and are no longer allowable
-as they may confound the correct processes for NCTS 6 opt-in countries receiving declarations containing these values.
+Data group - Transit Operation, data element – Security, values from CL217 (Declaration Type Security) have been restricted to only values 0 (not used for safety and security purposes) and 2 (EXS - Exit Summary Declaration data). Values 1 (ENS - Entry Summary Declaration data) and 3 (Combined EXS & ENS) include ENS data and are no longer allowable as they may confound the correct processes for NCTS 6 opt-in countries receiving declarations containing these values.
 
-There is a rule validation in place from 01/06/2026 to reject IE015s and IE013s which do not consider the above and are
-submitted with Security Type 1 or 3. For more information regarding this validation please see
-[BR20101](https://developer.service.hmrc.gov.uk/guides/ctc-traders-tis/documentation/error-codes.html#business-rules)
-in the Business rules section.
+There is a rule validation in place from 01/06/2026 to reject IE015s and IE013s which do not consider the above and are submitted with Security Type 1 or 3.
+
+Please see the below information regarding the error encountered if you do not comply with this rule:
+
+IE056 – Rejection from Office of Departure, returned to the Holder of the Transit Procedure.
+Error Code: 12 – Code list violation
+Pointer: /CC015C/TransitOperation/security
+Original Value: 1
+Error Reason: CL217
+Error Code: 12
 
 ## XI001
 
@@ -109,12 +112,15 @@ export goods.
 
 From 01/06/2026, Transit Declaration IE015 and IE013 Security-Type cannot include ENS data.
 
-Data group - Transit Operation, data element – Security, values from CL217 (Declaration Type Security) have been
-restricted to only values 0 (not used for safety and security purposes) and 2 (EXS - Exit Summary Declaration data).
-Values 1 (ENS - Entry Summary Declaration data) and 3 (Combined EXS & ENS) include ENS data and are no longer allowable
-as they may confound the correct processes for NCTS 6 opt-in countries receiving declarations containing these values.
+Data group - Transit Operation, data element – Security, values from CL217 (Declaration Type Security) have been restricted to only values 0 (not used for safety and security purposes) and 2 (EXS - Exit Summary Declaration data). Values 1 (ENS - Entry Summary Declaration data) and 3 (Combined EXS & ENS) include ENS data and are no longer allowable as they may confound the correct processes for NCTS 6 opt-in countries receiving declarations containing these values.
 
-There is a rule validation in place from 01/06/2026 to reject IE015s and IE013s which do not consider the above and are
-submitted with Security Type 1 or 3. For more information regarding this validation please see
-[BR20101](https://developer.service.hmrc.gov.uk/guides/ctc-traders-tis/documentation/error-codes.html#business-rules)
-in the Business rules section.
+There is a rule validation in place from 01/06/2026 to reject IE015s and IE013s which do not consider the above and are submitted with Security Type 1 or 3.
+
+Please see the below information regarding the error encountered if you do not comply with this rule:
+
+IE056 – Rejection from Office of Departure, returned to the Holder of the Transit Procedure.
+Error Code: 12 – Code list violation
+Pointer: /CC015C/TransitOperation/security
+Original Value: 1
+Error Reason: CL217
+Error Code: 12
