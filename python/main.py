@@ -25,7 +25,7 @@ import re
 import sys
 from os.path import abspath, expanduser
 
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 import code_lists
 import render
@@ -74,7 +74,8 @@ extracted_rules = extract_rules(pdf_reader, rules_start_page)
 # for each rule set, if the rule is not in the external domain messages
 # we will drop them from rendering.
 for key, rule_list in extracted_rules.items():
-    filtered = {rule.rule_code: rule for rule in rule_list if rule.rule_code in rule_set}
+    filtered = {rule.rule_code: rule for rule in rule_list if
+                rule.rule_code in rule_set}
     extracted_rules[key] = list(filtered.values())
 
 for cat, ruleset in extracted_rules.items():

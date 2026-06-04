@@ -16,7 +16,7 @@
 import re
 from typing import Optional, Iterator
 
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 import hmrc_exceptions
 from data_types import MessageField, MessageCategory, Rule
@@ -25,7 +25,8 @@ from message_reference import expected_message_references
 regex = "Message Structure for: (IE\\d{3})"
 
 
-def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[list[tuple[str, int, int]], int]:
+def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[
+    list[tuple[str, int, int]], int]:
     print("Scanning document...")
     l: list[tuple[str, int, int]] = list()
     current_message_type = None
@@ -45,7 +46,8 @@ def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[li
             # We start the scan from this page for the new type, and we now have the range for the previous message type
             # which we store.
             if current_message_type is not None:
-                print(f"... message type {current_message_type}, pages {start_page} to {x - 1}")
+                print(
+                    f"... message type {current_message_type}, pages {start_page} to {x - 1}")
                 l.append((current_message_type, start_page, x - 1))
 
             # Of course, we only care about external domain types, so we ignore IE messages that are not of interest
@@ -57,11 +59,13 @@ def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[li
                 start_page = x
             else:
                 current_message_type = None
-        elif match is None and text.__contains__("List of Rules, Conditions and Guidelines"):
+        elif match is None and text.__contains__(
+                "List of Rules, Conditions and Guidelines"):
             # At some point we'll finish reading the message types, and instead, we'll come across the rules
             # which starts with the header "List of Rules, Conditions and Guidelines". Once we find that,
             # we end or message type search and log the start page for the rules, which we'll use later.
-            print(f"... message type {current_message_type}, pages {start_page} to {x - 1}")
+            print(
+                f"... message type {current_message_type}, pages {start_page} to {x - 1}")
             print(f"... rules start page: {x}")
 
             if current_message_type is not None:
@@ -74,7 +78,8 @@ def find_pages(reader: PdfReader, expected_message_types: list[str]) -> tuple[li
     raise EOFError
 
 
-def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> list[MessageCategory]:
+def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> \
+        list[MessageCategory]:
     """
     Reads a message and parses it into memory
 
@@ -99,6 +104,7 @@ def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> 
     categories_iter: Optional[Iterator[MessageCategory]] = None
     field: Optional[MessageField] = None
     # for the first pages, until we encounter "MESSAGE", we have categories
+    skipped_header = False
     for page in range(start, end + 1):
         text = reader.pages[page].extract_text().splitlines()
         # A page will EITHER contain categories, OR will contain fields, NOT BOTH
@@ -112,11 +118,18 @@ def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> 
 
         if is_category_page:
             # We're processing categories
-            for line in text:
+            category_lines = iter(text)
+
+            for line in category_lines:
                 # There are lines that are headers for the message type, or wrap around and contain
-                # the short name of the data type. This ignores that line
-                if line.__contains__(message_type) or line.__contains__("E_"):
-                    continue
+                # the short name of the data type. This ignores those lines
+                while not skipped_header:
+                    skipped_header = line.startswith('MESSAGE')
+
+                    if skipped_header:
+                        break
+
+                    line = next(category_lines)
 
                 # If we're on the last lines where the page number is, no need to process further
                 if line.startswith("Page"):
@@ -160,15 +173,20 @@ def read_message(reader: PdfReader, start: int, end: int, message_type: str) -> 
     return categories
 
 
-def read_and_transform(reader: PdfReader, start: int, end: int, message_type: str) -> list[MessageCategory]:
+def read_and_transform(reader: PdfReader, start: int, end: int,
+                       message_type: str) -> list[MessageCategory]:
     valid_references = expected_message_references()
-    actual_start, actual_end = extract_reference_pages(reader, start, end, message_type, valid_references)
-    categories: list[MessageCategory] = read_message(reader, actual_start, actual_end, message_type)
+    actual_start, actual_end = extract_reference_pages(reader, start, end,
+                                                       message_type,
+                                                       valid_references)
+    categories: list[MessageCategory] = read_message(reader, actual_start,
+                                                     actual_end, message_type)
     hmrc_exceptions.message_category_transformation(message_type, categories)
     return categories
 
 
-def extract_reference_pages(reader: PdfReader, start, end, message_type, valid_references) -> (int, int):
+def extract_reference_pages(reader: PdfReader, start, end, message_type,
+                            valid_references) -> (int, int):
     actual_start = 0
     actual_end = end
 
