@@ -1192,7 +1192,7 @@
     <td>D</td>
     <td>a2</td>
     <td>CL008</td>
-    <td><a href="../phase-6-rules/C0343.html">C0343</a><br /><a href="../phase-6-rules/G0002.html">G0002</a><br /><a href="../phase-6-rules/G0062.html">G0062</a><br /><a href="../phase-6-rules/G0113.html">G0113</a><br /><a href="../phase-6-rules/R0506.html">R0506</a></td>
+    <td><a href="../phase-6-rules/C0343.html">C0343</a><br /><a href="../phase-6-rules/G0062.html">G0062</a><br /><a href="../phase-6-rules/G0113.html">G0113</a><br /><a href="../phase-6-rules/R0506.html">R0506</a></td>
 </tr><tr data-parent="IE029_44">
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gross mass</td>
     <td>R</td>

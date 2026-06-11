@@ -496,8 +496,7 @@ def create_md_table(table_header_row: list[str], rows: list[list[str]]) -> str:
         return f"|{'|'.join(map(transform_func, row_with_max_lengths))}|"
 
     def create_separator_row(max_lengths: list[int]) -> str:
-        return f"|{'|'.join([f"{'-' * (max_length + 2)}" for max_length in max_lengths])}|"
-
+        return '|' + '|'.join(['-' * (max_length + 2) for max_length in max_lengths]) + '|'
     row_max_lengths = [len(col) for col in table_header_row]
 
     for row in rows:
