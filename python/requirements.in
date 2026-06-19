@@ -1,4 +1,4 @@
-pypdf==6.12.2
+pypdf==6.13.3
 typing_extensions==4.15.0
 deepdiff==9.1.0
 requests==2.34.2
