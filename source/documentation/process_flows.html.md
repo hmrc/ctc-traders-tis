@@ -50,7 +50,7 @@ This scenario involves the submission of an invalid transit declaration for good
 
 
 
-### Corrections of the pre-lodgement declaration prior to presentation of the goods 
+### Corrections of the pre-lodgement declaration prior to presentation of the goods - IE056
 
 **Applicable procedures:** normal and simplified.
 
@@ -76,6 +76,36 @@ This scenario involves the holder of the transit procedure making corrections to
     
 1. The ‘Release for Transit’ E_REL_TRA (IE029) message is sent to the holder of the transit procedure.
 1. The departure process ends.
+
+
+
+### Corrections of the pre-lodgement declaration prior to presentation of the goods - IE022: Amendment to export declaration MRN reference N830 in previous document
+
+**Applicable procedures:** normal and simplified.
+
+This scenario involves the holder of the transit procedure making corrections to the transit declaration prior to presentation of the goods.
+
+<img src="../figures/correct_pre-lodge_dec_prior_pres_goods_amend_notification.svg" alt="Pre-lodgement message flow with corrections of the pre-lodgement declaration prior to presentation of the goods. Flow is described in this section." />
+
+<a href="../figures/correct_pre-lodge_dec_prior_pres_goods_amend_notification.svg" target="_blank">Open the diagram in a new tab.</a>
+
+1. The process starts when the holder of the transit procedure submits the ‘Declaration Data’ E_DEC_DAT (IE015) message to the office of departure with ‘Additional Declaration Type’ equal to ‘D’.
+1. The office of departure validates this message successfully and sends the ‘Positive Acknowledgement’ E_POS_ACK (IE928) message to the holder of the transit procedure to acknowledge receipt of the transit declaration.
+1. The holder of the transit procedure decides to correct the transit declaration and submits the ‘Declaration Amendment’ E_DEC_AMD (IE013) message.
+1. The office of departure performs validation of the IE013 message with one of the following outcomes:
+    - **No** (IE013 not valid): The office of departure sends the ‘Notification to amend declaration’ E_AMD_NOT (IE022) to the holder of the transit procedure. Go to step 3.
+    - **Yes** (IE013 is valid): The office of departure sends its acceptance to the holder of the transit procedure with the ‘Amendment Acceptance’ E_AMD_ACC (IE004) message. Go to step 5.
+1. Following the result of the Risk Analysis engine, the office of departure may select the pre-lodged declaration for potential control of the goods prior to their presentation. The following outcomes are possible:
+    - **Yes** (apply control): The office of departure notifies the holder of the transit procedure (provided that they are an AEO) about the intention to potentially control the goods, via the ‘Control Decision Notification’ E_CTR_DEC (IE060) message (having the data element TRANSIT OPERATION-Notification type equal to ‘2-Intention to Control’).
+    - **No** (no control): Go to step 6.
+1. The office of departure receives a valid ‘Presentation Notification for the Pre-Lodged Declaration’ E_PRE_NOT (IE170) message from the holder of the transit procedure.
+1. The MRN is communicated to the holder of the transit procedure with message ‘MRN Allocated’ E_MRN_ALL (IE028).
+
+   Further amendments may be made to the declaration by using the ‘Declaration Amendment’ E_DEC_AMD (IE013) message after the MRN is allocated with the ‘MRN Allocated’ E_MRN_ALL (IE028) message but before the ‘Release for Transit’ E_REL_TRA (IE029) message is sent. For more information, see [Declaration amendment accepted/rejected](#declaration-amendment-accepted-rejected).
+
+1. The ‘Release for Transit’ E_REL_TRA (IE029) message is sent to the holder of the transit procedure.
+1. The departure process ends.
+
 
 
 
@@ -184,7 +214,8 @@ This scenario involves the case when the release for transit is refused because 
 
 
 
-### Declaration amendment accepted/rejected 
+### Declaration amendment accepted/rejected - IE056
+
 
 **Applicable procedures:** normal and simplified.
 
@@ -202,6 +233,30 @@ This scenario involves the cases when valid and invalid declaration amendments a
     - **Yes** (IE013 is valid): The office of departure sends its acceptance to the holder of the transit procedure with the ‘Amendment Acceptance’ E_AMD_ACC (IE004) message. Go to step 5.
 1. The ‘Release for Transit’ E_REL_TRA (IE029) message is sent to the holder of the transit procedure.
 1. The departure process ends.
+
+
+
+
+### Declaration amendment accepted/rejected - IE022: Amendment to export declaration MRN reference N830 in previous document
+
+
+**Applicable procedures:** normal and simplified.
+
+This scenario involves the cases when valid and invalid declaration amendments are made.
+
+<img src="../figures/amendment_accepted_rejected_amend_notification.svg" alt="Declaration amendment accepted/rejected. Flow is described in this section." />
+
+<a href="../figures/amendment_accepted_rejected_amend_notification.svg" target="_blank">Open the diagram in a new tab.</a>
+
+1. The process starts when an IE015 message is sent and an IE928 message is received by the holder of the transit procedure.
+1. The office of departure communicates the MRN to the holder of the transit procedure with the ‘MRN Allocated’ E_MRN_ALL (IE028) message.
+1. The holder of the transit procedure notifies the office of departure of needed changes to the original declaration with a valid ‘Declaration Amendment’ E_DEC_AMD (IE013) before the goods have been released for transit.
+1. The office of departure performs validation of the IE013 message with one of the following outcomes:
+    - **No** (IE013 not valid): The office of departure sends the ‘Notification to amend declaration’ E_AMD_NOT (IE022) to the holder of the transit procedure. Go to step 3.
+    - **Yes** (IE013 is valid): The office of departure sends its acceptance to the holder of the transit procedure with the ‘Amendment Acceptance’ E_AMD_ACC (IE004) message. Go to step 5.
+1. The ‘Release for Transit’ E_REL_TRA (IE029) message is sent to the holder of the transit procedure.
+1. The departure process ends.
+
 
 
 
