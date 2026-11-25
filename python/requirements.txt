@@ -4,15 +4,15 @@
 #
 #    pip-compile requirements.in
 #
-cachebox==5.2.3
+cachebox==6.2.11
     # via deepdiff
 certifi==2026.5.20
     # via requests
-charset-normalizer==3.4.7
+charset-normalizer==3.5.3
     # via requests
-deepdiff==9.1.0
+deepdiff==9.2.1
     # via -r requirements.in
-idna==3.17
+idna==3.20
     # via requests
 orderly-set==5.5.0
     # via deepdiff
@@ -20,7 +20,7 @@ pypdf==6.12.2
     # via -r requirements.in
 requests==2.34.2
     # via -r requirements.in
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via -r requirements.in
 urllib3==2.7.0
     # via requests
